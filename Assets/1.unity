@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 684756217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6215, y: -0.2754, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 21.087076, y: 18.608433, z: 10.21}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 1099199275}
   - component: {fileID: 1099199277}
   - component: {fileID: 1099199276}
+  - component: {fileID: 1099199278}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -404,6 +405,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1099199278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099199274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4bc427a4fbe2f43856a0dcd1cea8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1299636073
 GameObject:
   m_ObjectHideFlags: 0
