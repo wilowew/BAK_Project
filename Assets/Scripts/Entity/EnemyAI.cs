@@ -19,7 +19,6 @@ public class EnemyAI : MonoBehaviour
 
     private enum State
     {
-        Idle,
         Roaming
     }
 
@@ -41,8 +40,6 @@ public class EnemyAI : MonoBehaviour
         switch (state)
         {
             default:
-            case State.Idle:
-                break;
             case State.Roaming:
                 roamingTime -= Time.deltaTime;
                 if (roamingTime < 0)
@@ -58,11 +55,24 @@ public class EnemyAI : MonoBehaviour
     {
         roamPosition = GoRoamingPosition();
         navMeshAgent.SetDestination(roamPosition);
+        ChangeFacingDirection(startingPosition, roamPosition);
     }
 
     private Vector3 GoRoamingPosition()
     {
         return startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
+    }
+
+    private void ChangeFacingDirection(Vector3 sourcePosition, Vector3 targetPosition)
+    {
+        if (sourcePosition.x > targetPosition.x)
+        {
+            transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
 

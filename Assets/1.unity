@@ -657,10 +657,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e545b381065434b9f1a697c9503dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 1
+  startingState: 0
   roamingDistanceMax: 7
   roamingDistanceMin: 3
   roamingTimerMax: 2
+--- !u!95 &1062167028
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062167016}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9f6b2b20a333734a9f117b46c968cd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1099199274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,12 +1368,12 @@ PrefabInstance:
     - target: {fileID: 344571843215910127, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.98
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 344571843215910127, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 344571843215910127, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
@@ -1406,18 +1427,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2841593365569277186, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.98082
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841593365569277186, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841593365569277186, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18
+      value: 0.17731
       objectReference: {fileID: 0}
     - target: {fileID: 2841593365569277186, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 2841593365569277186, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194376526875619205, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362762198454784247, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523704874551062131, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.28451738
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523704874551062131, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.18387787
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523704874551062131, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.001993157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523704874551062131, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.010085059
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1427,6 +1488,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1062167022}
+    - targetCorrespondingSourceObject: {fileID: 1515601829062296084, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1062167028}
   m_SourcePrefab: {fileID: 100100000, guid: 73159f149c7044b45b88f4c7fdce32b7, type: 3}
 --- !u!1001 &8323432620930906926
 PrefabInstance:
