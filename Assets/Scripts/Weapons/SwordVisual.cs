@@ -26,4 +26,6 @@ public class SwordVisual : MonoBehaviour
     {
         animator.SetTrigger(ATTACK);
     }
+
+
 }
