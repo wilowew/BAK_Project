@@ -14,6 +14,12 @@ public class ActiveWeapon : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        isSwordActive = false;
+        sword.SetActive(isSwordActive);
+    }
+
     private void Update()
     {
         FollowMousePosition();

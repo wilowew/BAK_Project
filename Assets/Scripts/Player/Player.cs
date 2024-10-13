@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     private float minMovingSpeed = 0.1f;
     private bool isRunning = false;
+    private bool isAttacking = false;
+    private float MovingSpeedDebuff = 1f;
 
     private void Awake()
     {
@@ -29,15 +31,16 @@ public class Player : MonoBehaviour
         ActiveWeapon.Instance.GetActiveWeapon().Attack();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        Attacking();
         HandleMovement();
     }
 
     private void HandleMovement()
     {
         Vector2 inputVector = GameInput.Instance.GetMovementVector();
-        rb.MovePosition(rb.position + inputVector * (movingSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + inputVector * (movingSpeed * Time.fixedDeltaTime * MovingSpeedDebuff));
 
         if (Mathf.Abs(inputVector.x) > minMovingSpeed || Mathf.Abs(inputVector.y) > minMovingSpeed)
         {
@@ -49,9 +52,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Attacking()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            isAttacking = !isAttacking;
+            if (isAttacking == true){
+                MovingSpeedDebuff = 0.65f;
+            }
+            else
+            {
+                MovingSpeedDebuff = 1f;
+            }
+
+        }
+    }
+
     public bool IsRunning()
     {
         return isRunning;
+    }
+
+    public bool IsAttacking()
+    {
+        return isAttacking;
     }
 
     public Vector3 GetPlayerScreenPosition()
