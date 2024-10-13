@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8189377328208578079}
   - component: {fileID: 7661668145541056123}
   - component: {fileID: 9016597364134525752}
+  - component: {fileID: 3497835712975048105}
+  - component: {fileID: 7295451048113568167}
   m_Layer: 0
   m_Name: MudGuard
   m_TagString: Untagged
@@ -28,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 424271868276207760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.98, y: 0, z: -0.24}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2841593365569277186}
@@ -94,8 +96,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0034788784, y: -0.006020404}
-  m_Size: {x: 0.19907814, y: 0.12848297}
+  m_Offset: {x: 0.02, y: -0.04}
+  m_Size: {x: 0.2, y: 0.03}
   m_Direction: 1
 --- !u!195 &9016597364134525752
 NavMeshAgent:
@@ -106,7 +108,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 424271868276207760}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.11
+  m_Radius: 0.09
   m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -115,10 +117,39 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.17
-  m_BaseOffset: 0.1
+  m_Height: 0.02
+  m_BaseOffset: 0.06
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3497835712975048105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424271868276207760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e545b381065434b9f1a697c9503dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingState: 0
+  roamingDistanceMax: 7
+  roamingDistanceMin: 3
+  roamingTimerMax: 2
+--- !u!114 &7295451048113568167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424271868276207760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc0f5586fc6e1148b96a218a01c3d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 20
 --- !u!1 &1515601829062296084
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2841593365569277186}
   - component: {fileID: 1764608255767176354}
+  - component: {fileID: 2421578587764493754}
   m_Layer: 0
   m_Name: MudGuardVisual
   m_TagString: Untagged
@@ -145,8 +177,8 @@ Transform:
   m_GameObject: {fileID: 1515601829062296084}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0.04, y: -0, z: 0}
+  m_LocalScale: {x: 1.06, y: 1.1395643, z: 0.9722651}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 344571843215910127}
@@ -203,3 +235,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &2421578587764493754
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515601829062296084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9f6b2b20a333734a9f117b46c968cd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

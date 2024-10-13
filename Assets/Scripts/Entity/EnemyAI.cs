@@ -11,15 +11,25 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float roamingDistanceMin = 3f;
     [SerializeField] private float roamingTimerMax = 2f;
 
+    [SerializeField] private bool isChasingEnemy = false;
+    private float _chasingDistance = 4f;
+    private float _chasingSpeedMultiplayer = 2f;
+
     private NavMeshAgent navMeshAgent;
-    private State state;
+    private State _currentState;
     private float roamingTime;
     private Vector3 roamPosition;
     private Vector3 startingPosition;
 
+    private float _walkingSpeed;
+    private float _chasingSpeed;
+
     private enum State
     {
-        Roaming
+        Roaming,
+        Chasing,
+        Attacking,
+        Death
     }
 
     private void Start()
@@ -32,12 +42,20 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        state = startingState;
+        _currentState = startingState;
+
+        _walkingSpeed = navMeshAgent.speed;
+        _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplayer;
     }
 
     private void Update()
     {
-        switch (state)
+        StateHandler();
+    }
+
+    private void StateHandler()
+    {
+        switch (_currentState)
         {
             default:
             case State.Roaming:
@@ -48,8 +66,58 @@ public class EnemyAI : MonoBehaviour
                     roamingTime = roamingTimerMax;
                 }
                 break;
+
+            case State.Chasing:
+                ChasingTarget();
+                CheckCurrentState();
+                break;
+            case State.Attacking:
+                break;
+            case State.Death:
+                break;
         }
     }
+
+    private void ChasingTarget()
+    {
+        navMeshAgent.SetDestination(Player.Instance.transform.position);
+    }
+
+    private void CheckCurrentState()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        State newState = State.Roaming; 
+
+        if (isChasingEnemy)
+        {
+            if (distanceToPlayer <= _chasingDistance)
+            {
+                newState = State.Chasing;
+            }
+            else
+            {
+                newState = State.Roaming;
+            }
+        }
+
+        if (newState != _currentState)
+        {
+            if (newState == State.Chasing)
+            {
+                navMeshAgent.ResetPath();
+                navMeshAgent.speed = _chasingSpeed;
+            }
+            else if (newState == State.Roaming)
+            {
+                roamingTime = 0f;
+                navMeshAgent.speed = _walkingSpeed;
+            }
+
+            _currentState = newState;
+        }
+
+    }
+
 
     private void Roaming()
     {

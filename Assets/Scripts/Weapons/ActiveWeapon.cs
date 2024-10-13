@@ -7,6 +7,8 @@ public class ActiveWeapon : MonoBehaviour
     public static ActiveWeapon Instance { get; private set; }
     [SerializeField] private Sword sword;
 
+    private bool isSwordActive = false;
+
     private void Awake()
     {
         Instance = this;
@@ -15,6 +17,11 @@ public class ActiveWeapon : MonoBehaviour
     private void Update()
     {
         FollowMousePosition();
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            isSwordActive = !isSwordActive;
+            sword.SetActive(isSwordActive);
+        }
     }
 
     public Sword GetActiveWeapon()
