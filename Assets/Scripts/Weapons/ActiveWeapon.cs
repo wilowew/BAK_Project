@@ -23,7 +23,7 @@ public class ActiveWeapon : MonoBehaviour
     private void Update()
     {
         FollowMousePosition();
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             isSwordActive = !isSwordActive;
             sword.SetActive(isSwordActive);

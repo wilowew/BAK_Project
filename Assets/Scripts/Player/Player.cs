@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
     private void Attacking()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             isAttacking = !isAttacking;
             if (isAttacking == true){

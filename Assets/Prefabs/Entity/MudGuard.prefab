@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9016597364134525752}
   - component: {fileID: 3497835712975048105}
   - component: {fileID: 7295451048113568167}
+  - component: {fileID: 3973531064746686993}
   m_Layer: 0
   m_Name: MudGuard
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 9, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2841593365569277186}
@@ -137,6 +138,12 @@ MonoBehaviour:
   roamingDistanceMax: 7
   roamingDistanceMin: 3
   roamingTimerMax: 2
+  isChasingEnemy: 0
+  _chasingDistance: 4
+  _chasingSpeedMultiplier: 2
+  _isAttackingEnemy: 0
+  _attackingDistance: 2
+  _attackRate: 2
 --- !u!114 &7295451048113568167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +157,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
+--- !u!60 &3973531064746686993
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424271868276207760}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.32, y: 0.79}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.11001162, y: -0.8201497}
+      - {x: -0.11243586, y: -0.83112}
+      - {x: -0.16834974, y: -0.8309254}
+      - {x: -0.16748472, y: -0.8418465}
+      - {x: -0.11307131, y: -0.8416276}
+      - {x: -0.11153877, y: -0.85254943}
+      - {x: -0.05603221, y: -0.85535336}
+      - {x: -0.059093177, y: -0.8409355}
+      - {x: -0.08786066, y: -0.8407657}
+      - {x: -0.08907026, y: -0.8294552}
+      - {x: -0.056987584, y: -0.82921475}
+      - {x: -0.0574598, y: -0.818805}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1515601829062296084
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +225,7 @@ GameObject:
   - component: {fileID: 2841593365569277186}
   - component: {fileID: 1764608255767176354}
   - component: {fileID: 2421578587764493754}
+  - component: {fileID: 1035727225428213061}
   m_Layer: 0
   m_Name: MudGuardVisual
   m_TagString: Untagged
@@ -224,7 +289,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 982725202, guid: 7f161b16e6eabf64ab9c187701326c1b, type: 3}
+  m_Sprite: {fileID: 1475137449, guid: 840f29f0ef9cd83499f09bbefc3df748, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -256,3 +321,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1035727225428213061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515601829062296084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81654c1dd4e51b41ac1945128f395ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAI: {fileID: 3497835712975048105}
+  _enemyEntity: {fileID: 7295451048113568167}
