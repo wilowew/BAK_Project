@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private bool isOpen = false;
-    private Collider2D[] doorColliders; // Массив для всех коллайдеров двери
+    [SerializeField] private bool isLockedByKey = true; // По умолчанию дверь закрыта
 
-    private void Awake()
+    // Метод для разблокировки двери
+    public void UnlockDoor()
     {
-        // Получаем все коллайдеры двери
-        doorColliders = GetComponents<Collider2D>();
+        isLockedByKey = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool IsLocked()
     {
-        // Проверяем, что это игрок и у него есть ключ
-        if (collision.CompareTag("Player") && PlayerInventory.Instance.HasKey())
-        {
-            OpenDoor();
-        }
+        return isLockedByKey;
     }
 
+    // Метод для открытия двери и удаления всех коллайдеров
     private void OpenDoor()
     {
-        if (!isOpen)
-        {
-            Debug.Log("Дверь открыта!");
-            isOpen = true;
+        Collider2D[] colliders = GetComponents<Collider2D>(); // Получаем все коллайдеры на объекте двери
 
-            // Отключаем все коллайдеры двери
-            foreach (var col in doorColliders)
-            {
-                col.enabled = false;
-            }
+        // Проходим по каждому коллайдеру и отключаем его
+        foreach (Collider2D col in colliders)
+        {
+            col.enabled = false;
+        }
+
+        Debug.Log("Door opened and all colliders removed!");
+    }
+
+    // Проверяем, может ли игрок открыть дверь при подходе
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !isLockedByKey)
+        {
+            OpenDoor();
         }
     }
 }
