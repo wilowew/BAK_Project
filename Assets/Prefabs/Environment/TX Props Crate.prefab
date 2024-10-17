@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2147765954513025836}
   - component: {fileID: 3774319989455254441}
   - component: {fileID: 1380054117215377713}
+  - component: {fileID: 6304127422085970598}
   m_Layer: 0
   m_Name: TX Props Crate
   m_TagString: Untagged
@@ -162,10 +163,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 1.6510197, y: 1.9872671, z: 4}
-  m_Center: {x: 0.014065921, y: 0.6975866, z: 0}
+  m_Size: {x: 1.0103171, y: 1.4559554, z: 4}
+  m_Center: {x: -0.0049630105, y: 0.71798044, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!208 &6304127422085970598
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733633916695049792}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.71900004, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0.71900004, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7974869991225466019
 GameObject:
   m_ObjectHideFlags: 0

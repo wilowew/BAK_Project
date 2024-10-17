@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private bool isLockedByKey = true; // По умолчанию дверь закрыта
+    [SerializeField] private bool isLockedByKey = true;
+    private NavMeshObstacle navMeshObstacle;
 
-    // Метод для разблокировки двери
+    private void Start()
+    {
+        navMeshObstacle = GetComponent<NavMeshObstacle>();
+
+        if (navMeshObstacle == null)
+        {
+            Debug.LogWarning("NavMeshObstacle component is missing on the door.");
+        }
+    }
+
     public void UnlockDoor()
     {
         isLockedByKey = false;
@@ -17,26 +28,41 @@ public class Door : MonoBehaviour
         return isLockedByKey;
     }
 
-    // Метод для открытия двери и удаления всех коллайдеров
     private void OpenDoor()
     {
-        Collider2D[] colliders = GetComponents<Collider2D>(); // Получаем все коллайдеры на объекте двери
+        Collider2D[] colliders = GetComponents<Collider2D>();
 
-        // Проходим по каждому коллайдеру и отключаем его
         foreach (Collider2D col in colliders)
         {
             col.enabled = false;
         }
 
-        Debug.Log("Door opened and all colliders removed!");
+        if (navMeshObstacle != null)
+        {
+            Destroy(navMeshObstacle); // Полностью удаляем компонент, чтобы убедиться, что он не мешает
+        }
+
+        // Принудительно обновляем путь для всех ботов
+        UpdateEnemyPaths();
+
+        Debug.Log("Door opened, all colliders removed, and NavMeshObstacle carving disabled.");
     }
 
-    // Проверяем, может ли игрок открыть дверь при подходе
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isLockedByKey)
         {
             OpenDoor();
+        }
+    }
+
+    // Метод для обновления путей всех врагов
+    private void UpdateEnemyPaths()
+    {
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>(); // Находим всех врагов в сцене
+        foreach (var enemy in enemies)
+        {
+            enemy.UpdatePath(); // Обновляем их путь
         }
     }
 }

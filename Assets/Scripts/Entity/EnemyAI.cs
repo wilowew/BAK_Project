@@ -217,4 +217,16 @@ public class EnemyAI : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
+
+    public void UpdatePath()
+    {
+        if (_currentState == State.Chasing)
+        {
+            navMeshAgent.SetDestination(Player.Instance.transform.position); // Обновляем цель, если в режиме преследования
+        }
+        else if (_currentState == State.Roaming)
+        {
+            navMeshAgent.SetDestination(roamPosition); // Обновляем цель, если в режиме блуждания
+        }
+    }
 }
