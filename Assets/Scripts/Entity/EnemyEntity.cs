@@ -1,22 +1,21 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(EnemyAI))]
 
 public class EnemyEntity : MonoBehaviour
 {
+    [SerializeField] private EnemySO _enemySO;
+
     public event EventHandler OnTakeHit;
     public event EventHandler OnDeath;
 
-    [SerializeField] private int _maxHealth;
     private int _currentHealth;
 
     private PolygonCollider2D _polygonCollider2D;
     private BoxCollider2D _boxCollider2D;
-
     private EnemyAI _enemyAI;
 
     private void Awake()
@@ -28,7 +27,7 @@ public class EnemyEntity : MonoBehaviour
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = _enemySO.enemyHealth;
         _enemyAI = GetComponent<EnemyAI>();
     }
 
@@ -47,6 +46,14 @@ public class EnemyEntity : MonoBehaviour
     public void PolygonColliderTurnOn()
     {
         _polygonCollider2D.enabled = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform.TryGetComponent(out Player player))
+        {
+            player.TakeDamage(transform, _enemySO.enemyDamageAmount);
+        }
     }
 
     private void DetectDeath()

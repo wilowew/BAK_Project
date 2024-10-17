@@ -222,11 +222,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (_currentState == State.Chasing)
         {
-            navMeshAgent.SetDestination(Player.Instance.transform.position); // Обновляем цель, если в режиме преследования
+            navMeshAgent.SetDestination(Player.Instance.transform.position); 
         }
         else if (_currentState == State.Roaming)
         {
-            navMeshAgent.SetDestination(roamPosition); // Обновляем цель, если в режиме блуждания
+            navMeshAgent.SetDestination(roamPosition);
         }
     }
 }

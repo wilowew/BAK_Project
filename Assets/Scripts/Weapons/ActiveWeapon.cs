@@ -22,7 +22,10 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Update()
     {
-        FollowMousePosition();
+        if (Player.Instance.IsAlive())
+        {
+            FollowMousePosition();
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             isSwordActive = !isSwordActive;

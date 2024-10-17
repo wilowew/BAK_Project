@@ -39,4 +39,9 @@ public class GameInput : MonoBehaviour
         Vector3 mousePos = Mouse.current.position.ReadValue();
         return mousePos;
     }
+
+    public void DisableMovement()
+    {
+        playerInputActions.Disable();
+    }
 }
