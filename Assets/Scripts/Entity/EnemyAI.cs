@@ -21,6 +21,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float _attackRate = 2f;
     private float _nextAttackTime = 0f;
 
+    [SerializeField] private bool _isFrightened = true;
+    [SerializeField] private float _fearDistance = 8f;
+    [SerializeField] private float _fearDuration = 5f; 
+    private float _fearTimer = 0f; 
+
+
     private NavMeshAgent navMeshAgent;
     private State _currentState;
     private float roamingTime;
@@ -57,6 +63,7 @@ public class EnemyAI : MonoBehaviour
         Roaming,
         Chasing,
         Attacking,
+        Fear,
         Death
     }
 
@@ -106,6 +113,17 @@ public class EnemyAI : MonoBehaviour
                 AttackingTarget();
                 CheckCurrentState();
                 break;
+            case State.Fear:
+                _fearTimer -= Time.deltaTime;
+                if (_fearTimer <= 0)
+                {
+                    _currentState = State.Roaming; 
+                }
+                else
+                {
+                    RunAwayFromPlayer();
+                }
+                break;
             case State.Death:
                 break;
             case State.Idle:
@@ -144,6 +162,12 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        if (_isFrightened && distanceToPlayer <= _fearDistance)
+        {
+            newState = State.Fear;
+            _fearTimer = _fearDuration;
+        }
+
         if (newState != _currentState)
         {
             if (newState == State.Chasing)
@@ -163,7 +187,6 @@ public class EnemyAI : MonoBehaviour
 
             _currentState = newState;
         }
-
     }
 
     private void AttackingTarget()
@@ -229,4 +252,12 @@ public class EnemyAI : MonoBehaviour
             navMeshAgent.SetDestination(roamPosition);
         }
     }
+
+    private void RunAwayFromPlayer()
+    {
+        Vector3 direction = (transform.position - Player.Instance.transform.position).normalized; 
+        Vector3 fleePosition = transform.position + direction * 10f; 
+        navMeshAgent.SetDestination(fleePosition);
+    }
 }
+
