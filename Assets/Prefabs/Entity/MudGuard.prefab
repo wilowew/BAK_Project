@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 344571843215910127}
   - component: {fileID: 8189377328208578079}
-  - component: {fileID: 7661668145541056123}
   - component: {fileID: 9016597364134525752}
   - component: {fileID: 3497835712975048105}
   - component: {fileID: 7295451048113568167}
@@ -66,41 +65,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7661668145541056123
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424271868276207760}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.02, y: -0.04}
-  m_Size: {x: 0.2, y: 0.03}
-  m_Direction: 1
 --- !u!195 &9016597364134525752
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -135,14 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e545b381065434b9f1a697c9503dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 0
+  startingState: 1
   roamingDistanceMax: 7
   roamingDistanceMin: 3
   roamingTimerMax: 2
-  isChasingEnemy: 0
+  isChasingEnemy: 1
   _chasingDistance: 4
   _chasingSpeedMultiplier: 2
-  _isAttackingEnemy: 0
+  _isAttackingEnemy: 1
   _attackingDistance: 2
   _attackRate: 2
 --- !u!114 &7295451048113568167
@@ -247,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.014541779, y: -0.011533994}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -258,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 0.1039898, y: 0.1625067}
   m_EdgeRadius: 0
 --- !u!1 &1515601829062296084
 GameObject:
