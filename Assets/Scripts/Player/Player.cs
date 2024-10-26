@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private bool _canTakeDamage;
     private bool _isAlive;
 
+    public int coins = 0;
+
     Vector2 inputVector;
 
     private void Awake()
@@ -81,6 +83,23 @@ public class Player : MonoBehaviour
         DetectDeath();
     }
 
+    public void Heal(int amount)
+    {
+        _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
+    }
+
+    public void IncreaseSpeed(float multiplier, float duration)
+    {
+        MovingSpeedDebuff = multiplier;
+        StartCoroutine(SpeedBoostCoroutine(duration));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        MovingSpeedDebuff = 1f;
+    }
+
     private void DetectDeath()
     {
         if (_currentHealth == 0 && _isAlive)
@@ -97,6 +116,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(_damageRecoveryTime);
         _canTakeDamage = true;
+    }
+
+    public void AddCoins(int amount)
+    {
+        coins += amount;
+        Debug.Log("Coins: " + coins);
     }
 
     public bool IsRunning()

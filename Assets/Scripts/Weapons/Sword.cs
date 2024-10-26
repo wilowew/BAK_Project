@@ -52,6 +52,11 @@ public class Sword : MonoBehaviour
         AttackColliderTurnOn();
     }
 
+    public int GetDamageAmount()
+    {
+        return _damageAmount;
+    }
+
     public void SetActive(bool isActive)
     {
         gameObject.SetActive(isActive); 
