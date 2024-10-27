@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
-    [SerializeField] private EnemySO _enemySO;
+    [SerializeField] public EnemySO _enemySO;
 
     public event EventHandler OnTakeHit;
     public event EventHandler OnDeath;

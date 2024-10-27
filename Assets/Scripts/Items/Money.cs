@@ -11,7 +11,7 @@ public class Money : MonoBehaviour
     {
         if (other.gameObject == Player.Instance.gameObject)
         {
-            Player.Instance.AddCoins(Value);
+            Player.Instance.CollectCoins(Value);
             Destroy(gameObject);
         }
     }

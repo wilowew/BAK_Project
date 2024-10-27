@@ -7,6 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private int _health = 10;
     [SerializeField] private List<GameObject> _lootTable; 
     [SerializeField] private Transform _lootSpawnPoint;
+    [SerializeField] private int _lootChance = 10;
 
     public void TakeDamage(int damageAmount)
     {
@@ -20,12 +21,21 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void DestroyBox()
     {
-        int randomIndex = Random.Range(0, _lootTable.Count);
+        int randomChance = Random.Range(0, _lootChance);
+        Debug.Log(randomChance);
+        if (randomChance < _lootChance / 2)
+        {
+            int randomIndex = Random.Range(0, _lootTable.Count);
 
-        GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
-        lootItem.GetComponent<ItemPickup>().itemType = (ItemPickup.ItemType)randomIndex;
+            GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
+            lootItem.GetComponent<ItemPickup>().itemType = (ItemPickup.ItemType)randomIndex;
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,4 +45,5 @@ public class NewBehaviourScript : MonoBehaviour
             TakeDamage(sword.GetDamageAmount());
         }
     }
+
 }

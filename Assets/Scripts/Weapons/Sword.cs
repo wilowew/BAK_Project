@@ -59,14 +59,14 @@ public class Sword : MonoBehaviour
 
     public void SetActive(bool isActive)
     {
-        gameObject.SetActive(isActive); 
+        gameObject.SetActive(isActive);
         if (isActive)
         {
-            AttackColliderTurnOn(); 
+            AttackColliderTurnOn();
         }
         else
         {
-            AttackColliderTurnOff(); 
+            AttackColliderTurnOff();
         }
     }
 }

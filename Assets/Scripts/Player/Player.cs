@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public event EventHandler OnPlayerDeath;
 
     [SerializeField] private float movingSpeed = 5f;
-    [SerializeField] private int _maxHealth = 20;
+    [SerializeField] public int _maxHealth = 20;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
 
     private Rigidbody2D rb;
@@ -20,13 +20,16 @@ public class Player : MonoBehaviour
     private bool isRunning = false;
     private bool isAttacking = false;
 
-    private int _currentHealth;
+    public int _currentHealth;
     private bool _canTakeDamage;
     private bool _isAlive;
 
     public int coins = 0;
 
     Vector2 inputVector;
+
+    public int CurrentHealth { get { return _currentHealth; } }
+    public int MaxHealth { get { return _maxHealth; } }
 
     private void Awake()
     {
@@ -118,10 +121,12 @@ public class Player : MonoBehaviour
         _canTakeDamage = true;
     }
 
-    public void AddCoins(int amount)
+    public event EventHandler AddCoins;
+
+    public void CollectCoins(int amount)
     {
         coins += amount;
-        Debug.Log("Coins: " + coins);
+        AddCoins?.Invoke(this, EventArgs.Empty);
     }
 
     public bool IsRunning()
