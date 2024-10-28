@@ -32,7 +32,7 @@ public class KnockBack : MonoBehaviour
         IsGettingKnockedBack = true;
         _knockBackMovingTimer = _knockBackMovingTimerMax;
         Vector2 difference = (transform.position - damageSource.position).normalized * _knockBackForce / rb.mass;
-        rb.AddForce(difference,ForceMode2D.Impulse);
+        rb.AddForce(difference, ForceMode2D.Impulse);
     }
 
     public void StopKnockBackMovement()

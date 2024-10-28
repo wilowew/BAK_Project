@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
             _knockBack.StopKnockBackMovement();
             GameInput.Instance.DisableMovement();
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
-            Time.timeScale = 0f; 
+            Time.timeScale = 0f;
         }
     }
 
@@ -163,7 +163,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttacking = !isAttacking;
-            if (isAttacking == true){
+            if (isAttacking == true)
+            {
                 MovingSpeedDebuff = 0.65f;
             }
             else
