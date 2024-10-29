@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float _chasingDistance = 4f;
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
 
-    [SerializeField] private bool _isAttackingEnemy = false;
+    [SerializeField] public bool _isAttackingEnemy = false;
     [SerializeField] private float _attackingDistance = 2f;
     [SerializeField] private float _attackRate = 2f;
     private float _nextAttackTime = 0f;
@@ -67,9 +67,6 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent.updateUpAxis = false;
         _currentState = startingState;
 
-        // Устанавливаем стартовую позицию врага
-        startingPosition = transform.position;
-
         _roamingSpeed = navMeshAgent.speed;
         _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplier;
     }
@@ -118,49 +115,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasingTarget()
     {
-        if (_currentState == State.Chasing)
-        {
-            navMeshAgent.SetDestination(Player.Instance.transform.position);
-        }
-    }
-
-    private void SetChasingState()
-    {
-        if (_currentState != State.Chasing)
-        {
-            _currentState = State.Chasing;
-            navMeshAgent.speed = _chasingSpeed;
-            navMeshAgent.ResetPath();
-        }
-    }
-
-    private void SetAttackingState()
-    {
-        if (_currentState != State.Attacking)
-        {
-            _currentState = State.Attacking;
-            navMeshAgent.ResetPath();
-        }
-    }
-
-    private void SetRoamingState()
-    {
-        if (_currentState != State.Roaming)
-        {
-            _currentState = State.Roaming;
-            navMeshAgent.speed = _roamingSpeed;
-            roamingTime = 0f;
-        }
-    }
-
-    private bool CanSeePlayer()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Player.Instance.transform.position - transform.position);
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
-        {
-            return true;
-        }
-        return false;
+        navMeshAgent.SetDestination(Player.Instance.transform.position);
     }
 
     public float GetRoamingAnimationSpeed()
@@ -171,19 +126,44 @@ public class EnemyAI : MonoBehaviour
     private void CheckCurrentState()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        State newState = State.Roaming;
 
-        if (isChasingEnemy && distanceToPlayer <= _chasingDistance)
+        if (isChasingEnemy)
         {
-            SetChasingState();
+            if (distanceToPlayer <= _chasingDistance)
+            {
+                newState = State.Chasing;
+            }
         }
-        else if (_isAttackingEnemy && distanceToPlayer <= _attackingDistance)
+
+        if (_isAttackingEnemy)
         {
-            SetAttackingState();
+            if (distanceToPlayer <= _attackingDistance)
+            {
+                newState = State.Attacking;
+            }
         }
-        else if (distanceToPlayer > _chasingDistance)
+
+        if (newState != _currentState)
         {
-            SetRoamingState();
+            if (newState == State.Chasing)
+            {
+                navMeshAgent.ResetPath();
+                navMeshAgent.speed = _chasingSpeed;
+            }
+            else if (newState == State.Roaming)
+            {
+                roamingTime = 0f;
+                navMeshAgent.speed = _roamingSpeed;
+            }
+            else if (newState == State.Attacking)
+            {
+                navMeshAgent.ResetPath();
+            }
+
+            _currentState = newState;
         }
+
     }
 
     private void AttackingTarget()

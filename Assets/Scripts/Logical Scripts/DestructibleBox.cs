@@ -28,7 +28,7 @@ public class NewBehaviourScript : MonoBehaviour
             int randomIndex = Random.Range(0, _lootTable.Count);
 
             GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
-            lootItem.GetComponent<ItemPickup>().itemType = (ItemPickup.ItemType)randomIndex;
+            //lootItem.GetComponent<ItemPickup>().itemType = (ItemPickup.ItemType)randomIndex;
 
             Destroy(gameObject);
         }

@@ -11,6 +11,7 @@ public class PlayerVisual : MonoBehaviour
     private const string IS_RUNNING = "IsRunning";
     private const string IS_ATTACKING = "IsAttacking";
     private const string IS_DIE = "IsDie";
+    private const string TAKEHIT = "TakeHit";
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerVisual : MonoBehaviour
     private void Start()
     {
         Player.Instance.OnPlayerDeath += Player_OnPlayerDeath;
+        Player.Instance.OnPlayerHurt += Player_OnPlayerHurt;
     }
 
     private void Update()
@@ -44,6 +46,12 @@ public class PlayerVisual : MonoBehaviour
     private void Player_OnPlayerDeath(object sender, System.EventArgs e)
     {
         animator.SetBool(IS_DIE, true);
+    }
+
+
+    private void Player_OnPlayerHurt(object sender, System.EventArgs e)
+    {
+        animator.SetTrigger(TAKEHIT);
     }
 
     private void AdjustPlayerFacingDirection()

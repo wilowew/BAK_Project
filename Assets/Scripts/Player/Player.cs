@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public event EventHandler OnPlayerDeath;
+    public event EventHandler OnPlayerHurt;
 
     [SerializeField] private float movingSpeed = 5f;
     [SerializeField] public int _maxHealth = 20;
@@ -74,11 +75,14 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(Transform damageSource, int damage)
     {
-        if (_canTakeDamage)
+        EnemyAI enemyAI = damageSource.GetComponent<EnemyAI>();
+        if (_canTakeDamage && (enemyAI == null || enemyAI._isAttackingEnemy))
         {
             _canTakeDamage = false;
             _currentHealth = Mathf.Max(0, _currentHealth -= damage);
             _knockBack.GetKnockedBack(damageSource);
+
+            OnPlayerHurt?.Invoke(this, EventArgs.Empty);
 
             StartCoroutine(DamageRecoveryRoutine());
         }
@@ -174,5 +178,4 @@ public class Player : MonoBehaviour
 
         }
     }
-
 }
