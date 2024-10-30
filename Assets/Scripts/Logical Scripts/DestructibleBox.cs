@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private List<GameObject> _lootTable; 
     [SerializeField] private Transform _lootSpawnPoint;
     [SerializeField] private int _lootChance = 10;
+    [SerializeField] private int _multiplicator = 2;
 
     public void TakeDamage(int damageAmount)
     {
@@ -23,7 +24,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         int randomChance = Random.Range(0, _lootChance);
         Debug.Log(randomChance);
-        if (randomChance < _lootChance / 2 || randomChance == 0)
+        if (randomChance <= _lootChance / _multiplicator || randomChance == 0)
         {
             int randomIndex = Random.Range(0, _lootTable.Count);
 
