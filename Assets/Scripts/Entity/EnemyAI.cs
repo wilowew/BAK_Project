@@ -69,6 +69,8 @@ public class EnemyAI : MonoBehaviour
 
         _roamingSpeed = navMeshAgent.speed;
         _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplier;
+
+        startingPosition = transform.position;
     }
 
     private void Update()
@@ -203,8 +205,23 @@ public class EnemyAI : MonoBehaviour
 
     private Vector3 GoRoamingPosition()
     {
-        return startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
+        Vector3 newRoamingPosition = startingPosition; // Начальное значение
+
+        // Попытка найти подходящую точку
+        for (int i = 0; i < 10; i++) // Попытка максимум 10 раз
+        {
+            newRoamingPosition = startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
+
+            // Проверка расстояния до точки появления
+            if (Vector3.Distance(newRoamingPosition, startingPosition) > roamingDistanceMin) //  Проверка расстояния
+            {
+                break; // Если нашли точку достаточно далеко, выходим из цикла
+            }
+        }
+
+        return newRoamingPosition;
     }
+
 
     private void ChangeFacingDirection(Vector3 sourcePosition, Vector3 targetPosition)
     {
