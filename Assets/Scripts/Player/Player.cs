@@ -149,6 +149,11 @@ public class Player : MonoBehaviour
         return playerScreenPosition;
     }
 
+    public static Player GetInstance()
+    {
+        return Instance;
+    }
+
     private void HandleMovement()
     {
         rb.MovePosition(rb.position + inputVector * (movingSpeed * MovingSpeedDebuff * Time.fixedDeltaTime));

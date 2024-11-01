@@ -8,7 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private List<GameObject> _lootTable; 
     [SerializeField] private Transform _lootSpawnPoint;
     [SerializeField] private int _lootChance = 10;
-    [SerializeField] private int _multiplicator = 2;
+    [SerializeField] private int _multiplicator = 1;
 
     public void TakeDamage(int damageAmount)
     {
@@ -29,7 +29,6 @@ public class NewBehaviourScript : MonoBehaviour
             int randomIndex = Random.Range(0, _lootTable.Count);
 
             GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
-            //lootItem.GetComponent<ItemPickup>().itemType = (ItemPickup.ItemType)randomIndex;
 
             Destroy(gameObject);
         }
