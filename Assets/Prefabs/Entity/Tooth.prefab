@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424271868276207760}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 76.54, y: -4.12, z: -0.18885855}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75,7 +75,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.08
-  m_Speed: 1.5
+  m_Speed: 1.8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -100,15 +100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 1
-  roamingDistanceMax: 8
+  roamingDistanceMax: 30
   roamingDistanceMin: 3
   roamingTimerMax: 2
   isChasingEnemy: 1
-  _chasingDistance: 7
-  _chasingSpeedMultiplier: 2
+  _chasingDistance: 30
+  _chasingSpeedMultiplier: 4.5
   _isAttackingEnemy: 1
-  _attackingDistance: 2
-  _attackRate: 2
+  _attackingDistance: 1
+  _attackRate: 3
 --- !u!114 &7295451048113568167
 MonoBehaviour:
   m_ObjectHideFlags: 0

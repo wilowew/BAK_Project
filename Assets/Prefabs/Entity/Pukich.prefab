@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424271868276207760}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.5, y: -32.5, z: -2.29}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100,14 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 1
-  roamingDistanceMax: 6
+  roamingDistanceMax: 8
   roamingDistanceMin: 5
   roamingTimerMax: 3
   isChasingEnemy: 1
-  _chasingDistance: 6
-  _chasingSpeedMultiplier: 1
+  _chasingDistance: 15
+  _chasingSpeedMultiplier: 2
   _isAttackingEnemy: 1
-  _attackingDistance: 5
+  _attackingDistance: 4.5
   _attackRate: 1.5
 --- !u!114 &7295451048113568167
 MonoBehaviour:
