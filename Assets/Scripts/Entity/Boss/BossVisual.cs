@@ -1,10 +1,85 @@
+using System;
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class BossVisual : MudGuardVisual
+public class BossVisual : MonoBehaviour
 {
-  
+    [SerializeField] private BossAI _bossAI;
+    [SerializeField] private BossEntity _bossEntity;
+
+    private Animator _animator;
+
+    private const string IS_RUNNING = "IsRunning";
+    private const string TAKEHIT = "TakeHit";
+    private const string IS_DIE = "IsDie";
+    private const string CHASING_SPEED_MULTIPLIER = "ChasingSpeedMultiplier";
+    private const string ATTACK = "Attack";
+    private const string SPAWN = "Spawn";
+    private const string SHIELD = "Shield";
+
+    private SpriteRenderer _spriteRenderer;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _bossAI.GetRoamingAnimationSpeed());
+    }
+
+    private void Start()
+    {
+        _bossAI.OnEnemyAttack += _bossAI_OnEnemyAttack;
+        _bossEntity.OnTakeHit += _bossEntity_OnTakeHit;
+        _bossEntity.OnDeath += _bossEntity_OnDeath;
+        _bossAI.OnEnemySpawn += _bossAI_OnEnemySpawn;
+        _bossAI.OnEnemyShieldActivated += _bossAI_OnEnemyShieldActivated;
+    }
+
+    private void _bossEntity_OnTakeHit(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(TAKEHIT);
+    }
+
+    private void _bossAI_OnEnemyAttack(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(ATTACK);
+    }
+
+    private void _bossEntity_OnDeath(object sender, System.EventArgs e)
+    {
+        _animator.SetBool(IS_DIE, true);
+        _spriteRenderer.sortingOrder = -1;
+    }
+
+    private void _bossAI_OnEnemySpawn(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(SPAWN);
+    }
+
+    private void _bossAI_OnEnemyShieldActivated(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(SHIELD);
+    }
+
+    private void OnDestroy()
+    {
+        _bossAI.OnEnemyAttack -= _bossAI_OnEnemyAttack;
+    }
+
+    public void TriggerAttackAnimationTurnOff()
+    {
+        _bossEntity.PolygonColliderTurnOff();
+    }
+
+    public void TriggerAttackAnimationTurnOn()
+    {
+        _bossEntity.PolygonColliderTurnOn();
+    }
+
 }
