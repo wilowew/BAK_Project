@@ -1,76 +1,26 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.SceneManagement;
-
-//public class Enemy : MonoBehaviour {
-
-//    public float speed;
-//    public Vector3[] positions;
-
-//    private int currentTarget;
-//    private Animator animator;
-//    private const string IS_DIE = "IsDie";
-
-//    private void Awake() {
-//        animator = GetComponent<Animator>();
-//    }
-
-//    public void FixedUpdate() {
-//        transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget], speed);
-//        if (transform.position == positions[currentTarget]) {
-//            if (currentTarget < positions.Length - 1) {
-//                currentTarget++;
-//            }
-//            else {
-//                currentTarget = 0;
-//            }
-//        }
-//    }
-
-//    private void OnCollisionEnter2D(Collision2D collision) {
-//        if (collision.gameObject.tag == "Player") {
-//            SceneManager.LoadScene(5);
-//        }
-//    }
-
-//    public void OnTriggerEnter2D(Collider2D collision) {
-//        if (collision.gameObject.tag == "Player") {
-//            animator.SetBool(IS_DIE, true);
-//            GetComponent<Collider2D>().enabled = false;
-//            StartCoroutine(DestroyAfterDelay(0.15f));
-//        }
-//    }
-
-//    private IEnumerator DestroyAfterDelay(float delay) {
-//        yield return new WaitForSeconds(delay);
-//        Destroy(gameObject);
-//    }
-//} 
-
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour {
 
     public float speed;
-    public float activationDistance = 5f; // Расстояние, при котором враг начинает движение
-    private Vector3 direction = Vector3.left; // Движение всегда влево
+    public float activationDistance = 5f;
+    private Vector3 direction = Vector3.left;
 
     private Animator animator;
     private const string IS_DIE = "IsDie";
-    private Transform player; // Ссылка на игрока
-    private bool isMoving = false; // Флаг, указывающий, движется ли враг
+    private Transform player;
+    private bool isMoving = false;
+    private bool isInvincible = false; // Флаг бессмертия игрока
+    private bool enemyInvincible = false; // Флаг бессмертия врагаx
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Находим игрока по тегу
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void FixedUpdate() {
-        // Проверяем расстояние до игрока
         if (Vector3.Distance(transform.position, player.position) < activationDistance) {
             isMoving = true;
         }
@@ -78,24 +28,51 @@ public class Enemy : MonoBehaviour {
         if (isMoving) {
             MoveEnemy();
         }
+        Debug.Log(PlayerMoving_for_mario.collisionBool);
     }
 
     private void MoveEnemy() {
-        // Двигаемся в текущем направлении
         transform.position += direction * speed * Time.fixedDeltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            SceneManager.LoadScene(5);
+            HandlePlayerCollision();
         }
         else if (collision.gameObject.CompareTag("Wall")) {
-            ChangeDirection(); // Меняем направление при столкновении со стеной
+            ChangeDirection();
         }
     }
 
+
+    private void HandlePlayerCollision() {
+        if (!PlayerMoving_for_mario.collisionBool) {
+            if (!isInvincible && !enemyInvincible) {
+                ShrinkPlayer();
+                SceneManager.LoadScene(5); 
+            }
+        }
+        else {
+            player.localScale = new Vector3(3.5f, 3.5f, 1f); // Возвращаем к стандартному масштабу
+            PlayerMoving_for_mario.collisionBool = false;
+            ShrinkPlayer();
+        }
+    }
+
+    private void ShrinkPlayer() {
+        isInvincible = true; // Устанавливаем флаг бессмертия
+        enemyInvincible = true; // Устанавливаем флаг бессмертия врага
+        StartCoroutine(ResetInvincibility()); // Запускаем корутину для сброса флага
+    }
+
+    private IEnumerator ResetInvincibility() {
+        yield return new WaitForSeconds(0.5f); // Ждем 1 секунду
+        isInvincible = false; // Сбрасываем флаг бессмертия игрока
+        enemyInvincible = false; // Сбрасываем флаг бессмертия врага
+    }
+
     public void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("Player") && !enemyInvincible) {
             animator.SetBool(IS_DIE, true);
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(DestroyAfterDelay(0.15f));
@@ -108,6 +85,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void ChangeDirection() {
-        direction = -direction; // Меняем направление
+        direction = -direction;
     }
 }
