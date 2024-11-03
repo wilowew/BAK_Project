@@ -5,10 +5,12 @@ using UnityEngine.AI;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private int lockPower = 1;
     [SerializeField] private bool isLocked = true;
     [SerializeField] private Sprite activatedSprite;
     private SpriteRenderer spriteRenderer;
     private NavMeshObstacle navMeshObstacle;
+    private int unlockPower = 0;
 
     private void Start()
     {
@@ -21,15 +23,40 @@ public class Door : MonoBehaviour
         }
     }
 
+    public void increaseUnlockPower()
+    {
+        unlockPower += 1;
+        Debug.Log("Unlock Power: " + unlockPower);
+        if (unlockPower >= lockPower)
+        {
+            UnlockDoor();
+        }
+    }
+
     public void UnlockDoor()
     {
         isLocked = false;
     }
 
+    public int CheckLockPower()
+    {
+        return lockPower;
+    }
+
+    public int CheckUnlockPower()
+    {
+        return unlockPower;
+    }
+
     public void UnlockDoorByPlate()
     {
-        isLocked = false;
-        OpenDoor();
+        unlockPower += 1;
+        Debug.Log("Unlock Power:, " + unlockPower);
+        if (unlockPower >= lockPower)
+        {
+            UnlockDoor();
+            OpenDoor();
+        }
     }
 
     public bool IsLocked()
@@ -60,9 +87,9 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isLocked)
+        if (collision.CompareTag("Player") && !isLocked && collision is BoxCollider2D)
         {
-            Debug.Log("Kaka");
+            Debug.Log("Door Opened");
             OpenDoor();
         }
     }

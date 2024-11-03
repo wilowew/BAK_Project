@@ -8,10 +8,10 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision is BoxCollider2D)
         {
-            correspondingDoor.UnlockDoor(); // Разблокируем дверь
-            Debug.Log("Key collected, door unlocked!");
+            correspondingDoor.increaseUnlockPower(); // Разблокируем дверь
+            Debug.Log("Key collected");
             Destroy(gameObject); // Уничтожаем ключ после подбора
         }
     }
