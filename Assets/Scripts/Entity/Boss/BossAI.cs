@@ -17,24 +17,20 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
 
     [SerializeField] public bool _isAttackingEnemy = false;
-    [SerializeField] private float _attackingDistance = 2f;
     [SerializeField] private float _attackRate = 1f;
     private float _nextAttackTime = 0f;
 
     [SerializeField] private GameObject fireBallPrefab;
-    [SerializeField] private Transform fireBallSpawnPoint;
     [SerializeField] private float fireBallSpeed = 10f;
+
+    [SerializeField] private float fireBallAttackDistance = 5f;
+    [SerializeField] private float enemySpawnDistance = 2f;
 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnRange = 2f;
     [SerializeField] private float spawnRate = 5f;
     private float _nextSpawnTime = 0f;
 
-    [SerializeField] private GameObject shieldPrefab;
-    [SerializeField] private float shieldRadius = 2f;
-    [SerializeField] private float shieldDuration = 5f;
-    private GameObject _activeShield;
-    private float _shieldStartTime;
 
     private NavMeshAgent navMeshAgent;
     private State _currentState;
@@ -51,20 +47,12 @@ public class BossAI : MonoBehaviour
 
     public event EventHandler OnEnemyAttack;
     public event EventHandler OnEnemySpawn;
-    public event EventHandler OnEnemyShieldActivated;
 
     public bool IsRunning
     {
         get
         {
-            if (navMeshAgent.velocity == Vector3.zero)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return navMeshAgent.velocity != Vector3.zero;
         }
     }
 
@@ -73,6 +61,8 @@ public class BossAI : MonoBehaviour
         Idle,
         Roaming,
         Chasing,
+        SpawningFireBalls,
+        SpawningEnemies,
         Attacking,
         Death
     }
@@ -121,7 +111,8 @@ public class BossAI : MonoBehaviour
                 ChasingTarget();
                 CheckCurrentState();
                 break;
-            case State.Attacking:
+            case State.SpawningFireBalls:
+            case State.SpawningEnemies:
                 AttackingTarget();
                 CheckCurrentState();
                 break;
@@ -145,73 +136,74 @@ public class BossAI : MonoBehaviour
     private void CheckCurrentState()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
-        State newState = State.Roaming;
 
-        if (isChasingEnemy)
+        Debug.Log($"Distance to player: {distanceToPlayer}");
+
+        if (distanceToPlayer <= enemySpawnDistance)
         {
-            if (distanceToPlayer <= _chasingDistance)
-            {
-                newState = State.Chasing;
-            }
+            Debug.Log("Switching to Spawning Enemies State");
+            SwitchState(State.SpawningEnemies);
         }
-
-        if (_isAttackingEnemy)
+        else if (distanceToPlayer <= fireBallAttackDistance)
         {
-            if (distanceToPlayer <= _attackingDistance)
-            {
-                newState = State.Attacking;
-            }
+            Debug.Log("Switching to Spawning FireBalls State");
+            SwitchState(State.SpawningFireBalls);
         }
+        else if (isChasingEnemy && distanceToPlayer <= _chasingDistance)
+        {
+            Debug.Log("Switching to Chasing State");
+            SwitchState(State.Chasing);
+        }
+        else
+        {
+            Debug.Log("Switching to Roaming State");
+            SwitchState(State.Roaming);
+        }
+    }
 
+
+    private void SwitchState(State newState)
+    {
         if (newState != _currentState)
         {
-            if (newState == State.Chasing)
+            switch (newState)
             {
-                navMeshAgent.ResetPath();
-                navMeshAgent.speed = _chasingSpeed;
+                case State.Chasing:
+                    navMeshAgent.ResetPath();
+                    navMeshAgent.speed = _chasingSpeed;
+                    break;
+                case State.Roaming:
+                    roamingTime = 0f;
+                    navMeshAgent.speed = _roamingSpeed;
+                    break;
+                case State.SpawningFireBalls:
+                case State.SpawningEnemies:
+                case State.Attacking:
+                    navMeshAgent.ResetPath();
+                    break;
             }
-            else if (newState == State.Roaming)
-            {
-                roamingTime = 0f;
-                navMeshAgent.speed = _roamingSpeed;
-            }
-            else if (newState == State.Attacking)
-            {
-                navMeshAgent.ResetPath();
-            }
-
             _currentState = newState;
         }
-
     }
 
     private void AttackingTarget()
     {
-        if (Time.time > _nextAttackTime)
+        if (_currentState == State.SpawningFireBalls && Time.time > _nextAttackTime)
         {
+            Debug.Log("Attacking with FireBall!");
             OnEnemyAttack?.Invoke(this, EventArgs.Empty);
-            _nextAttackTime = Time.time + _attackRate; 
-            FireBall(Player.Instance.transform.position); 
+            _nextAttackTime = Time.time + _attackRate;
+            FireBall(Player.Instance.transform.position);
         }
 
-        // Призывать врагов
-        if (Time.time > _nextSpawnTime)
+        if (_currentState == State.SpawningEnemies && Time.time > _nextSpawnTime)
         {
+            Debug.Log("Spawning enemies!");
             OnEnemySpawn?.Invoke(this, EventArgs.Empty);
             _nextSpawnTime = Time.time + spawnRate;
-            SpawnEnemy(); 
+            SpawnEnemy();
         }
 
-        if (_activeShield == null) 
-        {
-            ActivateShield(); 
-        }
-
-        if (_activeShield != null && Time.time - _shieldStartTime > shieldDuration)
-        {
-            Destroy(_activeShield);
-            _activeShield = null;
-        }
     }
 
     private void MovementDirectionHandler()
@@ -222,16 +214,14 @@ public class BossAI : MonoBehaviour
             {
                 ChangeFacingDirection(_lastPosition, transform.position);
             }
-            else if (_currentState == State.Attacking)
+            else if (_currentState == State.SpawningFireBalls || _currentState == State.SpawningEnemies)
             {
                 ChangeFacingDirection(transform.position, Player.Instance.transform.position);
             }
-
             _lastPosition = transform.position;
             _nextCheckDirectionTime = Time.time + _checkDirectionDuration;
         }
     }
-
 
     private void Roaming()
     {
@@ -242,22 +232,20 @@ public class BossAI : MonoBehaviour
 
     private Vector3 GoRoamingPosition()
     {
-        Vector3 newRoamingPosition = startingPosition;                   
-                
-        for (int i = 0; i < 10; i++)                   
+        Vector3 newRoamingPosition = startingPosition;
+
+        for (int i = 0; i < 10; i++)
         {
             newRoamingPosition = startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
 
-                                                 
-            if (Vector3.Distance(newRoamingPosition, startingPosition) > roamingDistanceMin)               
+            if (Vector3.Distance(newRoamingPosition, startingPosition) > roamingDistanceMin)
             {
-                break;                                             
+                break;
             }
         }
 
         return newRoamingPosition;
     }
-
 
     private void ChangeFacingDirection(Vector3 sourcePosition, Vector3 targetPosition)
     {
@@ -285,10 +273,13 @@ public class BossAI : MonoBehaviour
 
     private void FireBall(Vector3 targetPosition)
     {
-        Vector3 direction = (targetPosition - fireBallSpawnPoint.position).normalized;
+        float offset = 1.5f;
 
-        GameObject fireBall = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, Quaternion.identity);
+        Vector3 forwardOffset = transform.right * offset;
+        Vector3 spawnPosition = transform.position + forwardOffset;
+        Vector3 direction = (targetPosition - spawnPosition).normalized;
 
+        GameObject fireBall = Instantiate(fireBallPrefab, spawnPosition, Quaternion.identity);
         fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireBallSpeed;
     }
 
@@ -299,7 +290,7 @@ public class BossAI : MonoBehaviour
             Vector3 spawnOffset = new Vector3(
                 UnityEngine.Random.insideUnitCircle.x,
                 UnityEngine.Random.insideUnitCircle.y,
-                0f 
+                0f
             );
 
             spawnOffset *= spawnRange;
@@ -308,22 +299,5 @@ public class BossAI : MonoBehaviour
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
     }
-
-    private void ActivateShield()
-    {
-        if (_activeShield == null)
-        {
-            CircleCollider2D bossCollider = GetComponent<CircleCollider2D>();
-
-            Vector3 shieldPosition = transform.position;
-
-            _activeShield = Instantiate(shieldPrefab, shieldPosition, Quaternion.identity);
-            _activeShield.transform.localScale = new Vector3(shieldRadius, shieldRadius, 1);
-
-            _shieldStartTime = Time.time;
-            OnEnemyShieldActivated?.Invoke(this, EventArgs.Empty);
-        }
-    }
 }
-
 

@@ -12,7 +12,7 @@ public class BossEntity : MonoBehaviour
     public event EventHandler OnTakeHit;
     public event EventHandler OnDeath;
 
-    private int _currentHealth;
+    public int _currentHealth { get; private set; }
 
     private PolygonCollider2D _polygonCollider2D;
     private BoxCollider2D _boxCollider2D;

@@ -17,7 +17,6 @@ public class BossVisual : MonoBehaviour
     private const string CHASING_SPEED_MULTIPLIER = "ChasingSpeedMultiplier";
     private const string ATTACK = "Attack";
     private const string SPAWN = "Spawn";
-    private const string SHIELD = "Shield";
 
     private SpriteRenderer _spriteRenderer;
 
@@ -38,7 +37,6 @@ public class BossVisual : MonoBehaviour
         _bossEntity.OnTakeHit += _bossEntity_OnTakeHit;
         _bossEntity.OnDeath += _bossEntity_OnDeath;
         _bossAI.OnEnemySpawn += _bossAI_OnEnemySpawn;
-        _bossAI.OnEnemyShieldActivated += _bossAI_OnEnemyShieldActivated;
     }
 
     private void _bossEntity_OnTakeHit(object sender, System.EventArgs e)
@@ -60,11 +58,6 @@ public class BossVisual : MonoBehaviour
     private void _bossAI_OnEnemySpawn(object sender, System.EventArgs e)
     {
         _animator.SetTrigger(SPAWN);
-    }
-
-    private void _bossAI_OnEnemyShieldActivated(object sender, System.EventArgs e)
-    {
-        _animator.SetTrigger(SHIELD);
     }
 
     private void OnDestroy()

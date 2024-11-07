@@ -205,17 +205,15 @@ public class EnemyAI : MonoBehaviour
 
     private Vector3 GoRoamingPosition()
     {
-        Vector3 newRoamingPosition = startingPosition; // Начальное значение
+        Vector3 newRoamingPosition = startingPosition; 
 
-        // Попытка найти подходящую точку
-        for (int i = 0; i < 10; i++) // Попытка максимум 10 раз
+        for (int i = 0; i < 10; i++) 
         {
             newRoamingPosition = startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
 
-            // Проверка расстояния до точки появления
-            if (Vector3.Distance(newRoamingPosition, startingPosition) > roamingDistanceMin) //  Проверка расстояния
+            if (Vector3.Distance(newRoamingPosition, startingPosition) > roamingDistanceMin) 
             {
-                break; // Если нашли точку достаточно далеко, выходим из цикла
+                break; 
             }
         }
 

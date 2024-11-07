@@ -34,6 +34,11 @@ public class Sword : MonoBehaviour
         {
             enemyEntity.TakeDamage(_damageAmount);
         }
+
+        if (collision.transform.TryGetComponent(out BossEntity bossEntity))
+        {
+            bossEntity.TakeDamage(_damageAmount);
+        }
     }
 
     public void AttackColliderTurnOff()
