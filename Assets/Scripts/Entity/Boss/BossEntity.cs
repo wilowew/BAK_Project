@@ -18,6 +18,11 @@ public class BossEntity : MonoBehaviour
     private BoxCollider2D _boxCollider2D;
     private BossAI _bossAI;
 
+    public bool IsAlive()
+    {
+        return _currentHealth > 0;
+    }
+
     private void Awake()
     {
         _polygonCollider2D = GetComponent<PolygonCollider2D>();
@@ -69,4 +74,5 @@ public class BossEntity : MonoBehaviour
             Destroy(gameObject, 2f);
         }
     }
+
 }

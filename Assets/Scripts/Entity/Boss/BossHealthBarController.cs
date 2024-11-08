@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BossHealthBarController : MonoBehaviour
 {
     [SerializeField] private Image healthFillImage;
-    [SerializeField] private float displayDistance = 10f; 
+    [SerializeField] private float displayDistance = 10f;
     private BossEntity _bossEntity;
     private Transform playerTransform;
 
@@ -26,7 +26,7 @@ public class BossHealthBarController : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
 
-            gameObject.SetActive(distanceToPlayer <= displayDistance);
+            gameObject.SetActive(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
     }
 
@@ -38,20 +38,9 @@ public class BossHealthBarController : MonoBehaviour
             healthFillImage.fillAmount = healthPercentage;
 
             float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
-            gameObject.SetActive(distanceToPlayer <= displayDistance);
+            gameObject.SetActive(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
     }
-
-    private void OnBecameVisible()
-    {
-        gameObject.SetActive(true);
-    }
-
-    private void OnBecameInvisible()
-    {
-        gameObject.SetActive(false);
-    }
-
 
     private void OnDestroy()
     {

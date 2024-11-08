@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float movingSpeed = 5f;
     [SerializeField] public int _maxHealth = 20;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
+    [SerializeField] private KeyCode teleportKey = KeyCode.T;
 
     private Rigidbody2D rb;
     private KnockBack _knockBack;
@@ -56,6 +57,12 @@ public class Player : MonoBehaviour
     {
         Attacking();
         inputVector = GameInput.Instance.GetMovementVector();
+
+        if (Input.GetKeyDown(teleportKey))
+        {
+            transform.position = new Vector3(240f, -14f, 0f);
+            Debug.Log("Телепортирован!");
+        }
     }
 
     private void FixedUpdate()

@@ -31,6 +31,10 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float spawnRate = 5f;
     private float _nextSpawnTime = 0f;
 
+    [SerializeField] private bool _canTeleport = true;
+    [SerializeField] private float _teleportCooldown = 3f;
+    private float _nextTeleportTime = 0f;
+    private Vector3 _teleportTarget;
 
     private NavMeshAgent navMeshAgent;
     private State _currentState;
@@ -90,6 +94,11 @@ public class BossAI : MonoBehaviour
     {
         navMeshAgent.ResetPath();
         _currentState = State.Death;
+
+        if (_currentState == State.Chasing && _canTeleport && Time.time > _nextTeleportTime && Vector3.Distance(transform.position, Player.Instance.transform.position) < 5f)
+        {
+            Teleport();
+        }
     }
 
     private void StateHandler()
@@ -161,6 +170,20 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    private void Teleport()
+    {
+        _teleportTarget = GetTeleportPosition();
+
+        transform.position = _teleportTarget;
+        _nextTeleportTime = Time.time + _teleportCooldown;
+    }
+
+    private Vector3 GetTeleportPosition()
+    {
+        Vector3 randomOffset = UnityEngine.Random.insideUnitCircle * 3f;
+        Vector3 target = Player.Instance.transform.position + randomOffset;
+        return target;
+    }
 
     private void SwitchState(State newState)
     {
@@ -297,6 +320,41 @@ public class BossAI : MonoBehaviour
 
             Vector3 spawnPosition = transform.position + spawnOffset;
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    public void OnPlayerStepOnPlate()
+    {
+        StartCoroutine(TransitionCamera(Player.Instance.transform));
+    }
+
+    private IEnumerator TransitionCamera(Transform playerTransform)
+    {
+        Vector3 originalCameraPosition = Camera.main.transform.position;
+        Vector3 bossPosition = transform.position;
+
+        float transitionTime = 5f;
+        float elapsed = 0f;
+
+        while (elapsed < transitionTime)
+        {
+            Camera.main.transform.position = Vector3.Lerp(originalCameraPosition, new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z), elapsed / transitionTime);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        BossHealthBarController bossBar = FindObjectOfType<BossHealthBarController>();
+        if (bossBar != null)
+        {
+            bossBar.gameObject.SetActive(true);
+        }
+
+        elapsed = 0f;
+        while (elapsed < transitionTime)
+        {
+            Camera.main.transform.position = Vector3.Lerp(bossPosition, new Vector3(playerTransform.position.x, playerTransform.position.y, originalCameraPosition.z), elapsed / transitionTime);
+            elapsed += Time.deltaTime;
+            yield return null;
         }
     }
 }
