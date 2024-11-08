@@ -1,0 +1,1860 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.45f1 (a13dfa44d684) revision 10567162'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 15740 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+D:/GitWorks/BAK_Project
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+59831
+Successfully changed project path to: D:/GitWorks/BAK_Project
+D:/GitWorks/BAK_Project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [6280]  Target information:
+
+Player connection [6280]  * "[IP] 192.168.1.204 [Port] 0 [Flags] 2 [Guid] 3949268171 [EditorId] 3949268171 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MGM49G2) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [6280] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [6280] Host joined alternative multi-casting on [225.0.0.222:34997]...
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+Refreshing native plugins compatible for Editor in 2.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.45f1 (a13dfa44d684)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/GitWorks/BAK_Project/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Laptop GPU (ID=0x25a2)
+    Vendor:   NVIDIA
+    VRAM:     3964 MB
+    Driver:   32.0.15.6590
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56076
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007414 seconds.
+- Loaded All Assemblies, in  0.389 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.322 seconds
+Domain Reload Profiling: 710ms
+	BeginReloadAssembly (130ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (145ms)
+		LoadAssemblies (128ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (143ms)
+			TypeCache.Refresh (141ms)
+				TypeCache.ScanAssembly (128ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (323ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (267ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (188ms)
+			ProcessInitializeOnLoadMethodAttributes (54ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.395 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.434 seconds
+Domain Reload Profiling: 828ms
+	BeginReloadAssembly (138ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (181ms)
+		LoadAssemblies (188ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (72ms)
+			TypeCache.Refresh (52ms)
+				TypeCache.ScanAssembly (47ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (434ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (325ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (52ms)
+			ProcessInitializeOnLoadAttributes (186ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2787 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (0.7 MB). Loaded Objects now: 3261.
+Memory consumption went from 141.3 MB to 140.5 MB.
+Total: 3.434200 ms (FindLiveObjects: 0.223600 ms CreateObjectMapping: 0.173500 ms MarkObjects: 2.517900 ms  DeleteObjects: 0.518100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.392 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.770 seconds
+Domain Reload Profiling: 1161ms
+	BeginReloadAssembly (163ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (151ms)
+		LoadAssemblies (227ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (16ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (771ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (439ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (263ms)
+			ProcessInitializeOnLoadMethodAttributes (93ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 1.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3261.
+Memory consumption went from 121.8 MB to 121.1 MB.
+Total: 4.244400 ms (FindLiveObjects: 0.294400 ms CreateObjectMapping: 0.231300 ms MarkObjects: 3.305100 ms  DeleteObjects: 0.412200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 217578.167669 seconds.
+  path: Assets/Prefabs/Mario/brick_block.prefab
+  artifactKey: Guid(d37e565a9a8c8b046876c3bdc5470b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mario/brick_block.prefab using Guid(d37e565a9a8c8b046876c3bdc5470b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '88208563a6f218a51e767d97eddf4de5') in 0.007657 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.330672 seconds.
+  path: Assets/Cainos/Pixel Art Top Down - Basic/Prefab/Props/PF Props Altar.prefab
+  artifactKey: Guid(c5bdca1933fde624698bb8c6d6daa44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Top Down - Basic/Prefab/Props/PF Props Altar.prefab using Guid(c5bdca1933fde624698bb8c6d6daa44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd48aca9161bea9cc49967708f13d77f2') in 0.000577 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.582475 seconds.
+  path: Assets/Prefabs/GUI/Tooltip.prefab
+  artifactKey: Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GUI/Tooltip.prefab using Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '385728f3f757bf81d7cd6ef56e0af233') in 0.000507 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.056453 seconds.
+  path: Assets/Prefabs/GUI/Tooltip.prefab
+  artifactKey: Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GUI/Tooltip.prefab using Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '385728f3f757bf81d7cd6ef56e0af233') in 0.000544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.319 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.582 seconds
+Domain Reload Profiling: 900ms
+	BeginReloadAssembly (139ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (118ms)
+		LoadAssemblies (180ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (582ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (326ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (55ms)
+			ProcessInitializeOnLoadAttributes (183ms)
+			ProcessInitializeOnLoadMethodAttributes (75ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3261.
+Memory consumption went from 121.8 MB to 121.1 MB.
+Total: 3.061900 ms (FindLiveObjects: 0.246800 ms CreateObjectMapping: 0.081900 ms MarkObjects: 2.400100 ms  DeleteObjects: 0.332400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.314 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.586 seconds
+Domain Reload Profiling: 899ms
+	BeginReloadAssembly (134ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (118ms)
+		LoadAssemblies (182ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (586ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (328ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (53ms)
+			ProcessInitializeOnLoadAttributes (187ms)
+			ProcessInitializeOnLoadMethodAttributes (74ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3261.
+Memory consumption went from 121.8 MB to 121.1 MB.
+Total: 4.389600 ms (FindLiveObjects: 0.222500 ms CreateObjectMapping: 0.146800 ms MarkObjects: 3.546900 ms  DeleteObjects: 0.472200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 252.104734 seconds.
+  path: Assets/Prefabs/Items/HealthPotion.prefab
+  artifactKey: Guid(dbf7338ad7fc6ee498de3a54f543e93b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Items/HealthPotion.prefab using Guid(dbf7338ad7fc6ee498de3a54f543e93b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '388b1ca4165f35a8403fb57aa2c1cbaa') in 0.001984 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.132886 seconds.
+  path: Assets/Prefabs/Logical Objects
+  artifactKey: Guid(1d85f8e41ea23c54ea3038b6450fc19e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Logical Objects using Guid(1d85f8e41ea23c54ea3038b6450fc19e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '84eb8d5b264c785ee12fa8f019e76486') in 0.000542 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 114.134286 seconds.
+  path: Assets/Sprites/Entity/Tooth/attack.gif
+  artifactKey: Guid(0114aef360693dc4488a3567195e199c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Tooth/attack.gif using Guid(0114aef360693dc4488a3567195e199c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1a8ff8aa2bcc6a7570736361bfcc2294') in 0.132954 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Entity/Pukich/attack.png
+  artifactKey: Guid(fe808eb263ab1494389952e77fbec95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Pukich/attack.png using Guid(fe808eb263ab1494389952e77fbec95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '51328483dd08f6d3cd21d701ddf690cc') in 0.040402 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.994107 seconds.
+  path: Assets/Menu/BackGround.png
+  artifactKey: Guid(24b10eac2743ef1419a070186ca3b685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Menu/BackGround.png using Guid(24b10eac2743ef1419a070186ca3b685) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '34dd08867d94f66206dbff34198101e3') in 0.021624 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.701438 seconds.
+  path: Assets/Sprites/Items/bosstrigger.png
+  artifactKey: Guid(dd55bc49d2e236b4a9a9b3e60dd76730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Items/bosstrigger.png using Guid(dd55bc49d2e236b4a9a9b3e60dd76730) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '4ad531e88268a1f834719b462b830588') in 0.009142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.001354 seconds.
+  path: Assets/Sprites/Entity/Tooth/cover.gif
+  artifactKey: Guid(edf0a1150c027b04cb39e2a69acca065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Tooth/cover.gif using Guid(edf0a1150c027b04cb39e2a69acca065) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '582c295ad26c407b1f83e9f5d48fadce') in 0.014041 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Entity/Mud Guard/damaged and death.png
+  artifactKey: Guid(1d04c8ff28e491541a492df7fb6c765c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Mud Guard/damaged and death.png using Guid(1d04c8ff28e491541a492df7fb6c765c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd4e374a4e1e1078ba647bcafafe64b20') in 0.021850 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/ModifiedEnvironment/FrontDoorClosed.png
+  artifactKey: Guid(354d89a3bc407ec4fa65772a183ded66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ModifiedEnvironment/FrontDoorClosed.png using Guid(354d89a3bc407ec4fa65772a183ded66) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b2f4a71985c991d459fc64224a60f613') in 0.008477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/ModifiedEnvironment/FrontDoorOpened.png
+  artifactKey: Guid(405b1f09c5c489a42b6953880608a4c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ModifiedEnvironment/FrontDoorOpened.png using Guid(405b1f09c5c489a42b6953880608a4c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd472061056f1834ca39b5d4dbea82453') in 0.009246 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Entity/Mud Guard/idle 1.png
+  artifactKey: Guid(e05220ca852ab204ba6ce521db60dd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Mud Guard/idle 1.png using Guid(e05220ca852ab204ba6ce521db60dd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e86aca093304dde915cd23af924fe524') in 0.015921 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_1.png
+  artifactKey: Guid(09fee50cada3b584da71a089d117f37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_1.png using Guid(09fee50cada3b584da71a089d117f37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '2bb68c7cfe37856dbf99054058651b1b') in 0.008613 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_6.png
+  artifactKey: Guid(5cf649e67368f1641b22e27ca7206275) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_6.png using Guid(5cf649e67368f1641b22e27ca7206275) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '75b9af3c358f53ff16c77247950179ba') in 0.006627 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_5.png
+  artifactKey: Guid(3dbbc27267e0a5a4ba183f8fbfe7ba58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_5.png using Guid(3dbbc27267e0a5a4ba183f8fbfe7ba58) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e5602dc95b019fbe0ecf068c41631f9d') in 0.007252 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Entity/Gazmanov/GazmanovIdle.png
+  artifactKey: Guid(04b1e9a4566a636478ebaab561c8d8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Gazmanov/GazmanovIdle.png using Guid(04b1e9a4566a636478ebaab561c8d8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'c46296afe20c4b5d3e63b62b9f304b9d') in 0.009360 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_3.png
+  artifactKey: Guid(a1d0cab37130e3747b5db42dcf59534d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_3.png using Guid(a1d0cab37130e3747b5db42dcf59534d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '040e57d1d4acf077b5d910c5d4156ab3') in 0.008074 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/ModifiedEnvironment/HeavyCrate.png
+  artifactKey: Guid(ac4f8b8d57a7e324db9918478d4b2e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ModifiedEnvironment/HeavyCrate.png using Guid(ac4f8b8d57a7e324db9918478d4b2e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '95a85e8665ff982da11c6cb8101afcfa') in 0.008122 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.175615 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_8.png
+  artifactKey: Guid(5dc9d3ff73321db4285811d17702dc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_8.png using Guid(5dc9d3ff73321db4285811d17702dc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a3269804b2970138e99c39431c7c422a') in 0.006859 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_10.png
+  artifactKey: Guid(d2e78878eb6737f489330da929249071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_10.png using Guid(d2e78878eb6737f489330da929249071) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '56fdc16872eb5ee9c16195056286fcb0') in 0.006769 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_14.png
+  artifactKey: Guid(0ecab5831a658b542bdd3051a808c08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_14.png using Guid(0ecab5831a658b542bdd3051a808c08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '2b839538f496cba206cc934f569e0b7d') in 0.007524 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_15.png
+  artifactKey: Guid(faa642060fea26040a6823292921ce88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_15.png using Guid(faa642060fea26040a6823292921ce88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '25b647fb4118f352fe1e9046638b6ef2') in 0.006657 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_11.png
+  artifactKey: Guid(70dd69146bde1a24db9b710d541c1353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_11.png using Guid(70dd69146bde1a24db9b710d541c1353) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8583e149d39bfce925de737fe9b13255') in 0.007832 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_18.png
+  artifactKey: Guid(a7f6580694de6d34fb5772c30ab426d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_18.png using Guid(a7f6580694de6d34fb5772c30ab426d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6386b3da1123c3cd48c4c054e9f25fac') in 0.006651 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_22.png
+  artifactKey: Guid(cfde5591ecc19824a8125ac9dc880e40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_22.png using Guid(cfde5591ecc19824a8125ac9dc880e40) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b15f7a0a82d19dffce5b96d1c3eaa2b0') in 0.006981 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_21.png
+  artifactKey: Guid(19fd442d7c358944cbc2054bb4644abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_21.png using Guid(19fd442d7c358944cbc2054bb4644abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd2f2526db754dd7f60f9036482b9e9b7') in 0.006737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_25.png
+  artifactKey: Guid(819942d8c6d94bb4c83417c2e3e21fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_25.png using Guid(819942d8c6d94bb4c83417c2e3e21fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1b77a8dc391d512eb00981840fa1a471') in 0.006990 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_29.png
+  artifactKey: Guid(fc0576f70db8268499ce88f905252a33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_29.png using Guid(fc0576f70db8268499ce88f905252a33) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '32413bd5c6745e469d144282c4828efb') in 0.006737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_32.png
+  artifactKey: Guid(0a7690b8d8c831c41b620f88c8d113fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_32.png using Guid(0a7690b8d8c831c41b620f88c8d113fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '73885b15057c21470280fb80a44ade45') in 0.007278 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_37.png
+  artifactKey: Guid(1ae9d0dc1a4d25a41808a1c327ca8a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_37.png using Guid(1ae9d0dc1a4d25a41808a1c327ca8a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'aa0720f2cd271560d73f7d5bfe20b569') in 0.008233 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_42.png
+  artifactKey: Guid(ad6d6ea9805788e41be9db6625214aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_42.png using Guid(ad6d6ea9805788e41be9db6625214aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9bbfe1f17a2dfb4dbc43026743651013') in 0.007270 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_41.png
+  artifactKey: Guid(17489eafeed3535499fba6b21308596a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_41.png using Guid(17489eafeed3535499fba6b21308596a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'c7a41ffcadcecff02b83ac751ff2bcc3') in 0.007901 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_44.png
+  artifactKey: Guid(cc0a20d803097d041a72c0ca301cff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_44.png using Guid(cc0a20d803097d041a72c0ca301cff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'c5c4666e4667ad589197944cca2f46b0') in 0.006988 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_48.png
+  artifactKey: Guid(38c4ef0c762f47d45b57802c0e048270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_48.png using Guid(38c4ef0c762f47d45b57802c0e048270) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '29342c6029b238be79240dcc831c1251') in 0.007931 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_26.png
+  artifactKey: Guid(bf126fc55e7a852488dc3b05ecb0bc13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_26.png using Guid(bf126fc55e7a852488dc3b05ecb0bc13) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'af0f33b906a70b310dd63a3eb982ea12') in 0.008010 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_49.png
+  artifactKey: Guid(3f54c0d6e2e0a7f47913b74b19e8e7fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_49.png using Guid(3f54c0d6e2e0a7f47913b74b19e8e7fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9903f6566087ad25ed577d056221f59b') in 0.007632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_23.png
+  artifactKey: Guid(d4ff5be0bc25b834ba40b0078a8fa247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_23.png using Guid(d4ff5be0bc25b834ba40b0078a8fa247) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9cb57e8fcf5191ae861e55bb2a94690b') in 0.010779 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_31.png
+  artifactKey: Guid(0fe04c8ba5a7c5a47aebaa70ed84fdd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_31.png using Guid(0fe04c8ba5a7c5a47aebaa70ed84fdd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b0e5f4d74ee00ecdd9e8b6b9e0acbb89') in 0.007598 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_46.png
+  artifactKey: Guid(60d3c37cf44b84b488510f5e32edee89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_46.png using Guid(60d3c37cf44b84b488510f5e32edee89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1edc8a28746680714644a66610430f56') in 0.011119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.327186 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_50.png
+  artifactKey: Guid(9c7a219539b83fd429bde41613571d31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_50.png using Guid(9c7a219539b83fd429bde41613571d31) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '12356d6844a25cba58a4532493f5e2f4') in 0.006652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_53.png
+  artifactKey: Guid(a439f53a5ace9b44bb9b32276a796178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_53.png using Guid(a439f53a5ace9b44bb9b32276a796178) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a8560e88d05aed2b7b9140988988a47c') in 0.008308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_52.png
+  artifactKey: Guid(ca52d45c60c77374a909bee05144e514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_52.png using Guid(ca52d45c60c77374a909bee05144e514) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b3c098f36ffba1f54952f204313694ce') in 0.009560 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.025589 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_56.png
+  artifactKey: Guid(f07ad7c74dfb89445b710a173fcb170b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_56.png using Guid(f07ad7c74dfb89445b710a173fcb170b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'c517886e1767c9e131ecd8fea898c49a') in 0.008131 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_59.png
+  artifactKey: Guid(b5de052767c3c5e41940b0bce52c96d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_59.png using Guid(b5de052767c3c5e41940b0bce52c96d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a2e962227e1a2f701799db225977cff9') in 0.006880 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_63.png
+  artifactKey: Guid(a4a015381d8e2d048b80232a490509e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_63.png using Guid(a4a015381d8e2d048b80232a490509e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f86fe61499d85ef5b7a2f590b5553c3a') in 0.007320 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_68.png
+  artifactKey: Guid(9d6290ca69ee1c74c9b6f5bca6bc1559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_68.png using Guid(9d6290ca69ee1c74c9b6f5bca6bc1559) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9880c106106c117532145e6344e25d71') in 0.007845 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_69.png
+  artifactKey: Guid(89dab8e47276e984ba919c31b6072d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_69.png using Guid(89dab8e47276e984ba919c31b6072d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '5973f60a5fb6491fe188204fdc90d470') in 0.006936 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_70.png
+  artifactKey: Guid(3c208428b7d6a594a83b00465938a298) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_70.png using Guid(3c208428b7d6a594a83b00465938a298) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '76cfee850238c5558c5ea604ffb9e8e2') in 0.007794 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_71.png
+  artifactKey: Guid(1af0db731633a9142b756495e31d89be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_71.png using Guid(1af0db731633a9142b756495e31d89be) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ffe01238acc80fc9d444f6c0ecac1765') in 0.009199 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_73.png
+  artifactKey: Guid(c94116e31f08a3e40874c600004e70d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_73.png using Guid(c94116e31f08a3e40874c600004e70d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9d0f02515ff44b13263a4c520f53bccd') in 0.007593 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_76.png
+  artifactKey: Guid(4b4b4397d9092ec40830accdc89d996e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_76.png using Guid(4b4b4397d9092ec40830accdc89d996e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '7ed38e04288fb5e68939110d0b2af2ef') in 0.008126 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_77.png
+  artifactKey: Guid(ecbf52e9700736a41bad626fe92f9eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_77.png using Guid(ecbf52e9700736a41bad626fe92f9eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '07f30e297836b2ab4acb65b2c8800be7') in 0.007125 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_80.png
+  artifactKey: Guid(f8f5896691750a8429de66a0e1d02b0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_80.png using Guid(f8f5896691750a8429de66a0e1d02b0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f13aa3c1a3df0022580fba64f37e159e') in 0.006735 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_83.png
+  artifactKey: Guid(6052d841df1f739419424213aa2df414) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_83.png using Guid(6052d841df1f739419424213aa2df414) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f18e38ecaa286e5ed6dd8e1b1795121d') in 0.009703 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_88.png
+  artifactKey: Guid(c7688ee01ad15664f959170d6e8e37d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_88.png using Guid(c7688ee01ad15664f959170d6e8e37d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd1b55e03c0fa9857d63efa93c063b2d5') in 0.006853 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_85.png
+  artifactKey: Guid(122feea5d4894474e9f44e1fadaf731b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_85.png using Guid(122feea5d4894474e9f44e1fadaf731b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '453a0be000ddb81298581af754fb735e') in 0.007022 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_91.png
+  artifactKey: Guid(fc239a7c9db098242b3c6686002707aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_91.png using Guid(fc239a7c9db098242b3c6686002707aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b318a7104268f9930c7d985ee1a40537') in 0.007189 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_95.png
+  artifactKey: Guid(3ed156f26e163954ca35647e3c94ea7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_95.png using Guid(3ed156f26e163954ca35647e3c94ea7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ec50b3093dbefe41f8a56531593bc7be') in 0.007139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_97.png
+  artifactKey: Guid(7018d4cf477705645b78d9ae8656a442) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_97.png using Guid(7018d4cf477705645b78d9ae8656a442) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '5f5531e34fd83fd7af08a05ca66de21d') in 0.007049 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_101.png
+  artifactKey: Guid(b309b263c99927245ab112a4032a56cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_101.png using Guid(b309b263c99927245ab112a4032a56cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '5232175419f53db34a2560d10813518d') in 0.007218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_104.png
+  artifactKey: Guid(28c47138254c7a74c91dabb5b8dcbc7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_104.png using Guid(28c47138254c7a74c91dabb5b8dcbc7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '30629df2ac01b468f6c57046c3a0443b') in 0.007933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_109.png
+  artifactKey: Guid(8f6f63791dfa9b9498624a1bd68efc89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_109.png using Guid(8f6f63791dfa9b9498624a1bd68efc89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd2037e43028257aacb33d57dc1a25208') in 0.009833 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_92.png
+  artifactKey: Guid(996c93ed634de5e4881e3c5dd22d85c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_92.png using Guid(996c93ed634de5e4881e3c5dd22d85c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9c00e25745bfa0886169dbb53b9b99f8') in 0.007376 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_113.png
+  artifactKey: Guid(b35481368c88ec04eb7b60dd20cd017d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_113.png using Guid(b35481368c88ec04eb7b60dd20cd017d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '93379ce5303ac4c38127e412b8bbd65d') in 0.007237 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_117.png
+  artifactKey: Guid(86159737f8d4b784a939083d10c3543e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_117.png using Guid(86159737f8d4b784a939083d10c3543e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'dd5fff356126c2a1f3596c3ad9709cbf') in 0.006905 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_122.png
+  artifactKey: Guid(a442340214c858c47bb3830bc81ad438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_122.png using Guid(a442340214c858c47bb3830bc81ad438) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1ce52838fa1a9dd5de628fd6fb6b08bc') in 0.010335 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_96.png
+  artifactKey: Guid(f3294711a1f6f084faccc55c835a81ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_96.png using Guid(f3294711a1f6f084faccc55c835a81ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8805772a09cb2ef6e2aa83ae48d3640a') in 0.007879 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_94.png
+  artifactKey: Guid(b82895800bd4bd94a9944434bb3dff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_94.png using Guid(b82895800bd4bd94a9944434bb3dff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '21ee39219eb5c43832e0588834bd5b0f') in 0.007410 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_137.png
+  artifactKey: Guid(cca1965a591094547bff626399c347b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_137.png using Guid(cca1965a591094547bff626399c347b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '4c28592a53aa37f45f9683c322727700') in 0.007609 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_138.png
+  artifactKey: Guid(95ce20eaa044a8e4f981f747968c1892) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_138.png using Guid(95ce20eaa044a8e4f981f747968c1892) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0b1ed994bd5f1e9ae3cf88cb580d4f51') in 0.007417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_145.png
+  artifactKey: Guid(4d7838135bd21d4408bb106765b323eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_145.png using Guid(4d7838135bd21d4408bb106765b323eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '19eb028a3e3f2964e1e653706b223b81') in 0.008026 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_148.png
+  artifactKey: Guid(5ca59e805f8a4954f9ebe39a8d37f1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_148.png using Guid(5ca59e805f8a4954f9ebe39a8d37f1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '468883bf26c83eb601a23a49c526651a') in 0.009484 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_151.png
+  artifactKey: Guid(1dee060a602843e448f57a094384b170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_151.png using Guid(1dee060a602843e448f57a094384b170) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '75e5c311f93c141d5bb44a741fbab0f2') in 0.011804 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_142.png
+  artifactKey: Guid(0dce9ab915949714aabc1b8b83f390a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_142.png using Guid(0dce9ab915949714aabc1b8b83f390a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'faa535d478077ba1f0d3cbbd699b7f4f') in 0.007673 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_121.png
+  artifactKey: Guid(4a4ae85db3cc3634a89ffc811177e0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_121.png using Guid(4a4ae85db3cc3634a89ffc811177e0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '5b16d080464ba816c032d079b9ea9323') in 0.007692 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_123.png
+  artifactKey: Guid(2cfb5903cbe0d6443ac59bc038b613d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_123.png using Guid(2cfb5903cbe0d6443ac59bc038b613d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '641adee3ecc3fd3c5f5bcfbc1f260317') in 0.007288 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_98.png
+  artifactKey: Guid(8cd94cc4cd9d0a343bb8943771e20e99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_98.png using Guid(8cd94cc4cd9d0a343bb8943771e20e99) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '77b75f31aad8caabfe36f94c39c65436') in 0.007260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_160.png
+  artifactKey: Guid(b2ece9657b5c31d4195516d491eb946c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_160.png using Guid(b2ece9657b5c31d4195516d491eb946c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '75467073aac4c30889ec6d0189653298') in 0.008251 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_118.png
+  artifactKey: Guid(387202416d2fa1e4694681f1bcf5ecbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_118.png using Guid(387202416d2fa1e4694681f1bcf5ecbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '2328b1cc12d2787735eff9f734c0c483') in 0.010898 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_136.png
+  artifactKey: Guid(7918f788881a6bc45a94670eb12f52d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_136.png using Guid(7918f788881a6bc45a94670eb12f52d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '97255efe9eead1d5c08915a5c89c5688') in 0.008352 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_144.png
+  artifactKey: Guid(518f71db935e04247aab760c85978fa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_144.png using Guid(518f71db935e04247aab760c85978fa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '29b075032df7c51c6931abbb5a89d767') in 0.008511 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_60.png
+  artifactKey: Guid(73cf0b2e65d5ffa47978c053e290763b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_60.png using Guid(73cf0b2e65d5ffa47978c053e290763b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '216595612e67bcef272b29ef1fe09ecd') in 0.009064 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_79.png
+  artifactKey: Guid(1c83c0085c25b254491d631126526951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_79.png using Guid(1c83c0085c25b254491d631126526951) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '39b0ee9e96663d778090abe8d643e9ee') in 0.007933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_168.png
+  artifactKey: Guid(9622580933b89784ea1d41078b8e73ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_168.png using Guid(9622580933b89784ea1d41078b8e73ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9ea3c1b8f9332f2616fb348a0d19301d') in 0.008824 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_173.png
+  artifactKey: Guid(100e6fef72c548646811afcdc965e427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_173.png using Guid(100e6fef72c548646811afcdc965e427) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd997eba85973f0a8cb914fad6b833385') in 0.009269 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_174.png
+  artifactKey: Guid(f62a5879082eeef47962895addbb9cef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_174.png using Guid(f62a5879082eeef47962895addbb9cef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f581b8a34925d29072d20abb131e2507') in 0.009274 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_177.png
+  artifactKey: Guid(ed11255ef228d5b40ace872d08ab93fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_177.png using Guid(ed11255ef228d5b40ace872d08ab93fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'fac721b137ab62bcb08f906b7563e711') in 0.008811 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_157.png
+  artifactKey: Guid(ee4abe9d5221ab448a2112e6c4836818) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_157.png using Guid(ee4abe9d5221ab448a2112e6c4836818) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6ecbb91dcdb73aa6deb2d0d8ec8e263d') in 0.009814 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_184.png
+  artifactKey: Guid(e988f6373c46ba2478d67eeeafcc14b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_184.png using Guid(e988f6373c46ba2478d67eeeafcc14b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a324e71e3e2a310592c46fbad03ba71e') in 0.012551 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_152.png
+  artifactKey: Guid(edf03901002e9cc4abae325530b36c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_152.png using Guid(edf03901002e9cc4abae325530b36c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '7e163d1896fdd1185b7af50529f0e57b') in 0.008058 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_186.png
+  artifactKey: Guid(e9a27104712dca84a8eaa64e8de25d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_186.png using Guid(e9a27104712dca84a8eaa64e8de25d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '60e9017812877144a73b955657d528f9') in 0.011703 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_188.png
+  artifactKey: Guid(25a5c70c53f9da040a01743db7539704) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_188.png using Guid(25a5c70c53f9da040a01743db7539704) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e43c870559f9080a8230676e35d8bb28') in 0.008463 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_163.png
+  artifactKey: Guid(8a64b4d6b45acbb43ac39298374c773f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_163.png using Guid(8a64b4d6b45acbb43ac39298374c773f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '82e7ed489009058193e10c02b76796f5') in 0.007837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_193.png
+  artifactKey: Guid(c9b6f9724674b2b4cb3561b06ef9dfda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_193.png using Guid(c9b6f9724674b2b4cb3561b06ef9dfda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '01f11feda88b9cd1e07cb212a6c58b13') in 0.010403 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_197.png
+  artifactKey: Guid(150ca9de33469f34189e12732a8d7b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_197.png using Guid(150ca9de33469f34189e12732a8d7b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '103d8ed8ac1566a531cf91a1cf0c75c8') in 0.007634 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_196.png
+  artifactKey: Guid(2e123d040407fe044b5f7c78d4286ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_196.png using Guid(2e123d040407fe044b5f7c78d4286ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'aa7731f936e627771b9ad667cc344a01') in 0.007680 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_192.png
+  artifactKey: Guid(193a1d9f265c6c6419399f0f76640ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_192.png using Guid(193a1d9f265c6c6419399f0f76640ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '057bf9a43dc14536b165b1b220e1aae1') in 0.010396 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_203.png
+  artifactKey: Guid(0260326f281438f468ebb4edc5f4c6c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_203.png using Guid(0260326f281438f468ebb4edc5f4c6c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '4c66c580dcde01fb47ba464315973a37') in 0.008328 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_205.png
+  artifactKey: Guid(d3ce8b68f99abfb49ae7fd28e2d79802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_205.png using Guid(d3ce8b68f99abfb49ae7fd28e2d79802) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6196da4caa93b0ef947a5e794c0a3eb2') in 0.010064 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_207.png
+  artifactKey: Guid(814a8cb8114684f4dad5ddaa0f936c7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_207.png using Guid(814a8cb8114684f4dad5ddaa0f936c7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f181373c759be0cb64a76c7eebb27e9f') in 0.009951 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_211.png
+  artifactKey: Guid(04beedcbe993077429646d528e3fa4b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_211.png using Guid(04beedcbe993077429646d528e3fa4b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'be3e031444e1ea09a4cfb68fcbd49e76') in 0.009864 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_159.png
+  artifactKey: Guid(d5cabfbb85b43f4439a054c599d415dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_159.png using Guid(d5cabfbb85b43f4439a054c599d415dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6d91c5724a813b264e3966b6fd723e33') in 0.008008 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_178.png
+  artifactKey: Guid(a0c3e9ddbf2e91644a399a5c2113c29d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_178.png using Guid(a0c3e9ddbf2e91644a399a5c2113c29d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd11b956c81d703c3170cac74c13151e1') in 0.010599 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_216.png
+  artifactKey: Guid(d9bd8d6fd038e904a8755e94d6001d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_216.png using Guid(d9bd8d6fd038e904a8755e94d6001d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '77088ab4eae0e0787a6e9d22d55084d6') in 0.008178 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_170.png
+  artifactKey: Guid(788c6349cadfeb74595ac68f1ee2d704) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_170.png using Guid(788c6349cadfeb74595ac68f1ee2d704) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'efac7399bf4f3a57aa46e73962b6199a') in 0.009495 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_172.png
+  artifactKey: Guid(39bf56c1df8b797428acc6374dd8260f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_172.png using Guid(39bf56c1df8b797428acc6374dd8260f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9e620d68f786dee97da725d3b1c45f4a') in 0.013178 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_58.png
+  artifactKey: Guid(3818b69c76cb9234b8eed0f74c31009e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_58.png using Guid(3818b69c76cb9234b8eed0f74c31009e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a761f6bdbb62a11c6637e559c02e798c') in 0.008497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_182.png
+  artifactKey: Guid(91e54d88d23fc8540a9a0772502c6604) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_182.png using Guid(91e54d88d23fc8540a9a0772502c6604) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '69e567b0b9f77cdabf20971214c140aa') in 0.009527 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_134.png
+  artifactKey: Guid(975d3d15cdb4f1c41be8b85341a23085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_134.png using Guid(975d3d15cdb4f1c41be8b85341a23085) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0bcaff8e16889153edb32416f4238986') in 0.009175 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_111.png
+  artifactKey: Guid(807c0019c12b3254b8fedbbe65d62a7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_111.png using Guid(807c0019c12b3254b8fedbbe65d62a7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '7ac520940cb7737eb2b1c425b0d1bac5') in 0.008950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_120.png
+  artifactKey: Guid(0ec6de8188b9a184091bac9797b8c918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_120.png using Guid(0ec6de8188b9a184091bac9797b8c918) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '7ec04d72a4c7d2146887a44fb4754b5b') in 0.008208 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_154.png
+  artifactKey: Guid(66e3f9f42f6991648a6cb7f14b12b951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_154.png using Guid(66e3f9f42f6991648a6cb7f14b12b951) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '70ded2aaf8512ea09e3ede872b3ae280') in 0.008449 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.047394 seconds.
+  path: Assets/Sprites/Player/PlayerAttack.png
+  artifactKey: Guid(c4b8ba4255eb8d1418cd21db61115f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/PlayerAttack.png using Guid(c4b8ba4255eb8d1418cd21db61115f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '7d77d6ce034739f69270c1ad79de39f7') in 0.017890 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Menu/PlayerImageMenu.png
+  artifactKey: Guid(36bb6b7abd9ea784f84483fc9b3468c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Menu/PlayerImageMenu.png using Guid(36bb6b7abd9ea784f84483fc9b3468c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '585127b9fe1a47545226dd10cd9dacc8') in 0.012776 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.063003 seconds.
+  path: Assets/Cainos/Dungeon Tileset/Props 1.png
+  artifactKey: Guid(63edefc027048b84d8f0a47183d1d398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Dungeon Tileset/Props 1.png using Guid(63edefc027048b84d8f0a47183d1d398) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '511338e25e1892c589f6ba9cb833a182') in 0.165740 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 73
+========================================================================
+Received Import Request.
+  Time since last request: 1.522911 seconds.
+  path: Assets/Cainos/Dungeon Tileset/Props.png
+  artifactKey: Guid(cb4039abc29841b40a69177e9b44a7b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Dungeon Tileset/Props.png using Guid(cb4039abc29841b40a69177e9b44a7b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8b890b6e4ba29f632f67a977ef0357dc') in 0.357458 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 196
+========================================================================
+Received Import Request.
+  Time since last request: 7.456130 seconds.
+  path: Assets/Prefabs/Logical Objects/FrontDoor.prefab
+  artifactKey: Guid(cb37c218003c7344a8ab62820d028fb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Logical Objects/FrontDoor.prefab using Guid(cb37c218003c7344a8ab62820d028fb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0d78fbfe79a0f9885f3700b3c4252ed4') in 0.000530 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 9.245862 seconds.
+  path: Assets/Sprites/Entity/Tooth/death.gif
+  artifactKey: Guid(2abf7531f134896448cbddccec2d6e9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Tooth/death.gif using Guid(2abf7531f134896448cbddccec2d6e9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '80f8e60834b79f8fc2d808b6db9e9cbf') in 0.009244 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.038421 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_125.png
+  artifactKey: Guid(c324a8282a4ba77449a2f690c6fade3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_125.png using Guid(c324a8282a4ba77449a2f690c6fade3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '483ef08898a251ec83fc6e89b7739b61') in 0.006767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_129.png
+  artifactKey: Guid(1134e037ab4b8034ab9900fb6611b12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_129.png using Guid(1134e037ab4b8034ab9900fb6611b12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e923f046d1bd8a479906848e711ba2f6') in 0.011075 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_132.png
+  artifactKey: Guid(097b8ef3462d0c34d9a3163ad4abab93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/MV Icons Keyboard/Individual Icons/keyboard_132.png using Guid(097b8ef3462d0c34d9a3163ad4abab93) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8f6196313885563ca3da88c5f574d2c2') in 0.007767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.538295 seconds.
+  path: Assets/Sprites/Entity/Rat/RatDeath.png
+  artifactKey: Guid(2887e98693ae9b547ad6db154b890852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Rat/RatDeath.png using Guid(2887e98693ae9b547ad6db154b890852) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '676af4139e1bc55173cdbbb1e7190a66') in 0.012560 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Items/Redirect Notice.png
+  artifactKey: Guid(813d3696e7b492a4781301e9a11a68bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Items/Redirect Notice.png using Guid(813d3696e7b492a4781301e9a11a68bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9424d8da38a7f7c04efea2c1bbabed15') in 0.080829 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.676899 seconds.
+  path: Assets/Sprites/Entity/Rat/RatTitle.png
+  artifactKey: Guid(6c8a8eb6a8cecb74a8450efc0537eb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Entity/Rat/RatTitle.png using Guid(6c8a8eb6a8cecb74a8450efc0537eb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '19b736cbc21d3e05e2255749cb4fb825') in 0.008653 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.436 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.851 seconds
+Domain Reload Profiling: 1285ms
+	BeginReloadAssembly (185ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (162ms)
+		LoadAssemblies (249ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (851ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (472ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (77ms)
+			ProcessInitializeOnLoadAttributes (267ms)
+			ProcessInitializeOnLoadMethodAttributes (106ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 1.11 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3349.
+Memory consumption went from 126.5 MB to 125.7 MB.
+Total: 4.706600 ms (FindLiveObjects: 0.263800 ms CreateObjectMapping: 0.114200 ms MarkObjects: 3.846300 ms  DeleteObjects: 0.480800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.351 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.693 seconds
+Domain Reload Profiling: 1043ms
+	BeginReloadAssembly (149ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (132ms)
+		LoadAssemblies (205ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (694ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (398ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (60ms)
+			ProcessInitializeOnLoadAttributes (226ms)
+			ProcessInitializeOnLoadMethodAttributes (97ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3349.
+Memory consumption went from 126.4 MB to 125.7 MB.
+Total: 4.037300 ms (FindLiveObjects: 0.242500 ms CreateObjectMapping: 0.094400 ms MarkObjects: 3.305300 ms  DeleteObjects: 0.394200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 100.498425 seconds.
+  path: Assets/Prefabs/Entity/Rat.prefab
+  artifactKey: Guid(a4c2fda47392fa847b841d44795d17ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Entity/Rat.prefab using Guid(a4c2fda47392fa847b841d44795d17ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'fb03afa13561281e93d206a61483a067') in 0.002258 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.008932 seconds.
+  path: Assets/Prefabs/GUI/Tooltip.prefab
+  artifactKey: Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GUI/Tooltip.prefab using Guid(1ef86c4a333506d4795d2037f9a845f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '385728f3f757bf81d7cd6ef56e0af233') in 0.000607 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Prefabs/Environment/TX Props Crate.prefab
+  artifactKey: Guid(a131c16795fd5e94299fb66fe0c3cff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Environment/TX Props Crate.prefab using Guid(a131c16795fd5e94299fb66fe0c3cff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a59be91cc5ab0ed3bcd8e699a219c6f6') in 0.000522 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Cainos/Pixel Art Top Down - Basic/Tile Palette/TP Stone Ground.prefab
+  artifactKey: Guid(d4e83863d09313942bd8054738fe5a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Top Down - Basic/Tile Palette/TP Stone Ground.prefab using Guid(d4e83863d09313942bd8054738fe5a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '979d0fc7057ca09c7a955a30b3ff1da3') in 0.114007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 111
+========================================================================
+Received Import Request.
+  Time since last request: 1.540059 seconds.
+  path: Assets/Cainos/Pixel Art Top Down - Basic/Prefab/Props/PF Props Wooden Gate Opened.prefab
+  artifactKey: Guid(8e9c401d7a70ec94d956296ea011f594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Top Down - Basic/Prefab/Props/PF Props Wooden Gate Opened.prefab using Guid(8e9c401d7a70ec94d956296ea011f594) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'af940eadbd93c0abf7e6f4a4c9812a17') in 0.018269 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.455 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.892 seconds
+Domain Reload Profiling: 1346ms
+	BeginReloadAssembly (190ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (175ms)
+		LoadAssemblies (253ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (25ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (892ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (490ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (96ms)
+			ProcessInitializeOnLoadAttributes (275ms)
+			ProcessInitializeOnLoadMethodAttributes (98ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 1.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2703 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11 unused Assets / (0.7 MB). Loaded Objects now: 3353.
+Memory consumption went from 126.6 MB to 125.8 MB.
+Total: 4.505700 ms (FindLiveObjects: 0.252000 ms CreateObjectMapping: 0.105200 ms MarkObjects: 3.759400 ms  DeleteObjects: 0.387700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
