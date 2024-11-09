@@ -58213,12 +58213,12 @@ PrefabInstance:
     - target: {fileID: 344571843215910127, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 269.83
+      value: 271.75
       objectReference: {fileID: 0}
     - target: {fileID: 344571843215910127, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.8
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 344571843215910127, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
@@ -58277,6 +58277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
+      propertyPath: _spawnRate
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 770869688}
@@ -58304,7 +58309,7 @@ PrefabInstance:
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: _canTeleport
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
@@ -58329,6 +58334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
+      propertyPath: _spawnCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
       propertyPath: isChasingEnemy
       value: 1
       objectReference: {fileID: 0}
@@ -58340,12 +58350,17 @@ PrefabInstance:
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: _chasingDistance
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: _isAttackingEnemy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
+      propertyPath: _teleportCooldown
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
@@ -58365,7 +58380,7 @@ PrefabInstance:
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: fireBallAttackDistance
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7030780006541504978, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
@@ -60850,6 +60865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c4eb5b74571144d9ed361df1ac4546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activationSound: {fileID: 8300000, guid: c7afc985e3c08e14088645fbd0fa6067, type: 3}
 --- !u!61 &1658627323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62178,7 +62194,7 @@ GameObject:
   - component: {fileID: 1742119502}
   - component: {fileID: 1742119501}
   - component: {fileID: 1742119504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -94038,7 +94054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 7
-  _maxHealth: 20
+  _maxHealth: 2000
+  _healthRegenRate: 1
   _damageRecoveryTime: 0.5
   teleportKey: 116
   _currentHealth: 0

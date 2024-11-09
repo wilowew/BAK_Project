@@ -28,11 +28,11 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnRange = 2f;
-    [SerializeField] private float spawnRate = 5f;
+    [SerializeField] private float _spawnRate = 5f;
     private float _nextSpawnTime = 0f;
 
     [SerializeField] private bool _canTeleport = true;
-    [SerializeField] private float _teleportCooldown = 3f;
+    [SerializeField] private float _teleportCooldown = 30f; 
     private float _nextTeleportTime = 0f;
     private Vector3 _teleportTarget;
 
@@ -65,6 +65,7 @@ public class BossAI : MonoBehaviour
         Idle,
         Roaming,
         Chasing,
+        Teleporting,
         SpawningFireBalls,
         SpawningEnemies,
         Attacking,
@@ -82,6 +83,7 @@ public class BossAI : MonoBehaviour
         _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplier;
 
         startingPosition = transform.position;
+        _nextTeleportTime = Time.time; 
     }
 
     private void Update()
@@ -95,9 +97,10 @@ public class BossAI : MonoBehaviour
         navMeshAgent.ResetPath();
         _currentState = State.Death;
 
-        if (_currentState == State.Chasing && _canTeleport && Time.time > _nextTeleportTime && Vector3.Distance(transform.position, Player.Instance.transform.position) < 5f)
+        PressurePlateBoss plate = FindObjectOfType<PressurePlateBoss>();
+        if (plate != null)
         {
-            Teleport();
+            plate.StopMusic();
         }
     }
 
@@ -118,16 +121,30 @@ public class BossAI : MonoBehaviour
 
             case State.Chasing:
                 ChasingTarget();
+                float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
+                if (_canTeleport && Time.time > _nextTeleportTime && distanceToPlayer <= enemySpawnDistance)
+                {
+                    int randomChoice = UnityEngine.Random.Range(0, 2);
+                    if (randomChoice == 0)
+                    {
+                        SwitchState(State.Teleporting);
+                    }
+                    else
+                    {
+                        SwitchState(State.SpawningEnemies);
+                    }
+                }
                 CheckCurrentState();
+                break;
+
+            case State.Teleporting:
+                Teleport();
+                SwitchState(State.Chasing);
                 break;
             case State.SpawningFireBalls:
             case State.SpawningEnemies:
                 AttackingTarget();
-                CheckCurrentState();
-                break;
-            case State.Death:
-                break;
-            case State.Idle:
+                SwitchState(State.Chasing);
                 break;
         }
     }
@@ -148,10 +165,18 @@ public class BossAI : MonoBehaviour
 
         Debug.Log($"Distance to player: {distanceToPlayer}");
 
-        if (distanceToPlayer <= enemySpawnDistance)
+        if (distanceToPlayer <= enemySpawnDistance && _canTeleport)
         {
-            Debug.Log("Switching to Spawning Enemies State");
-            SwitchState(State.SpawningEnemies);
+            Debug.Log("Switching to State: Teleporting or Spawning Enemies");
+            int randomChoice = UnityEngine.Random.Range(0, 2);
+            if (randomChoice == 0)
+            {
+                SwitchState(State.Teleporting);
+            }
+            else
+            {
+                SwitchState(State.SpawningEnemies);
+            }
         }
         else if (distanceToPlayer <= fireBallAttackDistance)
         {
@@ -172,10 +197,18 @@ public class BossAI : MonoBehaviour
 
     private void Teleport()
     {
-        _teleportTarget = GetTeleportPosition();
+        List<Vector3> teleportCoordinates = new List<Vector3>
+        {
+            new Vector3(277f, -5f, 0f),
+            new Vector3(255f, -18f, 0f),
+            new Vector3(283f, -24f, 0f),
+        };
+
+        int randomIndex = UnityEngine.Random.Range(0, teleportCoordinates.Count);
+        _teleportTarget = teleportCoordinates[randomIndex];
 
         transform.position = _teleportTarget;
-        _nextTeleportTime = Time.time + _teleportCooldown;
+        _nextTeleportTime = Time.time + _teleportCooldown; 
     }
 
     private Vector3 GetTeleportPosition()
@@ -211,23 +244,23 @@ public class BossAI : MonoBehaviour
 
     private void AttackingTarget()
     {
-        if (_currentState == State.SpawningFireBalls && Time.time > _nextAttackTime)
+        if (_currentState == State.SpawningEnemies && Time.time >= _nextSpawnTime)
+        {
+            Debug.Log("Spawning enemies!");
+            OnEnemySpawn?.Invoke(this, EventArgs.Empty);
+            _nextSpawnTime = Time.time + _spawnRate;  
+            SpawnEnemy();
+        }
+
+        if (_currentState == State.SpawningFireBalls && Time.time >= _nextAttackTime)
         {
             Debug.Log("Attacking with FireBall!");
             OnEnemyAttack?.Invoke(this, EventArgs.Empty);
             _nextAttackTime = Time.time + _attackRate;
             FireBall(Player.Instance.transform.position);
         }
-
-        if (_currentState == State.SpawningEnemies && Time.time > _nextSpawnTime)
-        {
-            Debug.Log("Spawning enemies!");
-            OnEnemySpawn?.Invoke(this, EventArgs.Empty);
-            _nextSpawnTime = Time.time + spawnRate;
-            SpawnEnemy();
-        }
-
     }
+
 
     private void MovementDirectionHandler()
     {
@@ -297,11 +330,9 @@ public class BossAI : MonoBehaviour
     private void FireBall(Vector3 targetPosition)
     {
         float offset = 1.5f;
-
         Vector3 forwardOffset = transform.right * offset;
         Vector3 spawnPosition = transform.position + forwardOffset;
         Vector3 direction = (targetPosition - spawnPosition).normalized;
-
         GameObject fireBall = Instantiate(fireBallPrefab, spawnPosition, Quaternion.identity);
         fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireBallSpeed;
     }
@@ -358,4 +389,3 @@ public class BossAI : MonoBehaviour
         }
     }
 }
-

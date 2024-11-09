@@ -11,7 +11,6 @@ public class BossVisual : MonoBehaviour
 
     private Animator _animator;
 
-    private const string IS_RUNNING = "IsRunning";
     private const string TAKEHIT = "TakeHit";
     private const string IS_DIE = "IsDie";
     private const string CHASING_SPEED_MULTIPLIER = "ChasingSpeedMultiplier";
@@ -24,15 +23,7 @@ public class BossVisual : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    private void Update()
-    {
-        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _bossAI.GetRoamingAnimationSpeed());
-    }
-
-    private void Start()
-    {
         _bossAI.OnEnemyAttack += _bossAI_OnEnemyAttack;
         _bossEntity.OnTakeHit += _bossEntity_OnTakeHit;
         _bossEntity.OnDeath += _bossEntity_OnDeath;
@@ -62,7 +53,17 @@ public class BossVisual : MonoBehaviour
 
     private void OnDestroy()
     {
-        _bossAI.OnEnemyAttack -= _bossAI_OnEnemyAttack;
+        if (_bossAI != null)
+        {
+            _bossAI.OnEnemyAttack -= _bossAI_OnEnemyAttack;
+            _bossAI.OnEnemySpawn -= _bossAI_OnEnemySpawn;
+        }
+
+        if (_bossEntity != null)
+        {
+            _bossEntity.OnTakeHit -= _bossEntity_OnTakeHit;
+            _bossEntity.OnDeath -= _bossEntity_OnDeath;
+        }
     }
 
     public void TriggerAttackAnimationTurnOff()

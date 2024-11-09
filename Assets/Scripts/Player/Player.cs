@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float movingSpeed = 5f;
     [SerializeField] public int _maxHealth = 20;
+    [SerializeField] private float _healthRegenRate = 1f;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
     [SerializeField] private KeyCode teleportKey = KeyCode.T;
 
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     public int _currentHealth;
     private bool _canTakeDamage;
+    private float _lastRegenTime;
     private bool _isAlive;
 
     public int coins = 0;
@@ -61,8 +63,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(teleportKey))
         {
             transform.position = new Vector3(240f, -14f, 0f);
-            Debug.Log("Телепортирован!");
         }
+
+        if (Time.time - _lastRegenTime >= 10f / _healthRegenRate)
+        {
+            _lastRegenTime = Time.time;
+            Heal(1);
+        }
+
     }
 
     private void FixedUpdate()

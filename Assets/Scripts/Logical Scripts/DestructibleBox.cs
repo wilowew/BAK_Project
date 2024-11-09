@@ -10,6 +10,8 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private int _lootChance = 10;
     [SerializeField] private int _multiplicator = 1;
 
+    private bool _lootSpawned = false;
+
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
@@ -22,18 +24,19 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void DestroyBox()
     {
-        int randomChance = Random.Range(0, _lootChance);
-        Debug.Log(randomChance);
-        if (randomChance <= _lootChance / _multiplicator || randomChance == 0)
+        if (!_lootSpawned)
         {
-            int randomIndex = Random.Range(0, _lootTable.Count);
+            int randomChance = Random.Range(0, _lootChance);
+            Debug.Log(randomChance);
+            if (randomChance <= _lootChance / _multiplicator || randomChance == 0)
+            {
+                int randomIndex = Random.Range(0, _lootTable.Count);
 
-            GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
+                GameObject lootItem = Instantiate(_lootTable[randomIndex], _lootSpawnPoint.position, Quaternion.identity);
 
-            Destroy(gameObject);
-        }
-        else
-        {
+                _lootSpawned = true; 
+            }
+
             Destroy(gameObject);
         }
     }

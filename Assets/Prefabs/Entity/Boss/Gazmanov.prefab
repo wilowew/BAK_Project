@@ -201,13 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b271d90cbf2064d9ca236a7f11a2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 1
-  roamingDistanceMax: 7
-  roamingDistanceMin: 3
-  roamingTimerMax: 2
-  isChasingEnemy: 1
-  _chasingDistance: 3
-  _chasingSpeedMultiplier: 2
+  startingState: 0
   _isAttackingEnemy: 1
   _attackRate: 2
   fireBallPrefab: {fileID: 8348571042669911170, guid: 02fef3454b4e1314eb27446c9668e2d1,
@@ -219,6 +213,8 @@ MonoBehaviour:
     type: 3}
   spawnRange: 6
   spawnRate: 10
+  _canTeleport: 1
+  _teleportCooldown: 3
 --- !u!114 &4049472813995688658
 MonoBehaviour:
   m_ObjectHideFlags: 0
