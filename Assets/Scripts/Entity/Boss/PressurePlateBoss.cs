@@ -3,8 +3,10 @@ using UnityEngine;
 public class PressurePlateBoss : MonoBehaviour
 {
     private bool _isActivated = false;
-    public AudioClip activationSound; 
-    private AudioSource audioSource; 
+    public AudioClip bossMusic;
+    [SerializeField, Range(0f, 1f)] private float volume = 0.5f;
+    private AudioSource audioSource;
+    private MusicPlayer musicPlayer;
 
     private void Start()
     {
@@ -13,6 +15,12 @@ public class PressurePlateBoss : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        // Устанавливаем громкость для музыки босса
+        audioSource.volume = volume;
+
+        // Найти компонент MusicPlayer на сцене
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,9 +29,17 @@ public class PressurePlateBoss : MonoBehaviour
         {
             _isActivated = true;
 
-            if (activationSound != null)
+            // Отключить фоновую музыку
+            if (musicPlayer != null)
             {
-                audioSource.PlayOneShot(activationSound);
+                musicPlayer.PauseMusic();
+            }
+
+            // Воспроизвести музыку для босса
+            if (bossMusic != null)
+            {
+                audioSource.clip = bossMusic;
+                audioSource.Play();
             }
 
             BossAI bossAI = FindObjectOfType<BossAI>();
@@ -33,6 +49,17 @@ public class PressurePlateBoss : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        // Проверяем, закончилась ли музыка босса, чтобы вернуть фоновую
+        if (_isActivated && !audioSource.isPlaying && musicPlayer != null)
+        {
+            musicPlayer.ResumeMusic();
+            _isActivated = false;
+        }
+    }
+
     public void StopMusic()
     {
         if (audioSource.isPlaying)
@@ -41,4 +68,3 @@ public class PressurePlateBoss : MonoBehaviour
         }
     }
 }
-
