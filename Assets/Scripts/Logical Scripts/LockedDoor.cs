@@ -76,10 +76,9 @@ public class Door : MonoBehaviour
 
         if (navMeshObstacle != null)
         {
-            Destroy(navMeshObstacle); // Полностью удаляем компонент, чтобы убедиться, что он не мешает
+            Destroy(navMeshObstacle); 
         }
 
-        // Принудительно обновляем путь для всех ботов
         UpdateEnemyPaths();
 
         Debug.Log("Door opened, all colliders removed, and NavMeshObstacle carving disabled.");
@@ -94,13 +93,13 @@ public class Door : MonoBehaviour
         }
     }
 
-    // Метод для обновления путей всех врагов
     private void UpdateEnemyPaths()
     {
-        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>(); // Находим всех врагов в сцене
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>(); 
         foreach (var enemy in enemies)
         {
-            enemy.UpdatePath(); // Обновляем их путь
+            enemy.UpdatePath(); 
         }
     }
+
 }

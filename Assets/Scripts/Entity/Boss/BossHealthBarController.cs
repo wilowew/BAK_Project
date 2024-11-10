@@ -26,7 +26,7 @@ public class BossHealthBarController : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
 
-            gameObject.SetActive(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
+            SetHealthBarVisibility(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
     }
 
@@ -40,6 +40,11 @@ public class BossHealthBarController : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
             gameObject.SetActive(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
+    }
+
+    private void SetHealthBarVisibility(bool isVisible)
+    {
+        gameObject.SetActive(isVisible);
     }
 
     private void OnDestroy()

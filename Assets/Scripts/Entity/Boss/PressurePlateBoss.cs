@@ -16,11 +16,9 @@ public class PressurePlateBoss : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // Устанавливаем громкость для музыки босса
         audioSource.volume = volume;
-
-        // Найти компонент MusicPlayer на сцене
         musicPlayer = FindObjectOfType<MusicPlayer>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,13 +27,11 @@ public class PressurePlateBoss : MonoBehaviour
         {
             _isActivated = true;
 
-            // Отключить фоновую музыку
             if (musicPlayer != null)
             {
                 musicPlayer.PauseMusic();
             }
 
-            // Воспроизвести музыку для босса
             if (bossMusic != null)
             {
                 audioSource.clip = bossMusic;
@@ -52,7 +48,7 @@ public class PressurePlateBoss : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, закончилась ли музыка босса, чтобы вернуть фоновую
+
         if (_isActivated && !audioSource.isPlaying && musicPlayer != null)
         {
             musicPlayer.ResumeMusic();

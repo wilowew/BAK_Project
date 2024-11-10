@@ -254,10 +254,21 @@ public class BossAI : MonoBehaviour
 
         if (_currentState == State.SpawningFireBalls && Time.time >= _nextAttackTime)
         {
-            Debug.Log("Attacking with FireBall!");
+            Debug.Log("Deciding on fireball attack pattern...");
             OnEnemyAttack?.Invoke(this, EventArgs.Empty);
             _nextAttackTime = Time.time + _attackRate;
-            FireBall(Player.Instance.transform.position);
+
+            float randomValue = UnityEngine.Random.value;
+            if (randomValue <= 0.2f)
+            {
+                Debug.Log("Spawning multiple fireballs!");
+                FireMultipleBalls(Player.Instance.transform.position);
+            }
+            else
+            {
+                Debug.Log("Spawning single fireball!");
+                FireBall(Player.Instance.transform.position);
+            }
         }
     }
 
@@ -337,6 +348,25 @@ public class BossAI : MonoBehaviour
         fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireBallSpeed;
     }
 
+    private void FireMultipleBalls(Vector3 targetPosition)
+    {
+        int fireBallCount = 10;
+        float angleStep = 36f;  
+        float currentAngle = 0f;
+
+        for (int i = 0; i < fireBallCount; i++)
+        {
+            float radianAngle = Mathf.Deg2Rad * currentAngle;
+            Vector3 direction = new Vector3(Mathf.Cos(radianAngle), Mathf.Sin(radianAngle), 0);
+
+            Vector3 spawnPosition = transform.position + direction.normalized * 1.5f;  
+            GameObject fireBall = Instantiate(fireBallPrefab, spawnPosition, Quaternion.identity);
+            fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireBallSpeed;
+
+            currentAngle += angleStep;
+        }
+    }
+
     private void SpawnEnemy()
     {
         for (int i = 0; i < 3; i++)
@@ -359,33 +389,27 @@ public class BossAI : MonoBehaviour
         StartCoroutine(TransitionCamera(Player.Instance.transform));
     }
 
+
+
     private IEnumerator TransitionCamera(Transform playerTransform)
     {
         Vector3 originalCameraPosition = Camera.main.transform.position;
         Vector3 bossPosition = transform.position;
 
         float transitionTime = 5f;
+        float focusTime = 7f;
         float elapsed = 0f;
 
+        float originalPlayerSpeed = Player.GetInstance().movingSpeed;
+        Player.GetInstance().movingSpeed = 0f;
+
         while (elapsed < transitionTime)
         {
-            Camera.main.transform.position = Vector3.Lerp(originalCameraPosition, new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z), elapsed / transitionTime);
+            Camera.main.transform.position = Vector3.Lerp(originalCameraPosition, new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z), elapsed / focusTime);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        BossHealthBarController bossBar = FindObjectOfType<BossHealthBarController>();
-        if (bossBar != null)
-        {
-            bossBar.gameObject.SetActive(true);
-        }
-
-        elapsed = 0f;
-        while (elapsed < transitionTime)
-        {
-            Camera.main.transform.position = Vector3.Lerp(bossPosition, new Vector3(playerTransform.position.x, playerTransform.position.y, originalCameraPosition.z), elapsed / transitionTime);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
+        Player.GetInstance().movingSpeed = 7f;
     }
 }

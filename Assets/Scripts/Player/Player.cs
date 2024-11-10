@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public event EventHandler OnPlayerDeath;
     public event EventHandler OnPlayerHurt;
 
-    [SerializeField] private float movingSpeed = 5f;
+    [SerializeField] public float movingSpeed = 5f;
     [SerializeField] public int _maxHealth = 20;
     [SerializeField] private float _healthRegenRate = 1f;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
