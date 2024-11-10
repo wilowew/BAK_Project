@@ -28,12 +28,15 @@ public class Player : MonoBehaviour
     private float _lastRegenTime;
     private bool _isAlive;
 
-    public int coins = 0;
+    public int coins { get; private set; } = 0;
 
     Vector2 inputVector;
 
     public int CurrentHealth { get { return _currentHealth; } }
     public int MaxHealth { get { return _maxHealth; } }
+    public int LastCollectedCoinAmount { get; private set; }
+
+    public event EventHandler AddCoins;
 
     private void Awake()
     {
@@ -88,6 +91,13 @@ public class Player : MonoBehaviour
         return _isAlive;
     }
 
+    public void CollectCoins(int amount)
+    {
+        LastCollectedCoinAmount = amount;
+        coins += amount;
+        AddCoins?.Invoke(this, EventArgs.Empty);
+    }
+
     public void TakeDamage(Transform damageSource, int damage)
     {
         EnemyAI enemyAI = damageSource.GetComponent<EnemyAI>();
@@ -138,14 +148,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(_damageRecoveryTime);
         _canTakeDamage = true;
-    }
-
-    public event EventHandler AddCoins;
-
-    public void CollectCoins(int amount)
-    {
-        coins += amount;
-        AddCoins?.Invoke(this, EventArgs.Empty);
     }
 
     public bool IsRunning()

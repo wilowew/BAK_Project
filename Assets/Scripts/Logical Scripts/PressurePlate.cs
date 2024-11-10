@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private Sprite pressedSprite;  // Спрайт для нажатого состояния
+    [SerializeField] private Sprite pressedSprite;  
     private SpriteRenderer spriteRenderer;
     private bool isPressed = false;
     [SerializeField] private Door correspondingDoor;
@@ -20,7 +20,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = true;
             spriteRenderer.sprite = pressedSprite;
-            correspondingDoor.UnlockDoorByPlate();  // Отправляем сигнал двери об открытии
+            correspondingDoor.UnlockDoorByPlate();  
         }
     }
 }
