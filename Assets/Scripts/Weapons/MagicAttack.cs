@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MagicAttack : MonoBehaviour
+{
+    [SerializeField] private GameObject magicProjectilePrefab; 
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float projectileSpeed = 10f;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ShootMagic();
+        }
+    }
+
+    private void ShootMagic()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - firePoint.position).normalized;
+
+        GameObject projectile = Instantiate(magicProjectilePrefab, firePoint.position, Quaternion.identity);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.velocity = direction * projectileSpeed;
+    }
+}

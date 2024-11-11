@@ -8,7 +8,7 @@ public class Fireball : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 1.2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
