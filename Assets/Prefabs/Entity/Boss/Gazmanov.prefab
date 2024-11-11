@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4049472813995688658}
   m_Layer: 0
   m_Name: Gazmanov
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 0
+  roamingDistanceMax: 7
+  roamingDistanceMin: 3
+  roamingTimerMax: 2
+  isChasingEnemy: 0
+  _chasingDistance: 4
+  _chasingSpeedMultiplier: 2
   _isAttackingEnemy: 1
   _attackRate: 2
   fireBallPrefab: {fileID: 8348571042669911170, guid: 02fef3454b4e1314eb27446c9668e2d1,
@@ -212,7 +218,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 424271868276207760, guid: 73159f149c7044b45b88f4c7fdce32b7,
     type: 3}
   spawnRange: 6
-  spawnRate: 10
+  _spawnRate: 5
   _canTeleport: 1
   _teleportCooldown: 3
 --- !u!114 &4049472813995688658

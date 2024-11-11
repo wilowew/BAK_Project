@@ -19,5 +19,10 @@ public class Fireball : MonoBehaviour
             player.TakeDamage(transform, damageAmount);
             Destroy(gameObject);
         }
+
+        if (!(collider.CompareTag("Player") || (collider.CompareTag("Item")) || (collider.CompareTag("Projectile"))))
+        {
+            Destroy(gameObject);
+        }
     }
 }

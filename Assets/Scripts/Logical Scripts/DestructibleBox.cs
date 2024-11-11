@@ -47,6 +47,10 @@ public class NewBehaviourScript : MonoBehaviour
         {
             TakeDamage(sword.GetDamageAmount());
         }
+        if (collision.TryGetComponent<MagicProjectile>(out MagicProjectile magicProjectile))
+        {
+            TakeDamage(magicProjectile.GetDamageAmount());
+        }
     }
 
 }
