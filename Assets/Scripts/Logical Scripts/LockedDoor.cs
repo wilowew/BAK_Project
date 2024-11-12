@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     [SerializeField] private int lockPower = 1;
     [SerializeField] private bool isLocked = true;
     [SerializeField] private Sprite activatedSprite;
+    [SerializeField] private Sprite closedSprite;
     private SpriteRenderer spriteRenderer;
     private NavMeshObstacle navMeshObstacle;
     private int unlockPower = 0;
@@ -31,6 +32,11 @@ public class Door : MonoBehaviour
         {
             UnlockDoor();
         }
+    }
+
+    public void UnlockPowerToZero()
+    {
+        unlockPower = 0;
     }
 
     public void UnlockDoor()
@@ -76,12 +82,35 @@ public class Door : MonoBehaviour
 
         if (navMeshObstacle != null)
         {
-            Destroy(navMeshObstacle); 
+            navMeshObstacle.carving = false;
         }
 
         UpdateEnemyPaths();
 
         Debug.Log("Door opened, all colliders removed, and NavMeshObstacle carving disabled.");
+    }
+
+    public void CloseDoor()
+    {
+        if (!isLocked)
+        {
+            spriteRenderer.sprite = closedSprite;
+            Collider2D[] colliders = GetComponents<Collider2D>();
+
+            foreach (Collider2D col in colliders)
+            {
+                col.enabled = true;
+            }
+
+            if (navMeshObstacle != null)
+            {
+                navMeshObstacle.carving = true;
+            }
+
+            UpdateEnemyPaths();
+            Debug.Log("Door closed, colliders enabled, and NavMeshObstacle carving enabled.");
+            isLocked = !isLocked;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

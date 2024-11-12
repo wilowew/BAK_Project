@@ -8,6 +8,7 @@ using UnityEngine;
 public class BossEntity : MonoBehaviour
 {
     [SerializeField] public EnemySO _enemySO;
+    [SerializeField] private Door correspondingDoor;
 
     public event EventHandler OnTakeHit;
     public event EventHandler OnDeath;
@@ -65,6 +66,7 @@ public class BossEntity : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
+            correspondingDoor.UnlockDoorByPlate();
             _boxCollider2D.enabled = false;
             _polygonCollider2D.enabled = false;
 

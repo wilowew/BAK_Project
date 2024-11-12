@@ -5,6 +5,7 @@ public class PressurePlateBoss : MonoBehaviour
     private bool _isActivated = false;
     public AudioClip bossMusic;
     [SerializeField, Range(0f, 1f)] private float volume = 0.5f;
+    [SerializeField] Door closingDoor = null;
     private AudioSource audioSource;
     private MusicPlayer musicPlayer;
 
@@ -26,6 +27,8 @@ public class PressurePlateBoss : MonoBehaviour
         if (other.GetComponent<Player>() != null && !_isActivated)
         {
             _isActivated = true;
+            closingDoor.UnlockPowerToZero();
+            closingDoor.CloseDoor();
 
             if (musicPlayer != null)
             {
