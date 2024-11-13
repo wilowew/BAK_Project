@@ -8,6 +8,7 @@ public class PressurePlateBoss : MonoBehaviour
     [SerializeField] Door closingDoor = null;
     private AudioSource audioSource;
     private MusicPlayer musicPlayer;
+    [SerializeField] private Vector3 checkpointPosition;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class PressurePlateBoss : MonoBehaviour
         if (other.GetComponent<Player>() != null && !_isActivated)
         {
             _isActivated = true;
+
             closingDoor.UnlockPowerToZero();
             closingDoor.CloseDoor();
 
@@ -46,6 +48,8 @@ public class PressurePlateBoss : MonoBehaviour
             {
                 bossAI.OnPlayerStepOnPlate();
             }
+
+            SetCheckpoint();
         }
     }
 
@@ -65,5 +69,20 @@ public class PressurePlateBoss : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    private void SetCheckpoint()
+    {
+        checkpointPosition.x -= 10f;
+
+        DeathManager.Instance.SetCurrentCheckpoint(checkpointPosition);
+
+        PlayerPrefs.SetFloat("CheckpointX", checkpointPosition.x);
+        PlayerPrefs.SetFloat("CheckpointY", checkpointPosition.y);
+        PlayerPrefs.SetFloat("CheckpointZ", checkpointPosition.z);
+
+        PlayerPrefs.SetInt("CheckpointSet", 1);
+
+        PlayerPrefs.Save();
     }
 }

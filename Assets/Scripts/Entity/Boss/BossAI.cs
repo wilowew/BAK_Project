@@ -163,11 +163,8 @@ public class BossAI : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
 
-        Debug.Log($"Distance to player: {distanceToPlayer}");
-
         if (distanceToPlayer <= enemySpawnDistance && _canTeleport)
         {
-            Debug.Log("Switching to State: Teleporting or Spawning Enemies");
             int randomChoice = UnityEngine.Random.Range(0, 2);
             if (randomChoice == 0)
             {
@@ -180,17 +177,14 @@ public class BossAI : MonoBehaviour
         }
         else if (distanceToPlayer <= fireBallAttackDistance)
         {
-            Debug.Log("Switching to Spawning FireBalls State");
             SwitchState(State.SpawningFireBalls);
         }
         else if (isChasingEnemy && distanceToPlayer <= _chasingDistance)
         {
-            Debug.Log("Switching to Chasing State");
             SwitchState(State.Chasing);
         }
         else
         {
-            Debug.Log("Switching to Roaming State");
             SwitchState(State.Roaming);
         }
     }
@@ -246,7 +240,6 @@ public class BossAI : MonoBehaviour
     {
         if (_currentState == State.SpawningEnemies && Time.time >= _nextSpawnTime)
         {
-            Debug.Log("Spawning enemies!");
             OnEnemySpawn?.Invoke(this, EventArgs.Empty);
             _nextSpawnTime = Time.time + _spawnRate;  
             SpawnEnemy();
@@ -254,19 +247,16 @@ public class BossAI : MonoBehaviour
 
         if (_currentState == State.SpawningFireBalls && Time.time >= _nextAttackTime)
         {
-            Debug.Log("Deciding on fireball attack pattern...");
             OnEnemyAttack?.Invoke(this, EventArgs.Empty);
             _nextAttackTime = Time.time + _attackRate;
 
             float randomValue = UnityEngine.Random.value;
             if (randomValue <= 0.2f)
             {
-                Debug.Log("Spawning multiple fireballs!");
                 FireMultipleBalls(Player.Instance.transform.position);
             }
             else
             {
-                Debug.Log("Spawning single fireball!");
                 FireBall(Player.Instance.transform.position);
             }
         }

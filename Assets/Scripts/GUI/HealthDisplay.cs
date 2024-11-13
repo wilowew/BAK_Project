@@ -23,4 +23,15 @@ public class HealthDisplay : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void ShowHealthDisplay()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void UpdateHealthDisplay()
+    {
+        healthBar.fillAmount = (float)player._currentHealth / player._maxHealth;
+        healthText.text = $"{player._currentHealth}/{player._maxHealth}";
+    }
 }

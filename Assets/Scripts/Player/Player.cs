@@ -86,6 +86,27 @@ public class Player : MonoBehaviour
         HandleMovement();
     }
 
+    public void Revive()
+    {
+        _currentHealth = _maxHealth;
+        _isAlive = true;
+
+        _canTakeDamage = true;
+        GameInput.Instance.EnableMovement();
+
+        _knockBack.StopKnockBackMovement();
+        isRunning = false;
+        isAttacking = false;
+        MovingSpeedDebuff = 1f;
+
+        HealthDisplay healthDisplay = FindObjectOfType<HealthDisplay>();
+        if (healthDisplay != null)
+        {
+            healthDisplay.ShowHealthDisplay();
+            healthDisplay.UpdateHealthDisplay();
+        }
+    }
+
     public bool IsAlive()
     {
         return _isAlive;
@@ -140,7 +161,6 @@ public class Player : MonoBehaviour
             _knockBack.StopKnockBackMovement();
             GameInput.Instance.DisableMovement();
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
-            Time.timeScale = 0f;
         }
     }
 

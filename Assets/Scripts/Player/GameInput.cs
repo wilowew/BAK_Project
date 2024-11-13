@@ -44,4 +44,9 @@ public class GameInput : MonoBehaviour
     {
         playerInputActions.Disable();
     }
+
+    public void EnableMovement()
+    {
+        playerInputActions.Enable();
+    }
 }

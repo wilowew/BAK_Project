@@ -7,18 +7,17 @@ public class MagicAttack : MonoBehaviour
     [SerializeField] private GameObject magicProjectilePrefab; 
     [SerializeField] private Transform firePoint;
     [SerializeField] private float projectileSpeed = 10f;
-    [SerializeField] private float fireCooldown = 0.5f; // Время кулдауна между выстрелами
+    [SerializeField] private float fireCooldown = 0.5f; 
 
-    private float lastFireTime; // Время последнего выстрела
+    private float lastFireTime; 
     private int reload = 0;
 
     void Update()
     {
-        Debug.Log(reload);
         if (Input.GetKeyDown(KeyCode.Q) && Time.time >= lastFireTime + fireCooldown)
         {
             ShootMagic();
-            lastFireTime = Time.time; // Обновляем время последнего выстрела
+            lastFireTime = Time.time; 
         }
         if (reload == 5)
         {

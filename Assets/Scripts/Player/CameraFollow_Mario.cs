@@ -6,7 +6,15 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField] private Vector3 offset; 
 
     [SerializeField] private Vector2 minPosition; 
-    [SerializeField] private Vector2 maxPosition; 
+    [SerializeField] private Vector2 maxPosition;
+
+    public void SnapToTarget()
+    {
+        Vector3 snapPosition = target.position + offset;
+        snapPosition.x = Mathf.Clamp(snapPosition.x, minPosition.x, maxPosition.x);
+        snapPosition.y = Mathf.Clamp(snapPosition.y, minPosition.y, maxPosition.y);
+        transform.position = snapPosition;
+    }
 
     private void LateUpdate() {
         Vector3 desiredPosition = target.position + offset;

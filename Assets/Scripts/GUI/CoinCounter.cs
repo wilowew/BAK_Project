@@ -40,6 +40,16 @@ public class CoinCounter : MonoBehaviour
     private void UpdateCoinText()
     {
         coinText.text = _coins.ToString();
-        Debug.Log("Current Coins: " + _coins);
+    }
+
+    public void RestartCoinCounter()
+    {
+        _coins = 0;
+        UpdateCoinText();
+    }
+
+    public int GetCoins()
+    {
+        return _coins;
     }
 }
