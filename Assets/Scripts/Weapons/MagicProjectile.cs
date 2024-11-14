@@ -10,21 +10,20 @@ public class MagicProjectile : MonoBehaviour
     {
         if (collider.CompareTag("Enemy") && collider is BoxCollider2D)
         {
-            EnemyEntity enemyEntity = collider.GetComponent<EnemyEntity>(); // Предполагаем, что у врага есть компонент Enemy
+            EnemyEntity enemyEntity = collider.GetComponent<EnemyEntity>(); 
             if (enemyEntity != null)
             {
                 enemyEntity.TakeDamage(_damageAmount);
             }
-            Destroy(gameObject); // Уничтожаем снаряд после попадания
         }
         if (collider.CompareTag("Boss") && collider is BoxCollider2D)
         {
-            BossEntity bossEntity = collider.GetComponent<BossEntity>(); // Предполагаем, что у врага есть компонент Enemy
+            BossEntity bossEntity = collider.GetComponent<BossEntity>(); 
             if (bossEntity != null)
             {
                 bossEntity.TakeDamage(_damageAmount);
             }
-            Destroy(gameObject); // Уничтожаем снаряд после попадания
+            Destroy(gameObject);
         }
         if (!(collider.CompareTag("Player") || (collider.CompareTag("Item"))))
         {

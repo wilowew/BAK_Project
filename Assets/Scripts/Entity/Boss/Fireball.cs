@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    [SerializeField] private int damageAmount = 3;
+    [SerializeField] private int _damageAmount = 3;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class Fireball : MonoBehaviour
         Player player = collider.GetComponent<Player>();
         if (player != null)
         {
-            player.TakeDamage(transform, damageAmount);
+            player.TakeDamage(transform, _damageAmount);
             Destroy(gameObject);
         }
 

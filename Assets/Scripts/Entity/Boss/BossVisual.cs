@@ -30,6 +30,16 @@ public class BossVisual : MonoBehaviour
         _bossAI.OnEnemySpawn += _bossAI_OnEnemySpawn;
     }
 
+    public void TriggerAttackAnimationTurnOff()
+    {
+        _bossEntity.PolygonColliderTurnOff();
+    }
+
+    public void TriggerAttackAnimationTurnOn()
+    {
+        _bossEntity.PolygonColliderTurnOn();
+    }
+
     private void _bossEntity_OnTakeHit(object sender, System.EventArgs e)
     {
         _animator.SetTrigger(TAKEHIT);
@@ -65,15 +75,4 @@ public class BossVisual : MonoBehaviour
             _bossEntity.OnDeath -= _bossEntity_OnDeath;
         }
     }
-
-    public void TriggerAttackAnimationTurnOff()
-    {
-        _bossEntity.PolygonColliderTurnOff();
-    }
-
-    public void TriggerAttackAnimationTurnOn()
-    {
-        _bossEntity.PolygonColliderTurnOn();
-    }
-
 }

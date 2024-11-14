@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 
@@ -39,6 +38,16 @@ public class PukichVisual : MonoBehaviour
         _enemyEntity.OnDeath += _enemyEntity_OnDeath;
     }
 
+    public void TriggerAttackAnimationTurnOff()
+    {
+        _enemyEntity.PolygonColliderTurnOff();
+    }
+
+    public void TriggerAttackAnimationTurnOn()
+    {
+        _enemyEntity.PolygonColliderTurnOn();
+    }
+
     private void _enemyEntity_OnTakeHit(object sender, System.EventArgs e)
     {
         _animator.SetTrigger(TAKEHIT);
@@ -58,16 +67,6 @@ public class PukichVisual : MonoBehaviour
     private void OnDestroy()
     {
         _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
-    }
-
-    public void TriggerAttackAnimationTurnOff()
-    {
-        _enemyEntity.PolygonColliderTurnOff();
-    }
-
-    public void TriggerAttackAnimationTurnOn()
-    {
-        _enemyEntity.PolygonColliderTurnOn();
     }
 
 }

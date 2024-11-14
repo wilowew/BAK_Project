@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4120236f5403d3743aa51ad8a8ea0935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 543124027}
+  _sword: {fileID: 543124027}
 --- !u!95 &90682915
 Animator:
   serializedVersion: 5
@@ -5502,7 +5502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9993c7439b1ec640801ceb053d7f7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 543124027}
+  _sword: {fileID: 543124027}
 --- !u!4 &284913625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3320500975482410422, guid: 83ce2557eb4c26841a2bf4dccd9314ff,
@@ -19972,6 +19972,11 @@ PrefabInstance:
     - target: {fileID: 3497835712975048105, guid: 73159f149c7044b45b88f4c7fdce32b7,
         type: 3}
       propertyPath: isChasingEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497835712975048105, guid: 73159f149c7044b45b88f4c7fdce32b7,
+        type: 3}
+      propertyPath: _isChasingEnemy
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3497835712975048105, guid: 73159f149c7044b45b88f4c7fdce32b7,
@@ -67290,8 +67295,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
+      propertyPath: knockbackForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
       propertyPath: shieldDuration
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
+      propertyPath: damageThreshold
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
@@ -104461,7 +104476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 7
-  _maxHealth: 20
+  _maxHealth: 2000
   _healthRegenRate: 1.2
   _damageRecoveryTime: 0.5
   teleportKey: 116

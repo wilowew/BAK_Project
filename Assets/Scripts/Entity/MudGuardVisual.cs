@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 [RequireComponent(typeof(Animator))]
@@ -37,7 +38,17 @@ public class MudGuardVisual : MonoBehaviour
         _enemyEntity.OnDeath += _enemyEntity_OnDeath;
     }
 
-    private void _enemyEntity_OnTakeHit(object sender, System.EventArgs e)
+    public void TriggerAttackAnimationTurnOff()
+    {
+        _enemyEntity.PolygonColliderTurnOff();
+    }
+
+    public void TriggerAttackAnimationTurnOn()
+    {
+        _enemyEntity.PolygonColliderTurnOn();
+    }
+
+    private void _enemyEntity_OnTakeHit(object sender, EventArgs e)
     {
         _animator.SetTrigger(TAKEHIT);
     }
@@ -57,15 +68,4 @@ public class MudGuardVisual : MonoBehaviour
     {
         _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
     }
-
-    public void TriggerAttackAnimationTurnOff()
-    {
-        _enemyEntity.PolygonColliderTurnOff();
-    }
-
-    public void TriggerAttackAnimationTurnOn()
-    {
-        _enemyEntity.PolygonColliderTurnOn();
-    }
-
 }

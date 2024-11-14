@@ -16,7 +16,7 @@ public class Hints : MonoBehaviour
 
     public GameObject player;
 
-    void Start()
+    private void Start()
     {
         tooltipInstance = Instantiate(tooltipPrefab, canvas.transform);
         tooltipInstance.SetActive(false);
@@ -28,7 +28,7 @@ public class Hints : MonoBehaviour
         tooltipText.text = text;
     }
 
-    void Update()
+    private void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
@@ -42,7 +42,7 @@ public class Hints : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         if (tooltipInstance != null)
         {

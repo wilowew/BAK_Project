@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Intro : MonoBehaviour
 {
     public int waitTime;
+    [SerializeField] public int _numberScene;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class Intro : MonoBehaviour
     IEnumerator WaitForLevel()
     {
         yield return new WaitForSeconds (waitTime);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(_numberScene);
     }
 }
   

@@ -5,30 +5,28 @@ using UnityEngine.Rendering;
 
 public class SwordVisual : MonoBehaviour
 {
+    [SerializeField] private Sword _sword;
 
-    [SerializeField] private Sword sword;
-
-    private Animator animator;
+    private Animator _animator;
     private const string ATTACK = "Attack";
-
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        sword.OnSwordSwing += Sword_OnSwordSwing;
-    }
-
-    private void Sword_OnSwordSwing(object sender, System.EventArgs e)
-    {
-        animator.SetTrigger(ATTACK);
+        _sword.OnSwordSwing += Sword_OnSwordSwing;
     }
 
     public void TriggerEndAttackAnimation()
     {
-        sword.AttackColliderTurnOff();
+        _sword.AttackColliderTurnOff();
+    }
+
+    private void Sword_OnSwordSwing(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(ATTACK);
     }
 }

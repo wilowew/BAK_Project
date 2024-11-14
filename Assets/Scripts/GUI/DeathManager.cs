@@ -68,6 +68,18 @@ public class DeathManager : MonoBehaviour
 
     }
 
+    public void RestartScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SetCurrentCheckpoint(Vector3 position)
+    {
+        currentCheckpointPosition = position;
+    }
+
     private void ShowDeathPanel()
     {
         if (deathPanel != null)
@@ -99,23 +111,11 @@ public class DeathManager : MonoBehaviour
         RestartScene();
     }
 
-    public void RestartScene()
-    {
-        Time.timeScale = 1f;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Player.Instance.Revive();
         RestartPlayerAtCheckpoint();
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    public void SetCurrentCheckpoint(Vector3 position)
-    {
-        currentCheckpointPosition = position;
     }
 
     private void RevivePlayer()

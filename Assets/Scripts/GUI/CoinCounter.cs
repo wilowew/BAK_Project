@@ -21,6 +21,17 @@ public class CoinCounter : MonoBehaviour
         Player.GetInstance().AddCoins += Player_AddCoins;
     }
 
+    public void RestartCoinCounter()
+    {
+        _coins = 0;
+        UpdateCoinText();
+    }
+
+    public int GetCoins()
+    {
+        return _coins;
+    }
+
     private void EnemyEntity_OnDeath(object sender, EventArgs e)
     {
         if (sender is EnemyEntity enemy)
@@ -42,14 +53,4 @@ public class CoinCounter : MonoBehaviour
         coinText.text = _coins.ToString();
     }
 
-    public void RestartCoinCounter()
-    {
-        _coins = 0;
-        UpdateCoinText();
-    }
-
-    public int GetCoins()
-    {
-        return _coins;
-    }
 }

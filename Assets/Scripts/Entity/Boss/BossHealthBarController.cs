@@ -6,12 +6,12 @@ public class BossHealthBarController : MonoBehaviour
     [SerializeField] private Image healthFillImage;
     [SerializeField] private float displayDistance = 10f;
     private BossEntity _bossEntity;
-    private Transform playerTransform;
+    private Transform _playerTransform;
 
     private void Start()
     {
         _bossEntity = FindObjectOfType<BossEntity>();
-        playerTransform = FindObjectOfType<Player>().transform;
+        _playerTransform = FindObjectOfType<Player>().transform;
 
         if (_bossEntity != null)
         {
@@ -22,9 +22,9 @@ public class BossHealthBarController : MonoBehaviour
 
     private void Update()
     {
-        if (_bossEntity != null && playerTransform != null)
+        if (_bossEntity != null && _playerTransform != null)
         {
-            float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
+            float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, _playerTransform.position);
 
             SetHealthBarVisibility(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
@@ -37,7 +37,7 @@ public class BossHealthBarController : MonoBehaviour
             float healthPercentage = (float)_bossEntity._currentHealth / _bossEntity._enemySO.enemyHealth;
             healthFillImage.fillAmount = healthPercentage;
 
-            float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, playerTransform.position);
+            float distanceToPlayer = Vector3.Distance(_bossEntity.transform.position, _playerTransform.position);
             gameObject.SetActive(distanceToPlayer <= displayDistance && _bossEntity.IsAlive());
         }
     }

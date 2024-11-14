@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3595285935211356096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0, z: 0}
+  m_LocalPosition: {x: 0.005, y: -0.119, z: 0}
   m_LocalScale: {x: 1.06, y: 1.1395643, z: 0.9722651}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -221,10 +221,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 1
-  roamingDistanceMax: 8
-  roamingDistanceMin: 4
-  roamingTimerMax: 3
-  isChasingEnemy: 1
+  _roamingDistanceMax: 7
+  _roamingDistanceMin: 3
+  _roamingTimerMax: 2
+  _isChasingEnemy: 1
   _chasingDistance: 10
   _chasingSpeedMultiplier: 3
   _isAttackingEnemy: 1

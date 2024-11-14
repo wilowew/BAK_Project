@@ -1,7 +1,6 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -11,8 +10,6 @@ public class ChanVisual : MonoBehaviour
     [SerializeField] private EnemyAI _enemyAI;
     [SerializeField] private EnemyEntity _enemyEntity;
 
-    private Animator _animator;
-
     private const string IS_RUNNING = "IsRunning";
     private const string TAKEHIT = "TakeHit";
     private const string IS_DIE = "IsDie";
@@ -20,6 +17,7 @@ public class ChanVisual : MonoBehaviour
     private const string ATTACK = "Attack";
 
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private void Awake()
     {
@@ -37,6 +35,16 @@ public class ChanVisual : MonoBehaviour
         _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
         _enemyEntity.OnTakeHit += _enemyEntity_OnTakeHit;
         _enemyEntity.OnDeath += _enemyEntity_OnDeath;
+    }
+
+    public void TriggerAttackAnimationTurnOff()
+    {
+        _enemyEntity.PolygonColliderTurnOff();
+    }
+
+    public void TriggerAttackAnimationTurnOn()
+    {
+        _enemyEntity.PolygonColliderTurnOn();
     }
 
     private void _enemyEntity_OnTakeHit(object sender, System.EventArgs e)
@@ -59,15 +67,4 @@ public class ChanVisual : MonoBehaviour
     {
         _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
     }
-
-    public void TriggerAttackAnimationTurnOff()
-    {
-        _enemyEntity.PolygonColliderTurnOff();
-    }
-
-    public void TriggerAttackAnimationTurnOn()
-    {
-        _enemyEntity.PolygonColliderTurnOn();
-    }
-
 }

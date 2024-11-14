@@ -3,11 +3,13 @@ using UnityEngine;
 public class PressurePlateBoss : MonoBehaviour
 {
     private bool _isActivated = false;
+
+    private MusicPlayer musicPlayer;
+    private AudioSource audioSource;
     public AudioClip bossMusic;
+
     [SerializeField, Range(0f, 1f)] private float volume = 0.5f;
     [SerializeField] Door closingDoor = null;
-    private AudioSource audioSource;
-    private MusicPlayer musicPlayer;
     [SerializeField] private Vector3 checkpointPosition;
 
     private void Start()
@@ -21,6 +23,24 @@ public class PressurePlateBoss : MonoBehaviour
         audioSource.volume = volume;
         musicPlayer = FindObjectOfType<MusicPlayer>();
 
+    }
+
+    private void Update()
+    {
+
+        if (_isActivated && !audioSource.isPlaying && musicPlayer != null)
+        {
+            musicPlayer.ResumeMusic();
+            _isActivated = false;
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,24 +70,6 @@ public class PressurePlateBoss : MonoBehaviour
             }
 
             SetCheckpoint();
-        }
-    }
-
-    private void Update()
-    {
-
-        if (_isActivated && !audioSource.isPlaying && musicPlayer != null)
-        {
-            musicPlayer.ResumeMusic();
-            _isActivated = false;
-        }
-    }
-
-    public void StopMusic()
-    {
-        if (audioSource.isPlaying)
-        {
-            audioSource.Stop();
         }
     }
 
