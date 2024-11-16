@@ -8,9 +8,9 @@ public class MusicPlayer : MonoBehaviour
     private AudioSource audioSource;
     private int currentTrackIndex = 0;
 
-    public bool IsActive { get; private set; } = true;  // Активность фоновой музыки
+    public bool IsActive { get; private set; } = true; 
 
-    void Start()
+    private void Start()
     {
         if (tracks == null || tracks.Count == 0)
         {
@@ -26,27 +26,12 @@ public class MusicPlayer : MonoBehaviour
         PlayCurrentTrack();
     }
 
-    void Update()
+    private void Update()
     {
         if (!audioSource.isPlaying && tracks.Count > 0 && IsActive)
         {
             NextTrack();
         }
-    }
-
-    private void PlayCurrentTrack()
-    {
-        if (currentTrackIndex >= 0 && currentTrackIndex < tracks.Count)
-        {
-            audioSource.clip = tracks[currentTrackIndex];
-            audioSource.Play();
-        }
-    }
-
-    private void NextTrack()
-    {
-        currentTrackIndex = (currentTrackIndex + 1) % tracks.Count;
-        PlayCurrentTrack();
     }
 
     public void PauseMusic()
@@ -65,5 +50,20 @@ public class MusicPlayer : MonoBehaviour
             audioSource.UnPause();
             IsActive = true;
         }
+    }
+
+    private void PlayCurrentTrack()
+    {
+        if (currentTrackIndex >= 0 && currentTrackIndex < tracks.Count)
+        {
+            audioSource.clip = tracks[currentTrackIndex];
+            audioSource.Play();
+        }
+    }
+
+    private void NextTrack()
+    {
+        currentTrackIndex = (currentTrackIndex + 1) % tracks.Count;
+        PlayCurrentTrack();
     }
 }

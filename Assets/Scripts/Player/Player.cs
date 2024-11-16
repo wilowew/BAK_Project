@@ -147,6 +147,27 @@ public class Player : MonoBehaviour
         StartCoroutine(SpeedBoostCoroutine(duration));
     }
 
+    public bool IsRunning()
+    {
+        return isRunning;
+    }
+
+    public bool IsAttacking()
+    {
+        return isAttacking;
+    }
+
+    public Vector3 GetPlayerScreenPosition()
+    {
+        Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        return playerScreenPosition;
+    }
+
+    public static Player GetInstance()
+    {
+        return Instance;
+    }
+
     private IEnumerator SpeedBoostCoroutine(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -168,27 +189,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(_damageRecoveryTime);
         _canTakeDamage = true;
-    }
-
-    public bool IsRunning()
-    {
-        return isRunning;
-    }
-
-    public bool IsAttacking()
-    {
-        return isAttacking;
-    }
-
-    public Vector3 GetPlayerScreenPosition()
-    {
-        Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        return playerScreenPosition;
-    }
-
-    public static Player GetInstance()
-    {
-        return Instance;
     }
 
     private void HandleMovement()

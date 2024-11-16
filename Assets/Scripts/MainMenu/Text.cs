@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BlinkingText : MonoBehaviour
 {
     private Text blinkingText;
-    public float speed = 1f; 
+    public float _speed = 1f; 
 
     private void Start()
     {
@@ -16,31 +16,31 @@ public class BlinkingText : MonoBehaviour
 
     private IEnumerator BlinkText()
     {
-        Color textColor = blinkingText.color;
-        float alpha = 0.8f;
+        Color _textColor = blinkingText.color;
+        float _alpha = 0.8f;
 
         while (true)
         {
-            while (alpha < 0.8f)
+            while (_alpha < 0.8f)
             {
-                alpha += Time.deltaTime * speed;
-                SetTextAlpha(alpha);
+                _alpha += Time.deltaTime * _speed;
+                SetTextAlpha(_alpha);
                 yield return null;
             }
 
-            while (alpha > 0.3f)
+            while (_alpha > 0.3f)
             {
-                alpha -= Time.deltaTime * speed;
-                SetTextAlpha(alpha);
+                _alpha -= Time.deltaTime * _speed;
+                SetTextAlpha(_alpha);
                 yield return null;
             }
         }
     }
 
-    private void SetTextAlpha(float alpha)
+    private void SetTextAlpha(float _alpha)
     {
         Color color = blinkingText.color;
-        color.a = Mathf.Clamp(alpha, 0f, 0.8f);
+        color.a = Mathf.Clamp(_alpha, 0f, 0.8f);
         blinkingText.color = color;
     }
 }

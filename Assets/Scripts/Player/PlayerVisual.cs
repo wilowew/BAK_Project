@@ -35,12 +35,14 @@ public class PlayerVisual : MonoBehaviour
             AdjustPlayerFacingDirection();
         }
         Vector3 position = transform.position;
-        if (position.x > 12 && position.x < 15 && position.y < -4 && position.y > -6 && Input.GetKeyDown(KeyCode.F) && currentScene.name == "Scene_1") {
+        if (position.x > 12 && position.x < 15 && position.y < -4 && position.y > -6 && Input.GetKeyDown(KeyCode.F) && currentScene.name == "Scene_1") 
+        {
             SceneManager.LoadScene("Scene_2");
-            }
-        if (position.x > -17.5 && position.x < -15.5 && position.y < 5.4 && position.y > 4.4 && Input.GetKeyDown(KeyCode.F) && currentScene.name == "Scene_2") {
+        }
+        if (position.x > -17.5 && position.x < -15.5 && position.y < 5.4 && position.y > 4.4 && Input.GetKeyDown(KeyCode.F) && currentScene.name == "Scene_2") 
+        {
             SceneManager.LoadScene("Scene_1");
-            }
+        }
     }
 
     private void Player_OnPlayerDeath(object sender, System.EventArgs e)

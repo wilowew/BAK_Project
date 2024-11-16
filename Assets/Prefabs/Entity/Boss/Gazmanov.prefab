@@ -201,11 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b271d90cbf2064d9ca236a7f11a2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 0
-  roamingDistanceMax: 7
-  roamingDistanceMin: 3
-  roamingTimerMax: 2
-  isChasingEnemy: 0
+  _startingState: 0
+  _roamingDistanceMax: 7
+  _roamingDistanceMin: 3
+  _roamingTimerMax: 2
+  _isChasingEnemy: 0
   _chasingDistance: 4
   _chasingSpeedMultiplier: 2
   _isAttackingEnemy: 1
@@ -221,6 +221,9 @@ MonoBehaviour:
   _spawnRate: 5
   _canTeleport: 1
   _teleportCooldown: 3
+  damageThreshold: 30
+  damageTimerThreshold: 5
+  knockbackForce: 7
 --- !u!114 &4049472813995688658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySO: {fileID: 11400000, guid: 2e96610102978e44987e6c77c404688e, type: 2}
+  correspondingDoor: {fileID: 0}
 --- !u!1 &1515601829062296084
 GameObject:
   m_ObjectHideFlags: 0
