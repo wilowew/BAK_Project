@@ -5,31 +5,31 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour 
 {
 
-    public float speed;
-    public float activationDistance = 5f;
-    private Vector3 direction = Vector3.left;
+    public float _speed;
+    public float _activationDistance = 5f;
+    private Vector3 _direction = Vector3.left;
 
-    private Animator animator;
+    private Animator _animator;
     private const string IS_DIE = "IsDie";
-    private Transform player;
-    private bool isMoving = false;
-    private bool isInvincible = false; 
-    private bool enemyInvincible = false;
+    private Transform _player;
+    private bool _isMoving = false;
+    private bool _isInvincible = false; 
+    private bool _enemyInvincible = false;
 
     private void Awake() 
     {
-        animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _animator = GetComponent<Animator>();
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void FixedUpdate() 
     {
-        if (Vector3.Distance(transform.position, player.position) < activationDistance) 
+        if (Vector3.Distance(transform.position, _player.position) < _activationDistance) 
         {
-            isMoving = true;
+            _isMoving = true;
         }
 
-        if (isMoving) 
+        if (_isMoving) 
         {
             MoveEnemy();
         }
@@ -37,9 +37,9 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !enemyInvincible)
+        if (collision.gameObject.CompareTag("Player") && !_enemyInvincible)
         {
-            animator.SetBool(IS_DIE, true);
+            _animator.SetBool(IS_DIE, true);
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(DestroyAfterDelay(0.15f));
         }
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void MoveEnemy()
     {
-        transform.position += direction * speed * Time.fixedDeltaTime;
+        transform.position += _direction * _speed * Time.fixedDeltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
@@ -64,9 +64,9 @@ public class Enemy : MonoBehaviour
 
     private void HandlePlayerCollision() 
     {
-        if (!PlayerMoving_for_mario.collisionBool) 
+        if (!PlayerMoving_for_mario._collisionBool) 
         {
-            if (!isInvincible && !enemyInvincible) 
+            if (!_isInvincible && !_enemyInvincible) 
             {
                 ShrinkPlayer();
                 SceneManager.LoadScene(5); 
@@ -74,24 +74,24 @@ public class Enemy : MonoBehaviour
         }
         else 
         {
-            player.localScale = new Vector3(3.5f, 3.5f, 1f); 
-            PlayerMoving_for_mario.collisionBool = false;
+            _player.localScale = new Vector3(3.5f, 3.5f, 1f); 
+            PlayerMoving_for_mario._collisionBool = false;
             ShrinkPlayer();
         }
     }
 
     private void ShrinkPlayer() 
     {
-        isInvincible = true; 
-        enemyInvincible = true; 
+        _isInvincible = true; 
+        _enemyInvincible = true; 
         StartCoroutine(ResetInvincibility()); 
     }
 
     private IEnumerator ResetInvincibility() 
     {
         yield return new WaitForSeconds(0.5f); 
-        isInvincible = false; 
-        enemyInvincible = false; 
+        _isInvincible = false; 
+        _enemyInvincible = false; 
     }
 
     private IEnumerator DestroyAfterDelay(float delay)
@@ -100,7 +100,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void ChangeDirection() {
-        direction = -direction;
+    private void ChangeDirection() 
+    {
+        _direction = -_direction;
     }
 }

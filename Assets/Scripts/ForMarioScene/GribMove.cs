@@ -2,53 +2,53 @@ using UnityEngine;
 
 public class GribMovement : MonoBehaviour 
 {
-    public float xSpeed = 1f; 
-    private Vector3 direction = Vector3.right; 
-    private bool isMoving = false; 
+    public float _xSpeed = 1f; 
+    private Vector3 _direction = Vector3.right; 
+    private bool _isMoving = false; 
 
-    private Rigidbody2D rb;
-    private BoxCollider2D collider;
+    private Rigidbody2D _rb;
+    private BoxCollider2D _collider;
 
     private void Start() 
     {
-        rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
 
-        if (rb != null) 
+        if (_rb != null) 
         {
-            rb.isKinematic = true; 
+            _rb.isKinematic = true; 
         }
-        if (collider != null)
+        if (_collider != null)
         {
-            collider.enabled = false; 
+            _collider.enabled = false; 
         }
     }
 
     private void Update() 
     {
-        if (isMoving) 
+        if (_isMoving) 
         {
-            transform.position += direction * xSpeed * Time.deltaTime;
-        }
-    }
-
-    public void EnableMovement()
-    {
-        isMoving = true;
-
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-        }
-        if (collider != null)
-        {
-            collider.enabled = true;
+            transform.position += _direction * _xSpeed * Time.deltaTime;
         }
     }
 
     public void ChangeDirection()
     {
-        direction = -direction;
+        _direction = -_direction;
+    }
+
+    public void EnableMovement()
+    {
+        _isMoving = true;
+
+        if (_rb != null)
+        {
+            _rb.isKinematic = false;
+        }
+        if (_collider != null)
+        {
+            _collider.enabled = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 

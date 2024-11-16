@@ -373,8 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &11456472
 Rigidbody2D:
   serializedVersion: 4
@@ -801,8 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &77678471
 Rigidbody2D:
   serializedVersion: 4
@@ -932,6 +932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283505060446626071, guid: 2bf372b06a56c414492608875f4c00cf,
+        type: 3}
+      propertyPath: _xSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5337060756187977542, guid: 2bf372b06a56c414492608875f4c00cf,
         type: 3}
@@ -2699,8 +2704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &493533479
 Rigidbody2D:
   serializedVersion: 4
@@ -3154,8 +3159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 50
+  _speed: 5
+  _activationDistance: 50
 --- !u!50 &534130485
 Rigidbody2D:
   serializedVersion: 4
@@ -4750,8 +4755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &894961718
 Rigidbody2D:
   serializedVersion: 4
@@ -5283,8 +5288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eb0d481fe85fa47b98cd3e40f48cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yLift: 2
-  gribTag: grib1
+  _yLift: 2.1
+  _gribTag: grib1
 --- !u!4 &1028542711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1296989420279757252, guid: fc9fe00c3cc5a10418103e4f5823e394,
@@ -6531,8 +6536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1220922437
 Rigidbody2D:
   serializedVersion: 4
@@ -8302,8 +8307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1508377408
 Rigidbody2D:
   serializedVersion: 4
@@ -8857,8 +8862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1563237596
 Rigidbody2D:
   serializedVersion: 4
@@ -9018,15 +9023,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be119fa75be326040b8e0b1cd6cef4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 30
-  groundCheck: {x: 0, y: 0, z: 0}
-  groundMask:
+  _speed: 10
+  _jumpForce: 30
+  _groundCheck: {x: 0, y: 0, z: 0}
+  _groundMask:
     serializedVersion: 2
     m_Bits: 8
-  characterSprite: {fileID: 1156148777}
-  scaleIncrease: 1.8
-  scaleDuration: 0.3
+  _characterSprite: {fileID: 1156148777}
+  _scaleIncrease: 1.8
+  _scaleDuration: 0.3
 --- !u!61 &1617077814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9279,6 +9284,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5283505060446626071, guid: 2bf372b06a56c414492608875f4c00cf,
+        type: 3}
+      propertyPath: _xSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5337060756187977542, guid: 2bf372b06a56c414492608875f4c00cf,
         type: 3}
       propertyPath: m_Name
@@ -9471,8 +9481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1753625411
 Rigidbody2D:
   serializedVersion: 4
@@ -9773,8 +9783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1777380179
 Rigidbody2D:
   serializedVersion: 4
@@ -10274,8 +10284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1889049749
 Rigidbody2D:
   serializedVersion: 4
@@ -10609,8 +10619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &1954298501
 Rigidbody2D:
   serializedVersion: 4
@@ -11110,8 +11120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 55
+  _speed: 5
+  _activationDistance: 55
 --- !u!50 &2031569827
 Rigidbody2D:
   serializedVersion: 4
@@ -11226,8 +11236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eb0d481fe85fa47b98cd3e40f48cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yLift: 2.1
-  gribTag: grib2
+  _yLift: 2.1
+  _gribTag: grib1
 --- !u!1001 &2092239634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11320,8 +11330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eb0d481fe85fa47b98cd3e40f48cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yLift: 2.1
-  gribTag: grib3
+  _yLift: 2.1
+  _gribTag: grib1
 --- !u!1001 &2101062804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11499,8 +11509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08fbfb29d5a80240b27b7ae638f51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  activationDistance: 22
+  _speed: 5
+  _activationDistance: 22
 --- !u!50 &2101062809
 Rigidbody2D:
   serializedVersion: 4
@@ -11792,6 +11802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283505060446626071, guid: 2bf372b06a56c414492608875f4c00cf,
+        type: 3}
+      propertyPath: _xSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5337060756187977542, guid: 2bf372b06a56c414492608875f4c00cf,
         type: 3}

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    [SerializeField] private Door correspondingDoor; // Ссылка на дверь, которую открывает ключ
+    [SerializeField] private Door correspondingDoor; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && collision is BoxCollider2D)
         {
-            correspondingDoor.increaseUnlockPower(); // Разблокируем дверь
+            correspondingDoor.increaseUnlockPower(); 
             Debug.Log("Key collected");
-            Destroy(gameObject); // Уничтожаем ключ после подбора
+            Destroy(gameObject);
         }
     }
 }

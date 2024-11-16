@@ -3,56 +3,56 @@ using System.Collections;
 
 public class Grib : MonoBehaviour 
 {
-    public float yLift = 2.1f;
-    public string gribTag = "grib1"; 
-    private bool isBouncing;
-    private bool hasBounced;
-    private Transform grib1;
+    public float _yLift = 2.1f;
+    public string _gribTag = "grib1"; 
+    private bool _isBouncing;
+    private bool _hasBounced;
+    private Transform _grib1;
 
     private void Start() 
     {
-        hasBounced = false;
+        _hasBounced = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.CompareTag("Player") && !isBouncing && !hasBounced) 
+        if (collision.gameObject.CompareTag("Player") && !_isBouncing && !_hasBounced) 
         {
             foreach (ContactPoint2D contact in collision.contacts) 
             {
                 if (contact.normal.y > 0.5f) 
                 {
-                    isBouncing = true;
-                    hasBounced = true;
-                    grib1 = GameObject.FindGameObjectWithTag(gribTag).transform;
-                    if (grib1 != null) 
+                    _isBouncing = true;
+                    _hasBounced = true;
+                    _grib1 = GameObject.FindGameObjectWithTag(_gribTag).transform;
+                    if (_grib1 != null) 
                     {
-                        StartCoroutine(MoveAndEnable(grib1));
+                        StartCoroutine(MoveAndEnable(_grib1));
                     }
                 }
             }
         }
     }
 
-    private IEnumerator MoveAndEnable(Transform grib1) 
+    private IEnumerator MoveAndEnable(Transform _grib1) 
     {
-        Vector3 targetPositionY = grib1.position + new Vector3(0, yLift, 0);
-        float elapsedTime = 0f;
-        float duration = 1f;
+        Vector3 _targetPositionY = _grib1.position + new Vector3(0, _yLift, 0);
+        float _elapsedTime = 0f;
+        float _duration = 1f;
 
-        while (elapsedTime < duration) 
+        while (_elapsedTime < _duration) 
         {
-            grib1.position = Vector3.Lerp(grib1.position, targetPositionY, (elapsedTime / duration));
-            elapsedTime += Time.deltaTime;
+            _grib1.position = Vector3.Lerp(_grib1.position, _targetPositionY, (_elapsedTime / _duration));
+            _elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        grib1.position = targetPositionY;
+        _grib1.position = _targetPositionY;
 
-        GribMovement gribMovement = grib1.GetComponent<GribMovement>();
-        if (gribMovement != null) 
+        GribMovement _gribMovement = _grib1.GetComponent<GribMovement>();
+        if (_gribMovement != null) 
         {
-            gribMovement.EnableMovement();
+            _gribMovement.EnableMovement();
         }
     }
 }
