@@ -72789,6 +72789,8 @@ MonoBehaviour:
   firePoint: {fileID: 1125598825}
   projectileSpeed: 30
   fireCooldown: 0.5
+  lastFireTime: 0
+  reload: 0
 --- !u!4 &922062290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7803482163477772143, guid: 5203ca0f43e830e42905e9c40382452d,
@@ -85998,8 +86000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3743eff66e521041b50d2fd00354dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracks:
-  - {fileID: 8300000, guid: b4cdf6328ee957f4e957ba21783fc6af, type: 3}
+  _tracks:
+  - {fileID: 8300000, guid: 6a2aae596a394cc45b54edc3cb50da6e, type: 3}
   volume: 0.17
 --- !u!4 &1080057640
 Transform:
@@ -89885,11 +89887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7dfd6308f95244b9e74974da84fa2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 20
+  _movingSpeed: 7
   _maxHealth: 2000
   _healthRegenRate: 1.2
   _damageRecoveryTime: 0.5
-  teleportKey: 116
+  _teleportKey: 116
   _currentHealth: 0
 --- !u!4 &1857201989
 Transform:
