@@ -58,6 +58,8 @@ public class PlayerVisual : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
+        if (PauseMenu._isPaused) return;
+
         Vector3 mousePos = GameInput.Instance.GetMousePosition();
         Vector3 playerPosition = Player.Instance.GetPlayerScreenPosition();
 

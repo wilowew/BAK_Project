@@ -9,26 +9,26 @@ public class Player : MonoBehaviour
     public event EventHandler OnPlayerDeath;
     public event EventHandler OnPlayerHurt;
 
-    [SerializeField] public float movingSpeed = 5f;
+    [SerializeField] public float _movingSpeed = 7f;
     [SerializeField] public int _maxHealth = 20;
     [SerializeField] private float _healthRegenRate = 1f;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
-    [SerializeField] private KeyCode teleportKey = KeyCode.T;
+    [SerializeField] private KeyCode _teleportKey = KeyCode.T;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     private KnockBack _knockBack;
 
-    private float minMovingSpeed = 0.1f;
-    private float MovingSpeedDebuff = 1f;
-    private bool isRunning = false;
-    private bool isAttacking = false;
+    private float _minMovingSpeed = 0.1f;
+    private float _MovingSpeedDebuff = 1f;
+    private bool _isRunning = false;
+    private bool _isAttacking = false;
 
     public int _currentHealth;
     private bool _canTakeDamage;
     private float _lastRegenTime;
     private bool _isAlive;
 
-    public int coins { get; private set; } = 0;
+    public int _coins { get; private set; } = 0;
 
     Vector2 inputVector;
 
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _knockBack = GetComponent<KnockBack>();
     }
 
@@ -63,7 +63,9 @@ public class Player : MonoBehaviour
         Attacking();
         inputVector = GameInput.Instance.GetMovementVector();
 
-        if (Input.GetKeyDown(teleportKey))
+        if (PauseMenu._isPaused) return;
+
+        if (Input.GetKeyDown(_teleportKey))
         {
             transform.position = new Vector3(240f, -14f, 0f);
         }
@@ -95,9 +97,9 @@ public class Player : MonoBehaviour
         GameInput.Instance.EnableMovement();
 
         _knockBack.StopKnockBackMovement();
-        isRunning = false;
-        isAttacking = false;
-        MovingSpeedDebuff = 1f;
+        _isRunning = false;
+        _isAttacking = false;
+        _MovingSpeedDebuff = 1f;
 
         HealthDisplay healthDisplay = FindObjectOfType<HealthDisplay>();
         if (healthDisplay != null)
@@ -115,7 +117,7 @@ public class Player : MonoBehaviour
     public void CollectCoins(int amount)
     {
         LastCollectedCoinAmount = amount;
-        coins += amount;
+        _coins += amount;
         AddCoins?.Invoke(this, EventArgs.Empty);
     }
 
@@ -143,18 +145,18 @@ public class Player : MonoBehaviour
 
     public void IncreaseSpeed(float multiplier, float duration)
     {
-        MovingSpeedDebuff = multiplier;
+        _MovingSpeedDebuff = multiplier;
         StartCoroutine(SpeedBoostCoroutine(duration));
     }
 
     public bool IsRunning()
     {
-        return isRunning;
+        return _isRunning;
     }
 
     public bool IsAttacking()
     {
-        return isAttacking;
+        return _isAttacking;
     }
 
     public Vector3 GetPlayerScreenPosition()
@@ -171,7 +173,7 @@ public class Player : MonoBehaviour
     private IEnumerator SpeedBoostCoroutine(float duration)
     {
         yield return new WaitForSeconds(duration);
-        MovingSpeedDebuff = 1f;
+        _MovingSpeedDebuff = 1f;
     }
 
     private void DetectDeath()
@@ -193,31 +195,30 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
-        rb.MovePosition(rb.position + inputVector * (movingSpeed * MovingSpeedDebuff * Time.fixedDeltaTime));
-        if (Mathf.Abs(inputVector.x) > minMovingSpeed || Mathf.Abs(inputVector.y) > minMovingSpeed)
+        _rb.MovePosition(_rb.position + inputVector * (_movingSpeed * _MovingSpeedDebuff * Time.fixedDeltaTime));
+        if (Mathf.Abs(inputVector.x) > _minMovingSpeed || Mathf.Abs(inputVector.y) > _minMovingSpeed)
         {
-            isRunning = true;
+            _isRunning = true;
         }
         else
         {
-            isRunning = false;
+            _isRunning = false;
         }
     }
 
     private void Attacking()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!PauseMenu._isPaused && Input.GetKeyDown(KeyCode.E))
         {
-            isAttacking = !isAttacking;
-            if (isAttacking == true)
+            _isAttacking = !_isAttacking;
+            if (_isAttacking == true)
             {
-                MovingSpeedDebuff = 0.65f;
+                _MovingSpeedDebuff = 0.65f;
             }
             else
             {
-                MovingSpeedDebuff = 1f;
+                _MovingSpeedDebuff = 1f;
             }
-
         }
     }
 }

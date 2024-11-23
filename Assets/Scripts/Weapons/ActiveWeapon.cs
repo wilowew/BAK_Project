@@ -22,14 +22,24 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (Player.Instance.IsAlive())
+        if (Player.Instance.IsAlive() && !PauseMenu._isPaused)
         {
             FollowMousePosition();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isSwordActive = !isSwordActive;
-            sword.SetActive(isSwordActive);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                isSwordActive = !isSwordActive;
+                sword.SetActive(isSwordActive); 
+
+                if (isSwordActive)
+                {
+                    sword.ResetAttack();
+                }
+            }
+
+            if (isSwordActive && Input.GetMouseButtonDown(0))
+            {
+                sword.Attack();
+            }
         }
     }
 
@@ -40,6 +50,8 @@ public class ActiveWeapon : MonoBehaviour
 
     private void FollowMousePosition()
     {
+        if (PauseMenu._isPaused) return;
+
         Vector3 mousePos = GameInput.Instance.GetMousePosition();
         Vector3 playerPosition = Player.Instance.GetPlayerScreenPosition();
 
