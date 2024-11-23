@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
 
 public class PressurePlateBoss : MonoBehaviour
 {
@@ -6,38 +8,39 @@ public class PressurePlateBoss : MonoBehaviour
 
     private MusicPlayer musicPlayer;
     private AudioSource audioSource;
-    public AudioClip bossMusic;
+    [SerializeField] private AudioClip bossMusic; 
 
     [SerializeField, Range(0f, 1f)] private float volume = 0.5f;
     [SerializeField] Door closingDoor = null;
     [SerializeField] private Vector3 checkpointPosition;
+    private BossAI bossAI;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-
-        audioSource.volume = volume;
         musicPlayer = FindObjectOfType<MusicPlayer>();
+        bossAI = FindObjectOfType<BossAI>();
 
-    }
+        string path = "Assets/Music/compress.mp3"; 
+        bossMusic = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
 
-    private void Update()
-    {
-
-        if (_isActivated && !audioSource.isPlaying && musicPlayer != null)
+        if (musicPlayer == null)
         {
-            musicPlayer.ResumeMusic();
-            _isActivated = false;
+            Debug.LogError("MusicPlayer не найден в сцене!");
+            enabled = false;
+            return;
         }
+        if (bossMusic == null)
+        {
+            Debug.LogError("Boss music not assigned in inspector!");
+            enabled = false;
+            return;
+        }
+        musicPlayer.LoadBossMusic(bossMusic);
     }
 
     public void StopMusic()
     {
-        if (audioSource.isPlaying)
+        if (audioSource != null && audioSource.isPlaying) 
         {
             audioSource.Stop();
         }
@@ -48,23 +51,15 @@ public class PressurePlateBoss : MonoBehaviour
         if (other.GetComponent<Player>() != null && !_isActivated)
         {
             _isActivated = true;
-
             closingDoor.UnlockPowerToZero();
             closingDoor.CloseDoor();
 
-            if (musicPlayer != null)
+            if (musicPlayer != null && bossMusic != null) 
             {
-                musicPlayer.PauseMusic();
+                musicPlayer.PlayBossMusic(volume);
             }
 
-            if (bossMusic != null)
-            {
-                audioSource.clip = bossMusic;
-                audioSource.Play();
-            }
-
-            BossAI bossAI = FindObjectOfType<BossAI>();
-            if (bossAI != null)
+            if (bossAI != null) 
             {
                 bossAI.OnPlayerStepOnPlate();
             }
@@ -88,3 +83,4 @@ public class PressurePlateBoss : MonoBehaviour
         PlayerPrefs.Save();
     }
 }
+

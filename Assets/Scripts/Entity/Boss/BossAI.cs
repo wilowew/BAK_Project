@@ -32,13 +32,13 @@ public class BossAI : MonoBehaviour
     private float _nextSpawnTime = 0f;
 
     [SerializeField] private bool _canTeleport = true;
-    [SerializeField] private float _teleportCooldown = 30f; 
+    [SerializeField] private float _teleportCooldown = 30f;
     private float _nextTeleportTime = 0f;
     private Vector3 _teleportTarget;
 
-    [SerializeField] private float damageThreshold = 30f;      
+    [SerializeField] private float damageThreshold = 30f;
     [SerializeField] private float damageTimerThreshold = 5f;
-    [SerializeField] private float knockbackForce = 7f;      
+    [SerializeField] private float knockbackForce = 7f;
 
     private NavMeshAgent navMeshAgent;
     private State _currentState;
@@ -53,8 +53,8 @@ public class BossAI : MonoBehaviour
     private float _checkDirectionDuration = 0.1f;
     private Vector3 _lastPosition;
 
-    private float currentDamage = 0f; 
-    private float damageTimer = 0f;   
+    private float currentDamage = 0f;
+    private float damageTimer = 0f;
 
     public event EventHandler OnEnemyAttack;
     public event EventHandler OnEnemySpawn;
@@ -82,7 +82,7 @@ public class BossAI : MonoBehaviour
         _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplier;
 
         startingPosition = transform.position;
-        _nextTeleportTime = Time.time; 
+        _nextTeleportTime = Time.time + _teleportCooldown;
     }
 
     private void Update()
@@ -112,13 +112,13 @@ public class BossAI : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentDamage += damage;
-        damageTimer = damageTimerThreshold; 
+        damageTimer = damageTimerThreshold;
 
         if (currentDamage >= damageThreshold)
         {
             KnockbackPlayer();
-            currentDamage = 0f; 
-            damageTimer = 0f;   
+            currentDamage = 0f;
+            damageTimer = 0f;
         }
     }
 
@@ -176,8 +176,8 @@ public class BossAI : MonoBehaviour
                 float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
                 if (_canTeleport && Time.time > _nextTeleportTime && distanceToPlayer <= enemySpawnDistance)
                 {
-                    int randomChoice = UnityEngine.Random.Range(0, 2);
-                    if (randomChoice == 0)
+                    int randomChoice = UnityEngine.Random.Range(0, 100);
+                    if (randomChoice <= 10)
                     {
                         SwitchState(State.Teleporting);
                     }
@@ -212,8 +212,7 @@ public class BossAI : MonoBehaviour
 
         if (distanceToPlayer <= enemySpawnDistance && _canTeleport)
         {
-            int randomChoice = UnityEngine.Random.Range(0, 2);
-            if (randomChoice == 0)
+            if (Time.time > _nextTeleportTime)
             {
                 SwitchState(State.Teleporting);
             }
@@ -237,7 +236,7 @@ public class BossAI : MonoBehaviour
     }
 
     private void KnockbackPlayer()
-    { 
+    {
         Rigidbody2D playerRigidbody = Player.GetInstance().GetComponent<Rigidbody2D>();
         if (playerRigidbody != null)
         {
@@ -250,16 +249,16 @@ public class BossAI : MonoBehaviour
     {
         List<Vector3> teleportCoordinates = new List<Vector3>
         {
-            new Vector3(277f, -5f, 0f),
-            new Vector3(255f, -18f, 0f),
-            new Vector3(283f, -24f, 0f),
+            new Vector3(277f, -9f, 0f),
+            new Vector3(255f, -19f, 0f),
+            new Vector3(283f, -27f, 0f),
         };
 
         int randomIndex = UnityEngine.Random.Range(0, teleportCoordinates.Count);
         _teleportTarget = teleportCoordinates[randomIndex];
 
         transform.position = _teleportTarget;
-        _nextTeleportTime = Time.time + _teleportCooldown; 
+        _nextTeleportTime = Time.time + _teleportCooldown;
     }
 
     private Vector3 GetTeleportPosition()
@@ -298,7 +297,7 @@ public class BossAI : MonoBehaviour
         if (_currentState == State.SpawningEnemies && Time.time >= _nextSpawnTime)
         {
             OnEnemySpawn?.Invoke(this, EventArgs.Empty);
-            _nextSpawnTime = Time.time + _spawnRate;  
+            _nextSpawnTime = Time.time + _spawnRate;
             SpawnEnemy();
         }
 
@@ -385,7 +384,7 @@ public class BossAI : MonoBehaviour
     private void FireMultipleBalls(Vector3 targetPosition)
     {
         int fireBallCount = 10;
-        float angleStep = 36f;  
+        float angleStep = 36f;
         float currentAngle = 0f;
 
         for (int i = 0; i < fireBallCount; i++)
@@ -393,7 +392,7 @@ public class BossAI : MonoBehaviour
             float radianAngle = Mathf.Deg2Rad * currentAngle;
             Vector3 direction = new Vector3(Mathf.Cos(radianAngle), Mathf.Sin(radianAngle), 0);
 
-            Vector3 spawnPosition = transform.position + direction.normalized * 1.5f;  
+            Vector3 spawnPosition = transform.position + direction.normalized * 1.5f;
             GameObject fireBall = Instantiate(fireBallPrefab, spawnPosition, Quaternion.identity);
             fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireBallSpeed;
 
@@ -420,23 +419,26 @@ public class BossAI : MonoBehaviour
 
     private IEnumerator TransitionCamera(Transform playerTransform)
     {
+        navMeshAgent.isStopped = true;
+
         Vector3 originalCameraPosition = Camera.main.transform.position;
         Vector3 bossPosition = transform.position;
 
-        float transitionTime = 5f;
-        float focusTime = 7f;
-        float elapsed = 0f;
+        float _transitionTime = 5f;
+        float _focusTime = 7f;
+        float _elapsed = 0f;
 
-        float originalPlayerSpeed = Player.GetInstance().movingSpeed;
-        Player.GetInstance().movingSpeed = 0f;
+        float _originalPlayerSpeed = Player.GetInstance()._movingSpeed;
+        Player.GetInstance()._movingSpeed = 0f;
 
-        while (elapsed < transitionTime)
+        while (_elapsed < _transitionTime)
         {
-            Camera.main.transform.position = Vector3.Lerp(originalCameraPosition, new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z), elapsed / focusTime);
-            elapsed += Time.deltaTime;
+            Camera.main.transform.position = Vector3.Lerp(originalCameraPosition, new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z), _elapsed / _focusTime);
+            _elapsed += Time.deltaTime;
             yield return null;
         }
 
-        Player.GetInstance().movingSpeed = 7f;
+        Player.GetInstance()._movingSpeed = _originalPlayerSpeed;
+        navMeshAgent.isStopped = false;
     }
 }

@@ -11,6 +11,7 @@ public class BossVisual : MonoBehaviour
 
     private Animator _animator;
 
+    private const string IS_RUNNING = "IsRunning";
     private const string TAKEHIT = "TakeHit";
     private const string IS_DIE = "IsDie";
     private const string CHASING_SPEED_MULTIPLIER = "ChasingSpeedMultiplier";

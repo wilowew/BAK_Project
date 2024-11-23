@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class MagicAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject magicProjectilePrefab; 
+    [SerializeField] private GameObject magicProjectilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float projectileSpeed = 10f;
-    [SerializeField] private float fireCooldown = 0.5f; 
+    [SerializeField] public float fireCooldown = 0.5f;
 
-    private float lastFireTime; 
-    private int reload = 0;
+    public float lastFireTime;
+    public int reload = 0;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && Time.time >= lastFireTime + fireCooldown)
         {
             ShootMagic();
-            lastFireTime = Time.time; 
+            lastFireTime = Time.time;
         }
         if (reload == 5)
         {
