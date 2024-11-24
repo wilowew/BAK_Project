@@ -1,23 +1,23 @@
 using UnityEngine;
 using System.Collections;
 
-public class Block : MonoBehaviour 
+public class Block : MonoBehaviour
 {
     private Vector2 _originalPosition;
     private bool _isBouncing;
 
-    private void Start() 
+    private void Start()
     {
         _originalPosition = transform.position;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) 
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !_isBouncing) 
+        if (collision.gameObject.CompareTag("Player") && !_isBouncing)
         {
-            foreach (ContactPoint2D contact in collision.contacts) 
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                if (contact.normal.y > 0.5f) 
+                if (contact.normal.y > 0.5f)
                 {
                     _isBouncing = true;
                     StartCoroutine(Bounce());
@@ -27,13 +27,13 @@ public class Block : MonoBehaviour
         }
     }
 
-    private IEnumerator Bounce() 
+    private IEnumerator Bounce()
     {
         Vector2 _bouncePosition = (Vector2)transform.position + new Vector2(0, 0.5f);
         float _elapsedTime = 0f;
         float _bounceDuration = 0.2f;
 
-        while (_elapsedTime < _bounceDuration) 
+        while (_elapsedTime < _bounceDuration)
         {
             transform.position = Vector2.Lerp(transform.position, _bouncePosition, _elapsedTime / _bounceDuration);
             _elapsedTime += Time.deltaTime;
@@ -42,7 +42,7 @@ public class Block : MonoBehaviour
 
         _elapsedTime = 0f;
 
-        while (_elapsedTime < _bounceDuration) 
+        while (_elapsedTime < _bounceDuration)
         {
             transform.position = Vector2.Lerp(transform.position, _originalPosition, _elapsedTime / _bounceDuration);
             _elapsedTime += Time.deltaTime;
