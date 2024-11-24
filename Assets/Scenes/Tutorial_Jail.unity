@@ -21797,7 +21797,7 @@ Canvas:
   m_GameObject: {fileID: 587671078}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1742119502}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -21827,8 +21827,8 @@ RectTransform:
   - {fileID: 1584194132}
   - {fileID: 1416281797}
   - {fileID: 298738667}
-  - {fileID: 1504311451}
   - {fileID: 1489114060}
+  - {fileID: 1504311451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -22552,6 +22552,11 @@ PrefabInstance:
       propertyPath: swordVisual
       value: 
       objectReference: {fileID: 282976284}
+    - target: {fileID: 3457346422748131836, guid: a711f98d1d4b297448a729c89a0c04c7,
+        type: 3}
+      propertyPath: _initialPosition
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4230844814001929482, guid: a711f98d1d4b297448a729c89a0c04c7,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -67838,7 +67843,7 @@ MonoBehaviour:
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
+  m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
@@ -112891,7 +112896,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fe75ab8f9a52f534aaac7255489c9fa8, type: 3}
   - {fileID: 8300000, guid: 96c6106abfab8f848b01cda6fdc1ab9a, type: 3}
   - {fileID: 8300000, guid: 6a2aae596a394cc45b54edc3cb50da6e, type: 3}
-  volume: 0.5
+  volume: 0.361
 --- !u!4 &2079272972
 Transform:
   m_ObjectHideFlags: 0
@@ -113428,6 +113433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724536728318724050, guid: bd8ff5119b839184891421777ae82c7c,
+        type: 3}
+      propertyPath: _damageAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8840786026981613691, guid: bd8ff5119b839184891421777ae82c7c,
         type: 3}

@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CoinCounter : MonoBehaviour
 {
     public Text coinText;
     private int _coins;
+    private const string COIN_KEY = "Coins";
 
     private void Start()
     {
-        _coins = 0;
+        LoadCoins();
         coinText.text = _coins.ToString();
 
         EnemyEntity[] enemies = FindObjectsOfType<EnemyEntity>();
@@ -26,12 +28,19 @@ public class CoinCounter : MonoBehaviour
         }
 
         Player.GetInstance().AddCoins += Player_AddCoins;
+        Player.GetInstance().OnPlayerDeath += Player_OnPlayerDeath;
     }
 
     public void RestartCoinCounter()
     {
+        ResetCoins();
+    }
+
+    public void ResetCoins()
+    {
         _coins = 0;
         UpdateCoinText();
+        SaveCoins();
     }
 
     public int GetCoins()
@@ -59,6 +68,11 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
+    private void Player_OnPlayerDeath(object sender, EventArgs e)
+    {
+        ResetCoins();
+    }
+
     private void Player_AddCoins(object sender, EventArgs e)
     {
         _coins += Player.GetInstance().LastCollectedCoinAmount;
@@ -68,5 +82,21 @@ public class CoinCounter : MonoBehaviour
     private void UpdateCoinText()
     {
         coinText.text = _coins.ToString();
+    }
+
+    private void SaveCoins()
+    {
+        PlayerPrefs.SetInt(COIN_KEY, _coins);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCoins()
+    {
+        _coins = PlayerPrefs.GetInt(COIN_KEY, 0); 
+    }
+
+    private void OnDestroy()
+    {
+        SaveCoins();
     }
 }
