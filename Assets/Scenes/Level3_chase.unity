@@ -71650,7 +71650,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 91869307}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -71783,9 +71783,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 91869307}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: PauseGame
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -72692,6 +72692,89 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2077084335}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &807924694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.880391
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22164702
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344571843215910127, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424271868276207760, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_Name
+      value: TrashMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497835712975048105, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: _attackRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497835712975048105, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: _chasingSpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189377328208578079, guid: b1496b016f80dfb4383ddb4cbf710b99,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b1496b016f80dfb4383ddb4cbf710b99, type: 3}
 --- !u!1001 &824117651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87019,7 +87102,7 @@ Canvas:
   m_GameObject: {fileID: 1239603277}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1152964895}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -87048,8 +87131,8 @@ RectTransform:
   - {fileID: 2087245405}
   - {fileID: 1801595780}
   - {fileID: 698330185}
-  - {fileID: 14293085}
   - {fileID: 679310436}
+  - {fileID: 14293085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -88745,7 +88828,7 @@ GameObject:
   - component: {fileID: 1625329281}
   - component: {fileID: 1625329280}
   m_Layer: 5
-  m_Name: ResumeText
+  m_Name: QuickText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90724,7 +90807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7dfd6308f95244b9e74974da84fa2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movingSpeed: 7
+  _movingSpeed: 9
   _maxHealth: 2000
   _healthRegenRate: 1.2
   _damageRecoveryTime: 0.5
@@ -107707,7 +107790,7 @@ GameObject:
   - component: {fileID: 2094297291}
   - component: {fileID: 2094297290}
   m_Layer: 5
-  m_Name: QuickText
+  m_Name: ResumeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109129,3 +109212,4 @@ SceneRoots:
   - {fileID: 1832276429}
   - {fileID: 1690728858}
   - {fileID: 523585014}
+  - {fileID: 807924694}

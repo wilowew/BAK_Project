@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2293260248804924747}
   - component: {fileID: 4394342107667396020}
   - component: {fileID: 1747344999042904279}
+  - component: {fileID: 5277149717279408902}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: Item
@@ -103,6 +104,25 @@ MonoBehaviour:
   itemSprite: {fileID: 4394342107667396020}
   pickupEffect: {fileID: 4278773500580750643}
   itemType: 0
+--- !u!114 &5277149717279408902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548662281825339528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e15e57a45df9c4ea0052fcaf06088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1152975728966073900, guid: 1ef86c4a333506d4795d2037f9a845f9,
+    type: 3}
+  icon: {fileID: 21300000, guid: 14b291a6cfdecfb46b262df79eb55af5, type: 3}
+  text: "\u0412\u044B\u043F\u0438\u0442\u044C:"
+  radius: 2
+  canvas: {fileID: 3129480069743016858, guid: dd37d68055b5f4844b48631458543ca3, type: 3}
+  player: {fileID: 6556411077274161042, guid: 63ea06b092118f64a98ba7cb662d3b31, type: 3}
 --- !u!1 &7529702413955722147
 GameObject:
   m_ObjectHideFlags: 0

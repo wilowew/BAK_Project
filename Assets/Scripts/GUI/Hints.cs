@@ -3,21 +3,29 @@ using UnityEngine.UI;
 
 public class Hints : MonoBehaviour
 {
-    public GameObject tooltipPrefab; 
+    public GameObject tooltipPrefab;
     public Sprite icon;
     public string text;
     public float radius;
 
-    [SerializeField]
-    private Canvas canvas;
     private GameObject tooltipInstance;
     private Image iconImage;
     private Text tooltipText;
-
-    public GameObject player;
+    private GameObject player;
 
     private void Start()
     {
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            GameObject canvasGameObject = new GameObject("Canvas");
+            canvas = canvasGameObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvasGameObject.AddComponent<CanvasScaler>();
+            canvasGameObject.AddComponent<GraphicRaycaster>();
+        }
+
+        player = GameObject.FindGameObjectWithTag("Player");
         tooltipInstance = Instantiate(tooltipPrefab, canvas.transform);
         tooltipInstance.SetActive(false);
 
@@ -30,6 +38,8 @@ public class Hints : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) return;
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
         if (distance <= radius)
@@ -50,3 +60,4 @@ public class Hints : MonoBehaviour
         }
     }
 }
+
