@@ -92,8 +92,6 @@ public class DeathManager : MonoBehaviour
     private void HandlePlayerDeath(object sender, System.EventArgs e)
     {
         ShowDeathPanel();
-        int collectedCoins = FindObjectOfType<CoinCounter>().GetCoins();
-        deathScoreText.text = $"Score: {collectedCoins}";
         StartCoroutine(RestartSceneAutomatically());
     }
 
