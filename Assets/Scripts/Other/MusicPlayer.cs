@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,15 +17,11 @@ public class MusicPlayer : MonoBehaviour
     {
         if (_tracks == null || _tracks.Count == 0)
         {
-            Debug.LogWarning("Не добавлены треки в список.");
+            Debug.LogWarning("РўСЂРµРєРё РЅРµ СѓРєР°Р·Р°РЅС‹.");
             return;
         }
 
-        _audioSource = gameObject.AddComponent<AudioSource>();
-        _audioSource.loop = false;
-        _audioSource.playOnAwake = false;
-        _audioSource.volume = volume;
-
+        Initialize();
         PlayCurrentTrack();
     }
 
@@ -63,6 +59,22 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
+    public void Initialize()
+    {
+        if (_audioSource == null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.loop = false;
+            _audioSource.playOnAwake = false;
+            _audioSource.volume = volume;
+        }
+
+        if (_tracks.Count > 0 && !_audioSource.isPlaying)
+        {
+            PlayCurrentTrack();
+        }
+    }
+
     private IEnumerator PlayTrackWithFade(AudioClip clip)
     {
         _isTransitioning = true;
@@ -70,7 +82,7 @@ public class MusicPlayer : MonoBehaviour
         _audioSource.clip = clip;
         _audioSource.Play();
 
-        float _fadeTime = 1f; 
+        float _fadeTime = 1f;
         float _startVolume = 0f;
         float _currentTime = 0f;
 
@@ -115,8 +127,8 @@ public class MusicPlayer : MonoBehaviour
 
     public void LoadBossMusic(AudioClip bossMusicClip)
     {
-        _bossMusic = bossMusicClip; 
-        Debug.Log("Boss music loaded."); 
+        _bossMusic = bossMusicClip;
+        Debug.Log("Boss music loaded.");
     }
 
     IEnumerator LoadAudioClipAsync(AudioClip clipToLoad)

@@ -6,10 +6,15 @@ public class CameraTrigger : MonoBehaviour
     [SerializeField] private Vector2 targetPosition; 
     [SerializeField] private float transitionSpeed = 2.0f; 
     [SerializeField] private float returnDelay = 2.0f; 
+
     [Header("Player Settings")]
     [SerializeField] private GameObject player;
+
     private MonoBehaviour cameraFollowScript;
+    private Player playerScript;
+
     private bool isReturning = false;
+    private bool atPosition = false;
 
     private void Awake()
     {
@@ -42,16 +47,33 @@ public class CameraTrigger : MonoBehaviour
                 cameraFollowScript.enabled = false;
             }
 
+            targetCamera.orthographicSize = 9;
             StopAllCoroutines();
             Debug.Log("Starting camera movement...");
+            if (player != null)
+            {
+                playerScript = player.GetComponent<Player>();
+                if (playerScript == null)
+                {
+                    Debug.LogWarning("Player script not found on the player object.");
+                }
+                playerScript.IncreaseSpeed(0f, returnDelay);
+            }
             Vector3 targetPos = new Vector3(targetPosition.x, targetPosition.y, targetCamera.transform.position.z);
             StartCoroutine(MoveCameraToPosition(targetPos, () =>
             {
+                atPosition = true;
                 Debug.Log("Camera reached target position.");
                 StartCoroutine(ReturnCameraAfterDelay());
             }));
         }
     }
+
+    public bool AtPosition()
+    {
+        return atPosition;
+    }
+
     private System.Collections.IEnumerator MoveCameraToPosition(Vector3 position, System.Action onComplete = null)
     {
         while ((targetCamera.transform.position - position).sqrMagnitude > 0.001f) 
@@ -77,7 +99,7 @@ public class CameraTrigger : MonoBehaviour
         Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 2, targetCamera.transform.position.z);
         while ((targetCamera.transform.position - playerPosition).sqrMagnitude > 0.001f) 
         {
-            targetCamera.transform.position = Vector3.MoveTowards(targetCamera.transform.position, playerPosition, transitionSpeed * Time.deltaTime);
+            targetCamera.transform.position = Vector3.MoveTowards(targetCamera.transform.position, playerPosition, transitionSpeed * 2 * Time.deltaTime);
             playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 2, targetCamera.transform.position.z);
             yield return null;
         }
