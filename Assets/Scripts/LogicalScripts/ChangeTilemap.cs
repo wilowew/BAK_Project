@@ -14,11 +14,11 @@ public class TilemapLayerSwitch : MonoBehaviour
     [SerializeField] private GameObject additionalBlackScreen;
     [SerializeField] private GameObject additionalCamera;
 
-    private CameraTrigger cameraScript; // Ссылка на скрипт движения камеры
+    private CameraTrigger cameraScript;
 
     private void Awake()
     {
-        // Проверка, есть ли в объекте additionalCamera компонент CameraTrigger
+
         if (additionalCamera != null)
         {
             cameraScript = additionalCamera.GetComponent<CameraTrigger>();
@@ -33,14 +33,12 @@ public class TilemapLayerSwitch : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            // Если есть скрипт камеры и камера еще не достигла нужной позиции
             if (cameraScript != null)
             {
                 StartCoroutine(WaitForCameraToReachPosition());
             }
             else
             {
-                // Если скрипт камеры отсутствует, выполняем смену слоев сразу
                 ChangeLayers();
             }
         }
@@ -48,13 +46,11 @@ public class TilemapLayerSwitch : MonoBehaviour
 
     private IEnumerator WaitForCameraToReachPosition()
     {
-        // Ждем, пока камера не достигнет нужной позиции
         while (cameraScript != null && !cameraScript.AtPosition())
         {
-            yield return null; // Ожидание следующего кадра
+            yield return null;
         }
 
-        // Камера достигла нужной позиции, выполняем смену слоев
         ChangeLayers();
     }
 

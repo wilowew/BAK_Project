@@ -21,7 +21,7 @@ public class MusicSwitcher : MonoBehaviour
         if (newMusicPlayer != null)
         {
             Debug.Log($"Enabling new MusicPlayer: {newMusicPlayer.name}");
-            newMusicPlayer.Initialize(); // Убедимся, что AudioSource настроен
+            newMusicPlayer.Initialize(); 
             newMusicPlayer.ResumeMusic();
         }
     }

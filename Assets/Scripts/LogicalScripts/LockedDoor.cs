@@ -41,7 +41,11 @@ public class Door : MonoBehaviour
 
     public void UnlockDoor()
     {
-        isLocked = false;
+        if (isLocked) 
+        {
+            isLocked = false;
+            OpenDoor();
+        }
     }
 
     public int CheckLockPower()
@@ -83,6 +87,7 @@ public class Door : MonoBehaviour
         if (navMeshObstacle != null)
         {
             navMeshObstacle.carving = false;
+            navMeshObstacle.enabled = false;
         }
 
         UpdateEnemyPaths();
@@ -105,6 +110,7 @@ public class Door : MonoBehaviour
             if (navMeshObstacle != null)
             {
                 navMeshObstacle.carving = true;
+                navMeshObstacle.enabled = false;
             }
 
             UpdateEnemyPaths();
@@ -124,11 +130,17 @@ public class Door : MonoBehaviour
 
     private void UpdateEnemyPaths()
     {
-        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>(); 
-        foreach (var enemy in enemies)
-        {
-            enemy.UpdatePath(); 
-        }
+        StartCoroutine(DelayedPathUpdate());
     }
 
+    private IEnumerator DelayedPathUpdate()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
+        foreach (var enemy in enemies)
+        {
+            enemy.UpdatePath();
+        }
+    }
 }
