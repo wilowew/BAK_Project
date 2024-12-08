@@ -44,7 +44,6 @@ public class Door : MonoBehaviour
         if (isLocked) 
         {
             isLocked = false;
-            OpenDoor();
         }
     }
 

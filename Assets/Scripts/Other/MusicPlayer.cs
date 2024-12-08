@@ -59,6 +59,20 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
+    public float GetTrackTime()
+    {
+        if (_audioSource != null)
+        {
+            return _audioSource.time;
+        }
+        return 0f;
+    }
+
+    public int GetCurrentTrackIndex()
+    {
+        return _currentTrackIndex;
+    }
+
     public void Initialize()
     {
         if (_audioSource == null)
@@ -138,5 +152,19 @@ public class MusicPlayer : MonoBehaviour
         yield return op;
         _bossMusic = op.asset as AudioClip;
         Debug.Log("Boss music loaded asynchronously.");
+    }
+
+    public int CurrentTrackIndex => _currentTrackIndex;
+
+    public float CurrentTrackTime
+    {
+        get
+        {
+            if (_audioSource != null)
+            {
+                return _audioSource.time;
+            }
+            return 0f;
+        }
     }
 }
