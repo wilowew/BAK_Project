@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
             if (!_isInvincible && !_enemyInvincible) 
             {
                 ShrinkPlayer();
-                SceneManager.LoadScene(5); 
+                SceneManager.LoadScene(7); 
             }
         }
         else 
