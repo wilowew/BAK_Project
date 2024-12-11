@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class CoinCounter : MonoBehaviour
 {
     public Text coinText;
+    public Text finalScoreText;
     private int _coins;
     private const string COIN_KEY = "Coins";
 
@@ -17,6 +18,7 @@ public class CoinCounter : MonoBehaviour
 
         EnemyEntity[] enemies = FindObjectsOfType<EnemyEntity>();
         BossEntity[] enemies1 = FindObjectsOfType<BossEntity>();
+
         foreach (EnemyEntity enemy in enemies)
         {
             enemy.OnDeath += EnemyEntity_OnDeath;
@@ -29,6 +31,38 @@ public class CoinCounter : MonoBehaviour
 
         Player.GetInstance().AddCoins += Player_AddCoins;
         Player.GetInstance().OnPlayerDeath += Player_OnPlayerDeath;
+
+        if (finalScoreText != null)
+        {
+            finalScoreText.enabled = false;
+        }
+    }
+
+    public void HandleCheckpointReached()
+    {
+        Debug.Log("Переход в финальную сцену на основе очков!");
+
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Ваши финальные очки: " + _coins;
+            finalScoreText.enabled = true;
+        }
+
+        StartCoroutine(TransitionAfterDelay(5.0f));
+    }
+
+    private IEnumerator TransitionAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        if (_coins > 1000)
+        {
+            SceneManager.LoadScene("PositiveEndingScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("NegativeEndingScene");
+        }
     }
 
     public void RestartCoinCounter()
@@ -92,7 +126,7 @@ public class CoinCounter : MonoBehaviour
 
     private void LoadCoins()
     {
-        _coins = PlayerPrefs.GetInt(COIN_KEY, 0); 
+        _coins = PlayerPrefs.GetInt(COIN_KEY, 0);
     }
 
     private void OnDestroy()
@@ -100,3 +134,4 @@ public class CoinCounter : MonoBehaviour
         SaveCoins();
     }
 }
+
