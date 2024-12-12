@@ -7,9 +7,20 @@ public class MusicGameSpeedController : MonoBehaviour
     [SerializeField] private List<SpeedBoostInterval> speedBoostIntervals;
 
     private int currentTrackIndex = -1;
+    private float originalTimeScale = 1f;
 
     private void Update()
     {
+        if (PauseMenu._isPaused || IsPlayerDead())
+        {
+            if (Time.timeScale != 0f)
+            {
+                originalTimeScale = Time.timeScale;
+                Time.timeScale = 0f;
+            }
+            return;
+        }
+
         if (musicPlayer == null || speedBoostIntervals == null || speedBoostIntervals.Count == 0)
             return;
 
@@ -31,7 +42,11 @@ public class MusicGameSpeedController : MonoBehaviour
             }
         }
 
-        Time.timeScale = 1f;
+        Time.timeScale = originalTimeScale;
+    }
+    private bool IsPlayerDead()
+    {
+        return DeathManager.Instance != null && DeathManager.Instance.GetDeathState();
     }
 }
 

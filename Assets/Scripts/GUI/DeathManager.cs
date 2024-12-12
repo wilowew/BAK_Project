@@ -89,6 +89,11 @@ public class DeathManager : MonoBehaviour
         }
     }
 
+    public bool GetDeathState()
+    {
+        return deathPanel != null && deathPanel.activeSelf;
+    }
+
     private void HandlePlayerDeath(object sender, System.EventArgs e)
     {
         ShowDeathPanel();
