@@ -40,6 +40,10 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float damageTimerThreshold = 5f;
     [SerializeField] private float knockbackForce = 7f;
 
+    [Header("Music Players")]
+    [SerializeField] private MusicPlayer activeMusicPlayer; // Текущий активный MusicPlayer
+    [SerializeField] private MusicPlayer MusicPlayerAfterDeath;
+
     private NavMeshAgent navMeshAgent;
     private State _currentState;
     private float roamingTime;
@@ -127,8 +131,30 @@ public class BossAI : MonoBehaviour
         return navMeshAgent.speed / _roamingSpeed;
     }
 
+    private void DeathChangeMusic()
+    {
+        if (activeMusicPlayer != null)
+        {
+            Debug.Log($"Disabling current MusicPlayer: {activeMusicPlayer.name}");
+            activeMusicPlayer.PauseMusic();
+            activeMusicPlayer.enabled = false; // Отключаем компонент
+            activeMusicPlayer.gameObject.SetActive(false); // Отключаем объект
+        }
+
+        // Включаем новый MusicPlayer
+        if (MusicPlayerAfterDeath != null)
+        {
+            MusicPlayerAfterDeath.gameObject.SetActive(true); // Включаем объект нового MusicPlayer
+            MusicPlayerAfterDeath.enabled = true; // Включаем компонент MusicPlayer
+            Debug.Log($"Enabling new MusicPlayer: {MusicPlayerAfterDeath.name}");
+            MusicPlayerAfterDeath.Initialize(); // Инициализируем MusicPlayer
+            MusicPlayerAfterDeath.ResumeMusic(); // Возобновляем воспроизведение
+        }
+    }
+
     public void SetDeathState()
     {
+        DeathChangeMusic();
         navMeshAgent.ResetPath();
         _currentState = State.Death;
     }

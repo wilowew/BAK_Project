@@ -55896,6 +55896,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1031270084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &984767791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984767792}
+  - component: {fileID: 984767793}
+  m_Layer: 0
+  m_Name: MusicBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984767792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984767791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1766635973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &984767793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984767791}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3743eff66e521041b50d2fd00354dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracks:
+  - {fileID: 8300000, guid: c7afc985e3c08e14088645fbd0fa6067, type: 3}
+  volume: 0.175
 --- !u!1001 &988176956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66782,6 +66829,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
+      propertyPath: activeMusicPlayer
+      value: 
+      objectReference: {fileID: 984767793}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
       propertyPath: _attackingDistance
       value: 7
       objectReference: {fileID: 0}
@@ -66795,6 +66847,11 @@ PrefabInstance:
       propertyPath: fireBallSpawnPoint
       value: 
       objectReference: {fileID: 770869688}
+    - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
+        type: 3}
+      propertyPath: MusicPlayerAfterDeath
+      value: 
+      objectReference: {fileID: 2079272971}
     - target: {fileID: 3251703907080123973, guid: 50a73e202315cd14db2e06f39d520e9c,
         type: 3}
       propertyPath: fireBallAttackDistance
@@ -69566,6 +69623,7 @@ GameObject:
   - component: {fileID: 1658627320}
   - component: {fileID: 1658627323}
   - component: {fileID: 1658627322}
+  - component: {fileID: 1658627324}
   m_Layer: 0
   m_Name: bosstrigger
   m_TagString: Untagged
@@ -69699,6 +69757,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.51, y: 3.41}
   m_EdgeRadius: 0
+--- !u!114 &1658627324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658627319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8393446595f5844a2ca01ee3e0e4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeMusicPlayer: {fileID: 2079272971}
+  newMusicPlayer: {fileID: 984767793}
 --- !u!1001 &1662378645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102919,6 +102991,7 @@ Transform:
   - {fileID: 871138505}
   - {fileID: 1834326115}
   - {fileID: 1459536546}
+  - {fileID: 984767792}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1767966527 stripped
@@ -115123,6 +115196,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672838020041757142, guid: 63ea06b092118f64a98ba7cb662d3b31,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811970429636014440, guid: 63ea06b092118f64a98ba7cb662d3b31,
+        type: 3}
+      propertyPath: _damageAmount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
