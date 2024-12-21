@@ -37,12 +37,17 @@ public class PressurePlateBoss : MonoBehaviour
         checkpointPosition.x -= 10f;
 
         DeathManager.Instance.SetCurrentCheckpoint(checkpointPosition);
-
         PlayerPrefs.SetFloat("CheckpointX", checkpointPosition.x);
         PlayerPrefs.SetFloat("CheckpointY", checkpointPosition.y);
         PlayerPrefs.SetFloat("CheckpointZ", checkpointPosition.z);
 
         PlayerPrefs.SetInt("CheckpointSet", 1);
+
+        CoinCounter coinCounter = FindObjectOfType<CoinCounter>();
+        if (coinCounter != null)
+        {
+            coinCounter.SaveCoinsToCheckpoint();
+        }
 
         PlayerPrefs.Save();
     }

@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,27 +6,36 @@ using UnityEngine.SceneManagement;
 
 public class CoinCounter : MonoBehaviour
 {
-    public Text coinText;
-    public Text finalScoreText;
-    private int _coins;
-    private const string COIN_KEY = "Coins";
+    public Text coinText; 
+    public Text finalScoreText; 
+    private int _coins; 
+    private const string COIN_KEY = "Coins"; 
+    private const string INITIAL_COIN_KEY = "InitialCoins"; 
+    private const string CHECKPOINT_COIN_KEY = "CheckpointCoins";
+    private string currentSceneName;
 
     private void Start()
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
+
+        ResetCheckpointData();
+
+        SetInitialCoins();
+
         LoadCoins();
         coinText.text = _coins.ToString();
 
         EnemyEntity[] enemies = FindObjectsOfType<EnemyEntity>();
-        BossEntity[] enemies1 = FindObjectsOfType<BossEntity>();
+        BossEntity[] bosses = FindObjectsOfType<BossEntity>();
 
         foreach (EnemyEntity enemy in enemies)
         {
             enemy.OnDeath += EnemyEntity_OnDeath;
         }
 
-        foreach (BossEntity enemy in enemies1)
+        foreach (BossEntity boss in bosses)
         {
-            enemy.OnDeath += BossEntity_OnDeath;
+            boss.OnDeath += BossEntity_OnDeath; 
         }
 
         Player.GetInstance().AddCoins += Player_AddCoins;
@@ -38,13 +47,65 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
+    private void SetInitialCoins()
+    {
+        if (PlayerPrefs.HasKey(COIN_KEY)) 
+        {
+            _coins = PlayerPrefs.GetInt(COIN_KEY);
+        }
+        else
+        {
+            _coins = 0;
+        }
+    }
+
+    private void ResetCheckpointData()
+    {
+        PlayerPrefs.DeleteKey(CHECKPOINT_COIN_KEY); 
+        PlayerPrefs.Save();
+    }
+
+    public void SaveCoinsToCheckpoint()
+    {
+        PlayerPrefs.SetInt(CHECKPOINT_COIN_KEY, _coins); 
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCoinsFromCheckpoint()
+    {
+        if (PlayerPrefs.HasKey(CHECKPOINT_COIN_KEY))
+        {
+            _coins = PlayerPrefs.GetInt(CHECKPOINT_COIN_KEY); 
+        }
+        else
+        {
+            LoadInitialCoins();
+        }
+        UpdateCoinText();
+    }
+
+    private void LoadInitialCoins()
+    {
+        if (PlayerPrefs.HasKey(COIN_KEY)) 
+        {
+            _coins = PlayerPrefs.GetInt(COIN_KEY);
+        }
+        else
+        {
+            ResetCoins();
+        }
+    }
+
+    private void Player_OnPlayerDeath(object sender, EventArgs e)
+    {
+        LoadCoinsFromCheckpoint();
+    }
+
     public void HandleCheckpointReached()
     {
-        Debug.Log("Переход в финальную сцену на основе очков!");
-
         if (finalScoreText != null)
         {
-            finalScoreText.text = "Ваши финальные очки: " + _coins;
+            finalScoreText.text = "Итоговое количество очков: " + _coins;
             finalScoreText.enabled = true;
         }
 
@@ -65,21 +126,25 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
-    public void RestartCoinCounter()
+    private void UpdateCoinText()
     {
-        ResetCoins();
-    }
-
-    public void ResetCoins()
-    {
-        _coins = 0;
-        UpdateCoinText();
-        SaveCoins();
+        coinText.text = _coins.ToString();
     }
 
     public int GetCoins()
     {
         return _coins;
+    }
+
+    private void SaveCoins()
+    {
+        PlayerPrefs.SetInt(COIN_KEY, _coins); 
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCoins()
+    {
+        _coins = PlayerPrefs.GetInt(COIN_KEY, 0); 
     }
 
     private void EnemyEntity_OnDeath(object sender, EventArgs e)
@@ -94,17 +159,12 @@ public class CoinCounter : MonoBehaviour
 
     private void BossEntity_OnDeath(object sender, EventArgs e)
     {
-        if (sender is BossEntity enemy)
+        if (sender is BossEntity boss)
         {
-            EnemySO enemySO = enemy.GetComponent<BossEntity>()._enemySO;
+            EnemySO enemySO = boss.GetComponent<BossEntity>()._enemySO;
             _coins += enemySO.enemyDropScore;
             UpdateCoinText();
         }
-    }
-
-    private void Player_OnPlayerDeath(object sender, EventArgs e)
-    {
-        ResetCoins();
     }
 
     private void Player_AddCoins(object sender, EventArgs e)
@@ -113,25 +173,33 @@ public class CoinCounter : MonoBehaviour
         UpdateCoinText();
     }
 
-    private void UpdateCoinText()
+    public void RestartCoinCounter()
     {
-        coinText.text = _coins.ToString();
+        ResetCoins();
     }
 
-    private void SaveCoins()
+    public void ResetCoins()
     {
-        PlayerPrefs.SetInt(COIN_KEY, _coins);
+        _coins = 0;
+        UpdateCoinText();
+        PlayerPrefs.SetInt(COIN_KEY, _coins); 
         PlayerPrefs.Save();
     }
 
-    private void LoadCoins()
+    private void SaveCoinsToGlobalKey()
     {
-        _coins = PlayerPrefs.GetInt(COIN_KEY, 0);
+        PlayerPrefs.SetInt(COIN_KEY, _coins); 
+        PlayerPrefs.Save();
     }
 
     private void OnDestroy()
     {
-        SaveCoins();
+        SaveCoinsToGlobalKey(); 
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveCoinsToGlobalKey(); 
     }
 }
 

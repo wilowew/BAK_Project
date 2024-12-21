@@ -26,8 +26,12 @@ public class Checkpoint3lvl : MonoBehaviour
 
         PlayerPrefs.SetInt("CheckpointSet", 1);
 
+        CoinCounter coinCounter = FindObjectOfType<CoinCounter>();
+        if (coinCounter != null)
+        {
+            coinCounter.SaveCoinsToCheckpoint();
+        }
+
         PlayerPrefs.Save();
     }
 }
-
-
