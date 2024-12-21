@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private float pickupRadius = 2f;
     [SerializeField] private SpriteRenderer itemSprite;
     [SerializeField] private ParticleSystem pickupEffect;
+    [SerializeField] private string nextSceneName;
 
     public enum ItemType
     {
         HealthPotion,
-        SpeedPotion
+        SpeedPotion,
+        Teleport
     }
 
     public ItemType itemType;
@@ -41,8 +44,19 @@ public class ItemPickup : MonoBehaviour
             case ItemType.SpeedPotion:
                 Player.Instance.IncreaseSpeed(1.5f, 5f);
                 break;
+            case ItemType.Teleport:
+                TeleportToNextScene();
+                break;
         }
 
         Destroy(gameObject);
+    }
+
+    private void TeleportToNextScene()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }

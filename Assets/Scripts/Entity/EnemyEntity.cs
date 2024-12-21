@@ -13,6 +13,9 @@ public class EnemyEntity : MonoBehaviour
     public event EventHandler OnTakeHit;
     public event EventHandler OnDeath;
 
+    public int CurrentHealth => _currentHealth; 
+    public int MaxHealth => _enemySO.enemyHealth; 
+
     private int _currentHealth;
 
     private PolygonCollider2D _polygonCollider2D;

@@ -131,12 +131,6 @@ public class BossAI : MonoBehaviour
     {
         navMeshAgent.ResetPath();
         _currentState = State.Death;
-
-        PressurePlateBoss plate = FindObjectOfType<PressurePlateBoss>();
-        if (plate != null)
-        {
-            plate.StopMusic();
-        }
     }
 
     public void UpdatePath()
