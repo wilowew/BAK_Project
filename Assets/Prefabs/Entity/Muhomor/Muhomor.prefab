@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 7377031122812134288}
   - component: {fileID: 4554622503161557593}
   - component: {fileID: 7467527858506803458}
+  - component: {fileID: 1354269940133433097}
+  - component: {fileID: 5756974876699797480}
+  - component: {fileID: 4801886212863076747}
   m_Layer: 0
   m_Name: Muhomor
   m_TagString: Enemy
@@ -74,17 +77,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 3939916990055252849}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.09
-  m_Speed: 10
+  m_Radius: 0.51
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 1
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.02
-  m_BaseOffset: 0.08
+  m_Height: 0.33
+  m_BaseOffset: -0.41
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2576354766363210239
@@ -100,14 +103,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 1
-  _roamingDistanceMax: 100
+  _roamingDistanceMax: 7
   _roamingDistanceMin: 3
   _roamingTimerMax: 2
   _isChasingEnemy: 1
-  _chasingDistance: 10
-  _chasingSpeedMultiplier: 3
+  _chasingDistance: 30
+  _chasingSpeedMultiplier: 6
   _isAttackingEnemy: 1
-  _attackingDistance: 4
+  _attackingDistance: 6
   _attackRate: 3
 --- !u!114 &7377031122812134288
 MonoBehaviour:
@@ -121,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc0f5586fc6e1148b96a218a01c3d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySO: {fileID: 11400000, guid: 49515f76db77f004684fd2128fda8d07, type: 2}
+  _enemySO: {fileID: 11400000, guid: 07262af298bc8f44dbf79c4f1191e986, type: 2}
 --- !u!60 &4554622503161557593
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -166,12 +169,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.011956096, y: 0.12643605}
-      - {x: 0.012639351, y: 0.10522187}
-      - {x: 0.00045001507, y: -0.21295537}
-      - {x: 0.41839328, y: -0.21231608}
-      - {x: 0.43277967, y: -0.042913422}
-      - {x: 0.4071735, y: 0.12844718}
+    - - {x: 0.5373963, y: 1.6588835}
+      - {x: -0.54824305, y: 1.6563524}
+      - {x: -1.0160385, y: 1.273834}
+      - {x: -1.0161761, y: 0.32249245}
+      - {x: -0.7710899, y: -0.3422618}
+      - {x: 0.67027974, y: -0.33776343}
+      - {x: 0.945321, y: 0.30014792}
+      - {x: 0.9370972, y: 1.2638601}
   m_UseDelaunayMesh: 0
 --- !u!61 &7467527858506803458
 BoxCollider2D:
@@ -205,7 +210,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038828813, y: -0.030310437}
+  m_Offset: {x: -0.012420356, y: 0.7964376}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -216,8 +221,58 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15547335, y: 0.18609989}
+  m_Size: {x: 1.0940651, y: 1.3875096}
   m_EdgeRadius: 0
+--- !u!114 &1354269940133433097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939916990055252849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5210057721f321e48b3d26bc4e9ac8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenerationAmount: 10
+  regenerationInterval: 0
+--- !u!114 &5756974876699797480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939916990055252849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4917d5c5148c2d349a6140b64a1b6851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygonCollider: {fileID: 4554622503161557593}
+  toggleFrequency: 1
+--- !u!114 &4801886212863076747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939916990055252849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5c0b06070c9944ba225df883417486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab1: {fileID: 8877403163319355994, guid: 7a5ebe2e0c4bee24d9b260159f36506e,
+    type: 3}
+  enemyPrefab2: {fileID: 424271868276207760, guid: 73159f149c7044b45b88f4c7fdce32b7,
+    type: 3}
+  enemyPrefab3: {fileID: 424271868276207760, guid: 5b9aec20f5d4f624da1f4154200e4bca,
+    type: 3}
+  spawnRadius: 5
+  spawnInterval: 40
+  enemiesPerSpawn: 4
+  firstSpawnDelay: 10
 --- !u!1 &6424842895916266196
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +284,6 @@ GameObject:
   - component: {fileID: 4352294307513639851}
   - component: {fileID: 7599579867336490760}
   - component: {fileID: 936864555644960809}
-  - component: {fileID: 5905639215486163930}
   m_Layer: 0
   m_Name: MuhomorVisual
   m_TagString: Untagged
@@ -246,7 +300,7 @@ Transform:
   m_GameObject: {fileID: 6424842895916266196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,17 +379,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5905639215486163930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6424842895916266196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01576f940dcb1443b8b824c14e99ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyAI: {fileID: 2576354766363210239}
-  _enemyEntity: {fileID: 7377031122812134288}
