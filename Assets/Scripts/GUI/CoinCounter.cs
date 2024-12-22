@@ -47,6 +47,25 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I)) 
+        {
+            SetCoins(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            SetCoins(3333);
+        }
+    }
+
+    private void SetCoins(int amount)
+    {
+        _coins = amount; 
+        UpdateCoinText(); 
+        SaveCoins(); 
+    }
+
     private void SetInitialCoins()
     {
         if (PlayerPrefs.HasKey(COIN_KEY)) 
@@ -116,7 +135,7 @@ public class CoinCounter : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delay);
 
-        if (_coins > 1000)
+        if (_coins > 3000)
         {
             SceneManager.LoadScene("PositiveEndingScene");
         }

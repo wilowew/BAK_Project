@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] public int _maxHealth = 20;
     [SerializeField] private float _healthRegenRate = 1f;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
+    [SerializeField] private KeyCode _teleportKey1 = KeyCode.Y;
     [SerializeField] private KeyCode _teleportKey = KeyCode.T;
 
     private Rigidbody2D _rb;
@@ -68,6 +69,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(_teleportKey))
         {
             transform.position = new Vector3(240f, -14f, 0f);
+        }
+
+        if (Input.GetKeyDown(_teleportKey1))
+        {
+            transform.position = new Vector3(-23f, 54f, 0f);
         }
 
         if (Time.time - _lastRegenTime >= 10f / _healthRegenRate)
