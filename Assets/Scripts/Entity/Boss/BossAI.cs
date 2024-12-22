@@ -40,8 +40,11 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float damageTimerThreshold = 5f;
     [SerializeField] private float knockbackForce = 7f;
 
+    private List<Vector3> lastTeleportPositions = new List<Vector3>();
+    private int maxTeleportHistory = 1; 
+
     [Header("Music Players")]
-    [SerializeField] private MusicPlayer activeMusicPlayer; // Текущий активный MusicPlayer
+    [SerializeField] private MusicPlayer activeMusicPlayer; 
     [SerializeField] private MusicPlayer MusicPlayerAfterDeath;
 
     private NavMeshAgent navMeshAgent;
@@ -137,18 +140,17 @@ public class BossAI : MonoBehaviour
         {
             Debug.Log($"Disabling current MusicPlayer: {activeMusicPlayer.name}");
             activeMusicPlayer.PauseMusic();
-            activeMusicPlayer.enabled = false; // Отключаем компонент
-            activeMusicPlayer.gameObject.SetActive(false); // Отключаем объект
+            activeMusicPlayer.enabled = false; 
+            activeMusicPlayer.gameObject.SetActive(false); 
         }
 
-        // Включаем новый MusicPlayer
         if (MusicPlayerAfterDeath != null)
         {
-            MusicPlayerAfterDeath.gameObject.SetActive(true); // Включаем объект нового MusicPlayer
-            MusicPlayerAfterDeath.enabled = true; // Включаем компонент MusicPlayer
+            MusicPlayerAfterDeath.gameObject.SetActive(true); 
+            MusicPlayerAfterDeath.enabled = true;
             Debug.Log($"Enabling new MusicPlayer: {MusicPlayerAfterDeath.name}");
-            MusicPlayerAfterDeath.Initialize(); // Инициализируем MusicPlayer
-            MusicPlayerAfterDeath.ResumeMusic(); // Возобновляем воспроизведение
+            MusicPlayerAfterDeath.Initialize(); 
+            MusicPlayerAfterDeath.ResumeMusic();
         }
     }
 
@@ -274,10 +276,24 @@ public class BossAI : MonoBehaviour
             new Vector3(283f, -27f, 0f),
         };
 
-        int randomIndex = UnityEngine.Random.Range(0, teleportCoordinates.Count);
-        _teleportTarget = teleportCoordinates[randomIndex];
+        Vector3 chosenTarget;
 
+        do
+        {
+            int randomIndex = UnityEngine.Random.Range(0, teleportCoordinates.Count);
+            chosenTarget = teleportCoordinates[randomIndex];
+        } while (lastTeleportPositions.Contains(chosenTarget));
+
+        lastTeleportPositions.Add(chosenTarget);
+
+        if (lastTeleportPositions.Count > maxTeleportHistory)
+        {
+            lastTeleportPositions.RemoveAt(0);
+        }
+
+        _teleportTarget = chosenTarget;
         transform.position = _teleportTarget;
+
         _nextTeleportTime = Time.time + _teleportCooldown;
     }
 
