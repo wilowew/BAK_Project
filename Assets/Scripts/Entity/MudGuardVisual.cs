@@ -26,16 +26,16 @@ public class MudGuardVisual : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _enemyAI.GetRoamingAnimationSpeed());
-    }
-
     private void Start()
     {
         _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
         _enemyEntity.OnTakeHit += _enemyEntity_OnTakeHit;
         _enemyEntity.OnDeath += _enemyEntity_OnDeath;
+    }
+
+    private void Update()
+    {
+        _animator.SetBool(IS_RUNNING, _enemyAI.IsRunning);
     }
 
     public void TriggerAttackAnimationTurnOff()

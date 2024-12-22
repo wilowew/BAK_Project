@@ -54,8 +54,6 @@ public class EnemyAI : MonoBehaviour
 
         _roamingSpeed = navMeshAgent.speed;
         _chasingSpeed = navMeshAgent.speed * _chasingSpeedMultiplier;
-
-        startingPosition = transform.position;
     }
 
     private void Update()
@@ -68,14 +66,7 @@ public class EnemyAI : MonoBehaviour
     {
         get
         {
-            if (navMeshAgent.velocity == Vector3.zero)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return navMeshAgent.velocity.magnitude > 0.01f;
         }
     }
 
@@ -83,11 +74,6 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent.ResetPath();
         _currentState = State.Death;
-    }
-
-    public float GetRoamingAnimationSpeed()
-    {
-        return navMeshAgent.speed / _roamingSpeed;
     }
 
     public void UpdatePath()
@@ -209,26 +195,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Roaming()
     {
-        roamPosition = GoRoamingPosition();
+        startingPosition = transform.position;
+        roamPosition = GetRoamingPosition();
         navMeshAgent.SetDestination(roamPosition);
-        ChangeFacingDirection(startingPosition, roamPosition);
     }
 
-    private Vector3 GoRoamingPosition()
+    private Vector3 GetRoamingPosition()
     {
-        Vector3 newRoamingPosition = startingPosition; 
-
-        for (int i = 0; i < 10; i++) 
-        {
-            newRoamingPosition = startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(_roamingDistanceMin, _roamingDistanceMax);
-
-            if (Vector3.Distance(newRoamingPosition, startingPosition) > _roamingDistanceMin) 
-            {
-                break; 
-            }
-        }
-
-        return newRoamingPosition;
+        return startingPosition + BakUtils.GetRandomDir() * UnityEngine.Random.Range(_roamingDistanceMin, _roamingDistanceMax);
     }
 
     private void ChangeFacingDirection(Vector3 sourcePosition, Vector3 targetPosition)

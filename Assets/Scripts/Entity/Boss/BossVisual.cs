@@ -31,6 +31,12 @@ public class BossVisual : MonoBehaviour
         _bossAI.OnEnemySpawn += _bossAI_OnEnemySpawn;
     }
 
+    private void Update()
+    {
+        _animator.SetBool(IS_RUNNING, _bossAI.IsRunning);
+        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _bossAI.GetRoamingAnimationSpeed());
+    }
+
     public void TriggerAttackAnimationTurnOff()
     {
         _bossEntity.PolygonColliderTurnOff();

@@ -26,11 +26,6 @@ public class TrashMonsterVisual : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _enemyAI.GetRoamingAnimationSpeed());
-    }
-
     private void Start()
     {
         _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
