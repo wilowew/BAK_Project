@@ -19130,6 +19130,10 @@ Transform:
   - {fileID: 1133343198}
   - {fileID: 1419998713}
   - {fileID: 212351045}
+  - {fileID: 1047615938}
+  - {fileID: 1117704897}
+  - {fileID: 1507111662}
+  - {fileID: 2140134589}
   - {fileID: 745899720}
   - {fileID: 383747930}
   - {fileID: 376517401}
@@ -57442,6 +57446,108 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b5e4a4f2fe3874483866c072e33994, type: 3}
+--- !u!1001 &1047615937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 465397118}
+    m_Modifications:
+    - target: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPotion (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 280.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037402097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5277149717279408902, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1047615940}
+  m_SourcePrefab: {fileID: 100100000, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+--- !u!4 &1047615938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047615937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1047615939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047615937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047615940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047615939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e15e57a45df9c4ea0052fcaf06088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1152975728966073900, guid: 1ef86c4a333506d4795d2037f9a845f9,
+    type: 3}
+  icon: {fileID: 21300000, guid: 14b291a6cfdecfb46b262df79eb55af5, type: 3}
+  text: "\u0412\u044B\u043F\u0438\u0442\u044C:"
+  radius: 2
 --- !u!4 &1049734851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3320500975482410422, guid: 83ce2557eb4c26841a2bf4dccd9314ff,
@@ -58500,6 +58606,108 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 290317533}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1117704896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 465397118}
+    m_Modifications:
+    - target: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPotion (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 280.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037402097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5277149717279408902, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117704899}
+  m_SourcePrefab: {fileID: 100100000, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+--- !u!4 &1117704897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117704896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117704898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117704896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1117704899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117704898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e15e57a45df9c4ea0052fcaf06088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1152975728966073900, guid: 1ef86c4a333506d4795d2037f9a845f9,
+    type: 3}
+  icon: {fileID: 21300000, guid: 14b291a6cfdecfb46b262df79eb55af5, type: 3}
+  text: "\u0412\u044B\u043F\u0438\u0442\u044C:"
+  radius: 2
 --- !u!4 &1118632941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 538542755194515034, guid: 1d9b51af5c25aec42919e1badebe6fe0,
@@ -66831,6 +67039,108 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7694461046493791601}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1507111661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 465397118}
+    m_Modifications:
+    - target: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPotion (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 253
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037402097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5277149717279408902, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1507111664}
+  m_SourcePrefab: {fileID: 100100000, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+--- !u!4 &1507111662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1507111661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1507111663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1507111661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1507111664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507111663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e15e57a45df9c4ea0052fcaf06088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1152975728966073900, guid: 1ef86c4a333506d4795d2037f9a845f9,
+    type: 3}
+  icon: {fileID: 21300000, guid: 14b291a6cfdecfb46b262df79eb55af5, type: 3}
+  text: "\u0412\u044B\u043F\u0438\u0442\u044C:"
+  radius: 2
 --- !u!1001 &1515191124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114740,6 +115050,108 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &2140134588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 465397118}
+    m_Modifications:
+    - target: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPotion (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 254.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037402097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5277149717279408902, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140134591}
+  m_SourcePrefab: {fileID: 100100000, guid: dbf7338ad7fc6ee498de3a54f543e93b, type: 3}
+--- !u!4 &2140134589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2293260248804924747, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140134588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2140134590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 548662281825339528, guid: dbf7338ad7fc6ee498de3a54f543e93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140134588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140134591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140134590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e15e57a45df9c4ea0052fcaf06088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1152975728966073900, guid: 1ef86c4a333506d4795d2037f9a845f9,
+    type: 3}
+  icon: {fileID: 21300000, guid: 14b291a6cfdecfb46b262df79eb55af5, type: 3}
+  text: "\u0412\u044B\u043F\u0438\u0442\u044C:"
+  radius: 2
 --- !u!1001 &2146686550
 PrefabInstance:
   m_ObjectHideFlags: 0
