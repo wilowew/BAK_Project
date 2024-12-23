@@ -3,20 +3,21 @@ using UnityEngine;
 public class ColorCycling : MonoBehaviour
 {
     [Header("Color Cycling Settings")]
-    [SerializeField] private float colorChangeSpeed = 1f; 
+    [SerializeField] private float colorChangeSpeed = 1f;
     private SpriteRenderer spriteRenderer;
-    private CapsuleCollider2D capsuleCollider; 
+    private CapsuleCollider2D capsuleCollider;
     private bool isBossAlive = true;
 
-    private readonly Color initialColor = Color.HSVToRGB(121f / 360f, 38f / 100f, 45f / 100f); 
+    private readonly Color initialColor = Color.HSVToRGB(121f / 360f, 38f / 100f, 45f / 100f);
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         capsuleCollider = gameObject.AddComponent<CapsuleCollider2D>();
-        capsuleCollider.isTrigger = true; 
-        capsuleCollider.size = new Vector2(1f, 2f); 
+        capsuleCollider.isTrigger = true;
+        capsuleCollider.size = new Vector2(1f, 2f);
+        capsuleCollider.enabled = false; 
     }
 
     void Start()
@@ -31,11 +32,15 @@ public class ColorCycling : MonoBehaviour
         if (!bossExists && isBossAlive)
         {
             isBossAlive = false;
+
+            capsuleCollider.enabled = true;
             StartCoroutine(CycleColor());
         }
         else if (bossExists && !isBossAlive)
         {
             isBossAlive = true;
+
+            capsuleCollider.enabled = false;
             StopCoroutine(nameof(CycleColor));
             spriteRenderer.color = initialColor;
         }
