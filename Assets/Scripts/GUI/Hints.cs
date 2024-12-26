@@ -12,6 +12,9 @@ public class Hints : MonoBehaviour
     private Image iconImage;
     private Text tooltipText;
     private GameObject player;
+    private const float tooltipVerticalOffset = -475f;
+    private const float tooltipHorisontalOffset = 100f;
+    private Vector2 tooltipSize = new Vector2(200f, 100f);
 
     private void Start()
     {
@@ -34,6 +37,13 @@ public class Hints : MonoBehaviour
 
         iconImage.sprite = icon;
         tooltipText.text = text;
+
+        RectTransform rectTransform = tooltipInstance.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(tooltipHorisontalOffset, tooltipVerticalOffset);
+        rectTransform.sizeDelta = new Vector2(150f, 75f); // Подставьте ваши размеры
+
+        // Также можно попробовать изменить масштаб
+        tooltipInstance.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
     }
 
     private void Update()
@@ -60,4 +70,3 @@ public class Hints : MonoBehaviour
         }
     }
 }
-
