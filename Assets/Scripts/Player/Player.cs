@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     private float _lastRegenTime;
     private bool _isAlive;
 
+    private Coroutine currentSpeedBoostCoroutine;
+
     public int _coins { get; private set; } = 0;
 
     Vector2 inputVector;
@@ -151,8 +153,13 @@ public class Player : MonoBehaviour
 
     public void IncreaseSpeed(float multiplier, float duration)
     {
+        if (currentSpeedBoostCoroutine != null)
+        {
+            StopCoroutine(currentSpeedBoostCoroutine);
+        }
+
         _MovingSpeedDebuff = multiplier;
-        StartCoroutine(SpeedBoostCoroutine(duration));
+        currentSpeedBoostCoroutine = StartCoroutine(SpeedBoostCoroutine(duration));
     }
 
     public bool IsRunning()
@@ -180,6 +187,8 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         _MovingSpeedDebuff = 1f;
+
+        currentSpeedBoostCoroutine = null;
     }
 
     private void DetectDeath()
@@ -201,6 +210,8 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (!_isAlive || PauseMenu._isPaused || _knockBack.IsGettingKnockedBack) return;
+
         _rb.MovePosition(_rb.position + inputVector * (_movingSpeed * _MovingSpeedDebuff * Time.fixedDeltaTime));
         if (Mathf.Abs(inputVector.x) > _minMovingSpeed || Mathf.Abs(inputVector.y) > _minMovingSpeed)
         {

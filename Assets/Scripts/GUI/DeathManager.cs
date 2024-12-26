@@ -7,6 +7,8 @@ public class DeathManager : MonoBehaviour
 {
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private Text deathScoreText;
+    [SerializeField] private GameObject magicCounter;
+    [SerializeField] private GameObject swordHandler;
 
     private Vector3 currentCheckpointPosition;
     private Vector3 initialPlayerPosition;
@@ -97,6 +99,14 @@ public class DeathManager : MonoBehaviour
     private void HandlePlayerDeath(object sender, System.EventArgs e)
     {
         ShowDeathPanel();
+        if (magicCounter != null)
+        {
+            magicCounter.SetActive(false);
+        }
+        if (swordHandler != null)
+        {
+            swordHandler.SetActive(false);
+        }
         StartCoroutine(RestartSceneAutomatically());
     }
 

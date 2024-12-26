@@ -89,6 +89,12 @@ public class Door : MonoBehaviour
             navMeshObstacle.enabled = false;
         }
 
+        Hints hints = GetComponent<Hints>();
+        if (hints != null)
+        {
+            Destroy(hints);
+        }
+
         UpdateEnemyPaths();
 
         Debug.Log("Door opened, all colliders removed, and NavMeshObstacle carving disabled.");

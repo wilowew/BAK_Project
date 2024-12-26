@@ -57,6 +57,8 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        if (!Player.Instance.IsAlive()) return;
+
         _pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         _isPaused = true;
@@ -69,7 +71,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("ResumeGame called");
+        if (!Player.Instance.IsAlive()) return;
+
         _pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         _isPaused = false;
