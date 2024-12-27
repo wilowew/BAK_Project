@@ -33,7 +33,8 @@ public class SaveManager : MonoBehaviour
     {
         SaveFile saveFile = new SaveFile
         {
-            playerData = (PlayerData)gameState["Player"]
+            playerData = (PlayerData)gameState["Player"],
+            sceneData = (SceneData)gameState["Scene"]
         };
         string json = JsonUtility.ToJson(saveFile);
         File.WriteAllText(SavePath, json);

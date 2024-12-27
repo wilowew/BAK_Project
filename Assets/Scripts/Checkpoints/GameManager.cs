@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private PlayerData currentPlayerData = new PlayerData();
-    private SceneData currentSceneData = new SceneData { collectedItems = new List<string>(), defeatedEnemies = new List<string>() };
+    private SceneData currentSceneData = new SceneData { removedObjects = new List<string>() };
     private string currentCheckpoint;
 
     private void Awake()
@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
 
         Player player = Player.Instance; // Получаем экземпляр игрока
         currentPlayerData = (PlayerData)player.CaptureState(); // Сохраняем состояние игрока
+
+        var removableManager = FindObjectOfType<RemovableObjectsManager>();
+        if (removableManager != null)
+        {
+            removableManager.SaveRemovableObjects(currentSceneData);
+        }
+        else
+        {
+            Debug.LogError("RemovableObjectsManager не найден в сцене.");
+        }
 
         SaveManager saveManager = FindObjectOfType<SaveManager>();
         if (saveManager != null)
@@ -58,6 +68,8 @@ public class GameManager : MonoBehaviour
 
                 // Восстановить состояние игрока
                 Player.Instance.RestoreState(currentPlayerData);
+                var removableManager = FindObjectOfType<RemovableObjectsManager>();
+                removableManager.LoadRemovableObjects(currentSceneData);
             }
         }
     }
