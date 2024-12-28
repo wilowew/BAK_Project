@@ -121,6 +121,7 @@ public class DeathManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         Time.timeScale = 1f;
         deathPanel.SetActive(false);
+        RestartGameAfterDelay();
     }
 
     private IEnumerator RestartGameAfterDelay()
