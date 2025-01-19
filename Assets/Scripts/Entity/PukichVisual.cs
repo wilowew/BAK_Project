@@ -1,6 +1,6 @@
-using UnityEngine;
-using System;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -26,16 +26,16 @@ public class PukichVisual : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _enemyAI.GetRoamingAnimationSpeed());
+    }
+
     private void Start()
     {
         _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
         _enemyEntity.OnTakeHit += _enemyEntity_OnTakeHit;
         _enemyEntity.OnDeath += _enemyEntity_OnDeath;
-    }
-
-    private void Update()
-    {
-        _animator.SetBool(IS_RUNNING, _enemyAI.IsRunning);
     }
 
     public void TriggerAttackAnimationTurnOff()
@@ -48,7 +48,7 @@ public class PukichVisual : MonoBehaviour
         _enemyEntity.PolygonColliderTurnOn();
     }
 
-    private void _enemyEntity_OnTakeHit(object sender, EventArgs e)
+    private void _enemyEntity_OnTakeHit(object sender, System.EventArgs e)
     {
         _animator.SetTrigger(TAKEHIT);
     }
@@ -68,4 +68,5 @@ public class PukichVisual : MonoBehaviour
     {
         _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
     }
+
 }

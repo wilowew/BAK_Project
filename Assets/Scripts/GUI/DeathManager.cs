@@ -9,7 +9,6 @@ public class DeathManager : MonoBehaviour
     [SerializeField] private Text deathScoreText;
     [SerializeField] private GameObject magicCounter;
     [SerializeField] private GameObject swordHandler;
-    [SerializeField] private HealthDisplay healthDisplay;
 
     private Vector3 currentCheckpointPosition;
     private Vector3 initialPlayerPosition;
@@ -71,8 +70,10 @@ public class DeathManager : MonoBehaviour
 
     }
 
-    private void RestartScene()
+    public void RestartScene()
     {
+        Time.timeScale = 1f;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -98,8 +99,6 @@ public class DeathManager : MonoBehaviour
     private void HandlePlayerDeath(object sender, System.EventArgs e)
     {
         ShowDeathPanel();
-        Time.timeScale = 0f; // Замораживаем игру только во время отображения экрана смерти.
-
         if (magicCounter != null)
         {
             magicCounter.SetActive(false);
@@ -108,12 +107,7 @@ public class DeathManager : MonoBehaviour
         {
             swordHandler.SetActive(false);
         }
-
-        // Загрузить сохранение игрока
-        GameManager.Instance.LoadCheckpoint();
-
-        // Отображение экрана смерти и продолжение игры через несколько секунд
-        StartCoroutine(RestartGameAfterDelay());
+        StartCoroutine(RestartSceneAutomatically());
     }
 
     private IEnumerator RestartPlayer()
@@ -121,34 +115,19 @@ public class DeathManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         Time.timeScale = 1f;
         deathPanel.SetActive(false);
-        RestartGameAfterDelay();
+        RestartPlayerAtCheckpoint();
     }
 
-    private IEnumerator RestartGameAfterDelay()
+    private IEnumerator RestartSceneAutomatically()
     {
-        yield return new WaitForSecondsRealtime(5f); // Ждем 5 секунд на экране смерти
-        Time.timeScale = 1f; // Снимаем заморозку времени
-        deathPanel.SetActive(false); // Убираем панель смерти
-
-        // Восстанавливаем интерфейс и управление
-        if (magicCounter != null)
-        {
-            magicCounter.SetActive(true);
-        }
-        if (swordHandler != null)
-        {
-            swordHandler.SetActive(true);
-        }
-        if (healthDisplay != null)  // Теперь проверка правильная
-        {
-            healthDisplay.ShowHealthDisplay();
-        }
-        RevivePlayer(); // Пример вызова метода, который включит управление
+        yield return new WaitForSecondsRealtime(5f);
+        RestartScene();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Player.Instance.Revive();
+        RestartPlayerAtCheckpoint();
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 

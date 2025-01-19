@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour, ISavable
+public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public event EventHandler OnPlayerDeath;
@@ -105,12 +104,6 @@ public class Player : MonoBehaviour, ISavable
         _canTakeDamage = true;
         GameInput.Instance.EnableMovement();
 
-        Animator animator = GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.Play("Idle"); // Или любой другой статус анимации
-        }
-
         _knockBack.StopKnockBackMovement();
         _isRunning = false;
         _isAttacking = false;
@@ -206,7 +199,6 @@ public class Player : MonoBehaviour, ISavable
             _knockBack.StopKnockBackMovement();
             GameInput.Instance.DisableMovement();
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
-            GameManager.Instance.LoadCheckpoint();
         }
     }
 
@@ -244,51 +236,6 @@ public class Player : MonoBehaviour, ISavable
             {
                 _MovingSpeedDebuff = 1f;
             }
-        }
-    }
-
-    public object CaptureState()
-    {
-        Debug.Log("Saving position: " + transform.position);
-        return new PlayerData
-        {
-            Health = _currentHealth,
-            Coins = _coins,
-            Position = new float[] { transform.position.x, transform.position.y, transform.position.z }
-        };
-    }
-
-    public void RestoreState(object state)
-    {
-        var playerData = (PlayerData)state;
-        Debug.Log("Restoring Player State: Health = " + playerData.Health + ", Coins = " + playerData.Coins);
-        if (playerData.Position.Length == 3)
-        {
-            _currentHealth = playerData.Health;
-            _coins = playerData.Coins;
-            transform.position = new Vector3(playerData.Position[0], playerData.Position[1], playerData.Position[2]);
-        }
-        else
-        {
-            Debug.LogError("Неверная длина массива Position при восстановлении состояния.");
-        }
-
-        Animator playerAnimator = GetComponentInChildren<Animator>();
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("IsDie", false); // Сбрасываем состояние смерти
-            playerAnimator.SetBool("IsRunning", false); // Сбрасываем состояние бега
-            playerAnimator.SetBool("IsAttacking", false); // Сбрасываем состояние атаки
-        }
-        else
-        {
-            Debug.LogError("Animator not found on PlayerVisual");
-        }
-
-        HealthDisplay healthDisplay = FindObjectOfType<HealthDisplay>();
-        if (healthDisplay != null)
-        {
-            healthDisplay.UpdateHealthDisplay();
         }
     }
 }
