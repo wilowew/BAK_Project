@@ -5,6 +5,7 @@ public class BossTrigger : MonoBehaviour {
     [SerializeField] private GameObject bossPrefab; // Префаб босса
     [SerializeField] private Vector3 spawnPosition = new Vector3(0, 0, 0); // Координаты для спавна босса
     [SerializeField] private Door door; // Ссылка на объект двери
+    [SerializeField] private GameObject polosaGovna; // Ссылка на объект с тегом PolosaGovna
 
     private bool hasSpawned = false;
 
@@ -17,6 +18,11 @@ public class BossTrigger : MonoBehaviour {
             // Закрываем дверь, если она была открыта
             if (door != null && !door.IsLocked()) {
                 door.CloseDoor();
+            }
+
+            // Включаем объект с тегом PolosaGovna
+            if (polosaGovna != null) {
+                polosaGovna.SetActive(true);
             }
         }
     }
