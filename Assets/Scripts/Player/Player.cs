@@ -117,6 +117,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void KillPlayer() 
+    {
+
+        _currentHealth = 0; 
+        DetectDeath();    
+    }
+
     public bool IsAlive()
     {
         return _isAlive;

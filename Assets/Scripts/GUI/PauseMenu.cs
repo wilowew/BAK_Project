@@ -83,6 +83,15 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        ResumeGame();
+        if (Player.Instance != null)
+        {
+            Player.Instance.KillPlayer();
+        }
+    }
+
     public void QuitGame()
     {
         Application.Quit();
