@@ -135,11 +135,7 @@ public class CoinCounter : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delay);
 
-<<<<<<< HEAD
-        if (_coins > 1950)
-=======
-        if (_coins > 2000)
->>>>>>> 4d7d824945a84a4559eccecd5220d9cc06409c0f
+        if (_coins >= 1950)
         {
             SceneManager.LoadScene("PositiveEndingScene");
         }
