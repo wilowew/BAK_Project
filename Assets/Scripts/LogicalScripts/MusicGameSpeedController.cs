@@ -48,6 +48,11 @@ public class MusicGameSpeedController : MonoBehaviour
     {
         return DeathManager.Instance != null && DeathManager.Instance.GetDeathState();
     }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = originalTimeScale;
+    }
 }
 
 [System.Serializable]
