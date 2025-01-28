@@ -47,18 +47,6 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) 
-        {
-            SetCoins(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            SetCoins(3333);
-        }
-    }
-
     private void SetCoins(int amount)
     {
         _coins = amount; 

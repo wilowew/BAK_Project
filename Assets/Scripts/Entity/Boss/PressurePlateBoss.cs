@@ -23,7 +23,7 @@ public class PressurePlateBoss : MonoBehaviour
             closingDoor.UnlockPowerToZero();
             closingDoor.CloseDoor();
 
-            if (bossAI != null) 
+            if (bossAI != null)
             {
                 bossAI.OnPlayerStepOnPlate();
             }
