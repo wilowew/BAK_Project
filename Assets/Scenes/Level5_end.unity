@@ -122,6 +122,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11450127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11450129}
+  - component: {fileID: 11450128}
+  m_Layer: 0
+  m_Name: SceneSaver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &11450128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11450127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6021d9526d099e64999b277807448c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &11450129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11450127}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8229736, y: 2.3548615, z: 240.77104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &13930938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24301,6 +24345,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6902081572728340056, guid: dd37d68055b5f4844b48631458543ca3,
+        type: 3}
+      propertyPath: magicAttackScript
+      value: 
+      objectReference: {fileID: 239505197}
     - target: {fileID: 7132996253368533807, guid: dd37d68055b5f4844b48631458543ca3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -67494,7 +67543,6 @@ GameObject:
   - component: {fileID: 1512564056}
   - component: {fileID: 1512564055}
   - component: {fileID: 1512564057}
-  - component: {fileID: 1512564058}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -105662,18 +105710,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &1512564058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512564053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ee8032f2e7dfd40b3ba2c637740f67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1518920395
 GameObject:
   m_ObjectHideFlags: 0
@@ -110181,8 +110217,6 @@ MonoBehaviour:
   _maxHealth: 20
   _healthRegenRate: 1.2
   _damageRecoveryTime: 0.5
-  _teleportKey1: 121
-  _teleportKey: 116
   _currentHealth: 0
 --- !u!70 &1955823650
 CapsuleCollider2D:
@@ -112080,3 +112114,4 @@ SceneRoots:
   - {fileID: 335525232}
   - {fileID: 439725907}
   - {fileID: 842515039}
+  - {fileID: 11450129}

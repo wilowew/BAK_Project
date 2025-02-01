@@ -40,9 +40,8 @@ public class Hints : MonoBehaviour
 
         RectTransform rectTransform = tooltipInstance.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = new Vector2(tooltipHorisontalOffset, tooltipVerticalOffset);
-        rectTransform.sizeDelta = new Vector2(150f, 75f); // Подставьте ваши размеры
+        rectTransform.sizeDelta = new Vector2(300f, 150f);
 
-        // Также можно попробовать изменить масштаб
         tooltipInstance.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
     }
 

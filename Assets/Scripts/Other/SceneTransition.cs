@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] private int sceneNum;
+    [SerializeField] private string sceneNum;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

@@ -11,6 +11,7 @@ public class GameInput : MonoBehaviour
     private bool inputEnabled = true;
 
     public event EventHandler OnPlayerAttack;
+    public event EventHandler<bool> OnInputStateChanged;
 
     private void Awake()
     {
@@ -44,11 +45,13 @@ public class GameInput : MonoBehaviour
     public void DisableMovement()
     {
         inputEnabled = false;
+        OnInputStateChanged?.Invoke(this, inputEnabled);
     }
 
     public void EnableMovement()
     {
         inputEnabled = true;
+        OnInputStateChanged?.Invoke(this, inputEnabled);
     }
 
     public void SetInputEnabled(bool enabled)

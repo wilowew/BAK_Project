@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
     public event EventHandler AddCoins;
 
+
     private void Awake()
     {
         Instance = this;
@@ -105,11 +106,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void KillPlayer() 
+    public void KillPlayer()
     {
 
-        _currentHealth = 0; 
-        DetectDeath();    
+        _currentHealth = 0;
+        DetectDeath();
     }
 
     public bool IsAlive()
@@ -139,6 +140,14 @@ public class Player : MonoBehaviour
         }
 
         DetectDeath();
+    }
+
+    public IEnumerator SetZeroSpeedForSeconds(float seconds)
+    {
+        float originalSpeedDebuff = _MovingSpeedDebuff;
+        _MovingSpeedDebuff = 0f;
+        yield return new WaitForSeconds(seconds);
+        _MovingSpeedDebuff = originalSpeedDebuff;
     }
 
     public void Heal(int amount)

@@ -1,4 +1,4 @@
-    using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class CoinCounter : MonoBehaviour
 {
-    public Text coinText; 
-    public Text finalScoreText; 
-    private int _coins; 
-    private const string COIN_KEY = "Coins"; 
-    private const string INITIAL_COIN_KEY = "InitialCoins"; 
+    public Text coinText;
+    public Text finalScoreText;
+    private int _coins;
+    private const string COIN_KEY = "Coins";
+    private const string INITIAL_COIN_KEY = "InitialCoins";
     private const string CHECKPOINT_COIN_KEY = "CheckpointCoins";
     private string currentSceneName;
 
@@ -35,7 +35,7 @@ public class CoinCounter : MonoBehaviour
 
         foreach (BossEntity boss in bosses)
         {
-            boss.OnDeath += BossEntity_OnDeath; 
+            boss.OnDeath += BossEntity_OnDeath;
         }
 
         Player.GetInstance().AddCoins += Player_AddCoins;
@@ -49,14 +49,14 @@ public class CoinCounter : MonoBehaviour
 
     private void SetCoins(int amount)
     {
-        _coins = amount; 
-        UpdateCoinText(); 
-        SaveCoins(); 
+        _coins = amount;
+        UpdateCoinText();
+        SaveCoins();
     }
 
     private void SetInitialCoins()
     {
-        if (PlayerPrefs.HasKey(COIN_KEY)) 
+        if (PlayerPrefs.HasKey(COIN_KEY))
         {
             _coins = PlayerPrefs.GetInt(COIN_KEY);
         }
@@ -68,13 +68,13 @@ public class CoinCounter : MonoBehaviour
 
     private void ResetCheckpointData()
     {
-        PlayerPrefs.DeleteKey(CHECKPOINT_COIN_KEY); 
+        PlayerPrefs.DeleteKey(CHECKPOINT_COIN_KEY);
         PlayerPrefs.Save();
     }
 
     public void SaveCoinsToCheckpoint()
     {
-        PlayerPrefs.SetInt(CHECKPOINT_COIN_KEY, _coins); 
+        PlayerPrefs.SetInt(CHECKPOINT_COIN_KEY, _coins);
         PlayerPrefs.Save();
     }
 
@@ -82,7 +82,7 @@ public class CoinCounter : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(CHECKPOINT_COIN_KEY))
         {
-            _coins = PlayerPrefs.GetInt(CHECKPOINT_COIN_KEY); 
+            _coins = PlayerPrefs.GetInt(CHECKPOINT_COIN_KEY);
         }
         else
         {
@@ -93,7 +93,7 @@ public class CoinCounter : MonoBehaviour
 
     private void LoadInitialCoins()
     {
-        if (PlayerPrefs.HasKey(COIN_KEY)) 
+        if (PlayerPrefs.HasKey(COIN_KEY))
         {
             _coins = PlayerPrefs.GetInt(COIN_KEY);
         }
@@ -125,10 +125,12 @@ public class CoinCounter : MonoBehaviour
 
         if (_coins >= 1950)
         {
+            ResetCoins();
             SceneManager.LoadScene("PositiveEndingScene");
         }
         else
         {
+            ResetCoins();
             SceneManager.LoadScene("NegativeEndingScene");
         }
     }
@@ -145,13 +147,13 @@ public class CoinCounter : MonoBehaviour
 
     private void SaveCoins()
     {
-        PlayerPrefs.SetInt(COIN_KEY, _coins); 
+        PlayerPrefs.SetInt(COIN_KEY, _coins);
         PlayerPrefs.Save();
     }
 
     private void LoadCoins()
     {
-        _coins = PlayerPrefs.GetInt(COIN_KEY, 0); 
+        _coins = PlayerPrefs.GetInt(COIN_KEY, 0);
     }
 
     private void EnemyEntity_OnDeath(object sender, EventArgs e)
@@ -189,24 +191,23 @@ public class CoinCounter : MonoBehaviour
     {
         _coins = 0;
         UpdateCoinText();
-        PlayerPrefs.SetInt(COIN_KEY, _coins); 
+        PlayerPrefs.SetInt(COIN_KEY, _coins);
         PlayerPrefs.Save();
     }
 
     private void SaveCoinsToGlobalKey()
     {
-        PlayerPrefs.SetInt(COIN_KEY, _coins); 
+        PlayerPrefs.SetInt(COIN_KEY, _coins);
         PlayerPrefs.Save();
     }
 
     private void OnDestroy()
     {
-        SaveCoinsToGlobalKey(); 
+        SaveCoinsToGlobalKey();
     }
 
     private void OnApplicationQuit()
     {
-        SaveCoinsToGlobalKey(); 
+        FindObjectOfType<SceneSaver>().SaveCurrentScene();
     }
 }
-
